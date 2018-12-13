@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+
+        <select v-model="selected">
+            <option disabled value="">Choose a fruit</option>
+            <option>Apple</option>
+            <option>Banana</option>
+            <option>Strawberry</option>
+        </select>
+        
+        <span>Fruit chosen: {{ selected }}</span>
+        
+        <ul>
+            <li v-for="show in shows">
+                {{show.name}}
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Patrick!',
+                shows: [],
+                selected: null
+            },
+            created(){
+                fetch ('http://api.tvmaze.com/shows')
+                .then(response => response.json())
+                .then (json =>{
+                    this.shows = json
+                })
+            }
+        })
+    </script>
+
+</body>
+
+</html>
