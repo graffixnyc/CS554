@@ -73,8 +73,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     firebase.isAuthenticated() === true
       ? <Component {...props} {...rest}/>
       : <Redirect to={{
-          pathname: '/signin',
-          state: { from: props.location }
+          pathname: '/signin'
         }} />
   )} />
 )
