@@ -4,14 +4,11 @@ const _ = require('lodash');
 const {
 	GraphQLID,
 	GraphQLInt,
-	GraphQLFloat,
 	GraphQLString,
-	GraphQLBoolean,
 	GraphQLList,
 	GraphQLNonNull,
 	GraphQLObjectType,
 	GraphQLInputObjectType,
-	GraphQLEnumType,
 	GraphQLSchema
 } = require('graphql');
 const Quotes = require('../data/quote.js');
