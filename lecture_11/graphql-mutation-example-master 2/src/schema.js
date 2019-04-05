@@ -21,7 +21,7 @@ const QuoteType = new GraphQLObjectType({
 	name: 'QuoteType',
 	description: 'Chuck Norris Quotes',
 	fields: {
-		id: { type: GraphQLID },
+		id: { type: GraphQLString },
 		quote: { type: GraphQLString }
 	}
 });
@@ -37,7 +37,7 @@ const QuoteUpdateType = new GraphQLInputObjectType({
 	name: 'QuoteUpdateType',
 	type: QuoteType,
 	fields: {
-		id: { type: new GraphQLNonNull(GraphQLID) },
+		id: { type: new GraphQLNonNull(GraphQLString) },
 		quote: { type: new GraphQLNonNull(GraphQLString) }
 	}
 });
@@ -46,7 +46,7 @@ const QuoteDeleteType = new GraphQLInputObjectType({
 	name: 'QuoteDeleteType',
 	type: QuoteType,
 	fields: {
-		id: { type: new GraphQLNonNull(GraphQLID) }
+		id: { type: new GraphQLNonNull(GraphQLString) }
 	}
 });
 
@@ -56,12 +56,15 @@ const ChuckNorrisQueryType = new GraphQLObjectType({
 	fields: {
 		quotes: {
 			args: {
-				id: { type: GraphQLID }
+				id: { type: GraphQLString },
+				limit: { type: GraphQLInt }
 			},
 			type: new GraphQLList(QuoteType),
 			resolve: (parent, args) => {
 				if (Object.keys(args).length) {
-					return filter(Quotes, args);
+					if (args.id && args.limit) return _.take(filter(Quotes, { id: args['id'] }), args['limit']);
+					if (args.id) return filter(Quotes, { id: args['id'] });
+					if (args.limit) return _.take(Quotes, args['limit']);
 				}
 				return Quotes;
 			}
