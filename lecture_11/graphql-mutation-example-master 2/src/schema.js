@@ -1,7 +1,6 @@
 const uuidv4 = require('uuid/v4');
 const _ = require('lodash');
-const find = require('lodash/find');
-const filter = require('lodash/filter');
+
 const {
 	GraphQLID,
 	GraphQLInt,
@@ -21,7 +20,7 @@ const QuoteType = new GraphQLObjectType({
 	name: 'QuoteType',
 	description: 'Chuck Norris Quotes',
 	fields: {
-		id: { type: GraphQLString },
+		id: { type: GraphQLID },
 		quote: { type: GraphQLString }
 	}
 });
@@ -37,7 +36,7 @@ const QuoteUpdateType = new GraphQLInputObjectType({
 	name: 'QuoteUpdateType',
 	type: QuoteType,
 	fields: {
-		id: { type: new GraphQLNonNull(GraphQLString) },
+		id: { type: new GraphQLNonNull(GraphQLID) },
 		quote: { type: new GraphQLNonNull(GraphQLString) }
 	}
 });
@@ -46,7 +45,7 @@ const QuoteDeleteType = new GraphQLInputObjectType({
 	name: 'QuoteDeleteType',
 	type: QuoteType,
 	fields: {
-		id: { type: new GraphQLNonNull(GraphQLString) }
+		id: { type: new GraphQLNonNull(GraphQLID) }
 	}
 });
 
@@ -56,14 +55,14 @@ const ChuckNorrisQueryType = new GraphQLObjectType({
 	fields: {
 		quotes: {
 			args: {
-				id: { type: GraphQLString },
+				id: { type: GraphQLID },
 				limit: { type: GraphQLInt }
 			},
 			type: new GraphQLList(QuoteType),
 			resolve: (parent, args) => {
 				if (Object.keys(args).length) {
-					if (args.id && args.limit) return _.take(filter(Quotes, { id: args['id'] }), args['limit']);
-					if (args.id) return filter(Quotes, { id: args['id'] });
+					if (args.id && args.limit) return _.take(_.filter(Quotes, { id: args['id'] }), args['limit']);
+					if (args.id) return _.filter(Quotes, { id: args['id'] });
 					if (args.limit) return _.take(Quotes, args['limit']);
 				}
 				return Quotes;
