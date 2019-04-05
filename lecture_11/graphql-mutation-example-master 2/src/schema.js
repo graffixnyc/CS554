@@ -56,15 +56,11 @@ const ChuckNorrisQueryType = new GraphQLObjectType({
 	fields: {
 		quotes: {
 			args: {
-				id: { type: GraphQLID },
-				limit: { type: GraphQLInt }
+				id: { type: GraphQLID }
 			},
 			type: new GraphQLList(QuoteType),
 			resolve: (parent, args) => {
 				if (Object.keys(args).length) {
-					if (args.limit) {
-						return _.take(Quotes, args['limit']);
-					}
 					return filter(Quotes, args);
 				}
 				return Quotes;
