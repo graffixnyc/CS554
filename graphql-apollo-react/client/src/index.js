@@ -17,6 +17,11 @@ import * as serviceWorker from './serviceWorker';
 // The uri is a mandatory value to define the only GraphQL API endpoint used by the Apollo Client.
 const BASE_URL = 'http://localhost:4000';
 
+/*
+he http link is a terminating link that fetches GraphQL results from a GraphQL endpoint over an http connection. 
+The http link supports both POST and GET requests with the ability to change the http options on a per query basis. 
+This can be used for authentication, persisted queries, dynamic uris, and other granular updates.
+*/
 const httpLink = new HttpLink({
 	uri: BASE_URL
 });
