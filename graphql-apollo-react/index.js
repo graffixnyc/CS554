@@ -1,4 +1,5 @@
 const { ApolloServer, gql } = require('apollo-server');
+const lodash = require('lodash');
 
 //some Mock data
 let employees = [
@@ -121,7 +122,7 @@ const resolvers = {
 			return newEmployee;
 		},
 		removeEmployee: (_, args) => {
-			return employees.filter((e) => e.id !== args.id);
+			return lodash.remove(employees, (e) => e.id == args.id);
 		},
 		changeEmployeeFirstName: (_, args) => {
 			let newEmployee;

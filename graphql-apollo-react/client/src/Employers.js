@@ -29,12 +29,12 @@ const Employers = () => (
 			if (!employers) {
 				return null;
 			}
-			console.log(data);
+			console.log(employers);
 
 			return (
 				<div>
 					<ul>
-						{data.employers.map((employer) => {
+						{employers.map((employer) => {
 							return (
 								<li key={employer.id}>
 									{employer.name}
