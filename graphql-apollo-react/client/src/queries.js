@@ -8,6 +8,7 @@ const GET_EMPLOYEES = gql`
 			lastName
 			employer {
 				name
+				id
 			}
 		}
 	}

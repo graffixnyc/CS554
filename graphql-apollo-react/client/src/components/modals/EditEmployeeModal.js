@@ -29,6 +29,7 @@ It uses React’s render props pattern, using a child as a function implementati
 class EditEmployeesModal extends Component {
 	constructor(props) {
 		super(props);
+		console.log(this.props.employee);
 		this.state = {
 			showEditModal: this.props.isOpen
 		};

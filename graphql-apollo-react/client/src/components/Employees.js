@@ -24,8 +24,11 @@ class Employees extends Component {
 		this.handleOpenAddModal = this.handleOpenAddModal.bind(this);
 		this.handleCloseModals = this.handleCloseModals.bind(this);
 	}
-	handleOpenEditModal() {
-		this.setState({ showEditModal: true });
+	handleOpenEditModal(employee) {
+		this.setState({
+			showEditModal: true,
+			editEmployee: employee
+		});
 	}
 	handleCloseModals() {
 		this.setState({ showAddModal: false, showEditModal: false });
@@ -52,14 +55,19 @@ class Employees extends Component {
 							<div>
 								{employees.map((employee) => {
 									return (
-										<div className='card'>
+										<div className='card' key={employee.id}>
 											<div className='card-body'>
-												<h5 class='card-title'>
+												<h5 className='card-title'>
 													{employee.firstName} {employee.lastName}
 												</h5>
 												Employer: {employee.employer.name}
 												<br />
-												<button className='button' onClick={this.handleOpenEditModal}>
+												<button
+													className='button'
+													onClick={() => {
+														this.handleOpenEditModal(employee);
+													}}
+												>
 													Edit
 												</button>{' '}
 												<button className='button'>Delete</button>
@@ -76,7 +84,11 @@ class Employees extends Component {
 				{/*Edit Employee Modal - NOT DONE YET */}
 				{this.state &&
 				this.state.showEditModal && (
-					<EditEmployeeModal isOpen={this.state.showEditModal} handleClose={this.handleCloseModals} />
+					<EditEmployeeModal
+						isOpen={this.state.showEditModal}
+						employee={this.state.editEmployee}
+						handleClose={this.handleCloseModals}
+					/>
 				)}
 
 				{/*Add Employee Modal */}
