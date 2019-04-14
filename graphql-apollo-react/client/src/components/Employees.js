@@ -22,17 +22,13 @@ class Employees extends Component {
 		};
 		this.handleOpenEditModal = this.handleOpenEditModal.bind(this);
 		this.handleOpenAddModal = this.handleOpenAddModal.bind(this);
-		this.handleCloseEditModal = this.handleCloseEditModal.bind(this);
-		this.handleCloseAddModal = this.handleCloseAddModal.bind(this);
+		this.handleCloseModals = this.handleCloseModals.bind(this);
 	}
 	handleOpenEditModal() {
 		this.setState({ showEditModal: true });
 	}
-	handleCloseEditModal(seModal) {
-		this.setState({ showEditModal: seModal });
-	}
-	handleCloseAddModal(saModal) {
-		this.setState({ showAddModal: saModal });
+	handleCloseModals() {
+		this.setState({ showAddModal: false, showEditModal: false });
 	}
 
 	handleOpenAddModal() {
@@ -79,13 +75,13 @@ class Employees extends Component {
 				{/*Edit Employee Modal - NOT DONE YET */}
 				{this.state &&
 				this.state.showEditModal && (
-					<EditEmployeeModal isOpen={this.state.showEditModal} handleClose={this.handleCloseEditModal} />
+					<EditEmployeeModal isOpen={this.state.showEditModal} handleClose={this.handleCloseModals} />
 				)}
 
 				{/*Add Employee Modal */}
 				{this.state &&
 				this.state.showAddModal && (
-					<AddEmployeeModal isOpen={this.state.showAddModal} handleClose={this.handleCloseAddModal} />
+					<AddEmployeeModal isOpen={this.state.showAddModal} handleClose={this.handleCloseModals} />
 				)}
 			</div>
 		);

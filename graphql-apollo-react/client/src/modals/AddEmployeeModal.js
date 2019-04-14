@@ -90,7 +90,7 @@ class AddEmployeeModal extends Component {
 									employerId.value = '1';
 									this.setState({ showAddModal: false });
 									alert('Employee Added');
-									this.props.handleClose(false);
+									this.props.handleClose();
 								}}
 							>
 								<div className='form-group'>

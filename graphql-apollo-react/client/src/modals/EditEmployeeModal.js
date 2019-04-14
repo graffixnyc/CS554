@@ -35,7 +35,7 @@ class EditEmployeesModal extends Component {
 
 	handleCloseEditModal() {
 		this.setState({ showEditModal: false });
-		this.props.handleClose(false);
+		this.props.handleClose();
 	}
 
 	render() {
