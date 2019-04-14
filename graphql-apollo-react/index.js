@@ -75,6 +75,7 @@ const typeDefs = gql`
 		changeEmployeeFirstName(id: Int!, firstName: String!): Employee
 		changeEmployeeLastName(id: Int!, lastName: String!): Employee
 		changeEmployer(id: Int!, employerId: Int!): Employee
+		addEmployer(name: String!): Employer
 	}
 `;
 
@@ -165,6 +166,14 @@ const resolvers = {
 				return e;
 			});
 			return newEmployee;
+		},
+		addEmployer: (_, args) => {
+			const newEmployer = {
+				id: employers.length + 1,
+				name: args.name
+			};
+			employers.push(newEmployer);
+			return newEmployer;
 		}
 	}
 };
