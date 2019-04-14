@@ -115,3 +115,14 @@ select {
 	width: 50%;
 	margin: 0 auto 20px;
 }
+
+.cancel-button {
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+}
+
+.add-button {
+	position: absolute;
+	bottom: 20px;
+}

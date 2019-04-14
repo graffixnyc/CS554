@@ -51,8 +51,8 @@ class EditEmployeesModal extends Component {
 					style={customStyles}
 				>
 					<p>TODO - </p>
-					<button className='button' onClick={this.handleCloseEditModal}>
-						Close Modal
+					<button className='button cancel-button' onClick={this.handleCloseEditModal}>
+						Cancel
 					</button>
 				</ReactModal>
 			</div>

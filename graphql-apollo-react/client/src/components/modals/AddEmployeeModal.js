@@ -153,7 +153,7 @@ class AddEmployeeModal extends Component {
 								</Query>
 								<br />
 								<br />
-								<button className='button' type='submit'>
+								<button className='button add-button' type='submit'>
 									Add Employee
 								</button>
 							</form>
@@ -161,7 +161,7 @@ class AddEmployeeModal extends Component {
 					</Mutation>
 					<br />
 					<br />
-					<button className='button' onClick={this.handleCloseAddModal}>
+					<button className='button cancel-button' onClick={this.handleCloseAddModal}>
 						Cancel
 					</button>
 				</ReactModal>
