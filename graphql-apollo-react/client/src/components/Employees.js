@@ -50,12 +50,13 @@ class Employees extends Component {
 						}
 						return (
 							<div>
-								<ul>
-									{employees.map((employee) => {
-										return (
-											<li key={employee.id}>
-												{employee.firstName} {employee.lastName}
-												<br />
+								{employees.map((employee) => {
+									return (
+										<div className='card'>
+											<div className='card-body'>
+												<h5 class='card-title'>
+													{employee.firstName} {employee.lastName}
+												</h5>
 												Employer: {employee.employer.name}
 												<br />
 												<button className='button' onClick={this.handleOpenEditModal}>
@@ -63,10 +64,10 @@ class Employees extends Component {
 												</button>{' '}
 												<button className='button'>Delete</button>
 												<br />
-											</li>
-										);
-									})}
-								</ul>
+											</div>
+										</div>
+									);
+								})}
 							</div>
 						);
 					}}
