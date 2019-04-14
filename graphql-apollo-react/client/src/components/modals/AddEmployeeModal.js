@@ -4,7 +4,7 @@ import { Query, Mutation } from 'react-apollo';
 import ReactModal from 'react-modal';
 
 //Import the file where my query constants are defined
-import queries from '../queries';
+import queries from '../../queries';
 
 //For react-modal
 ReactModal.setAppElement('#root');

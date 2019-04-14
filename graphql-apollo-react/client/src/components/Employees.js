@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 
 //Import the Modals for Adding and Updating Employee
-import AddEmployeeModal from '../modals/AddEmployeeModal';
-import EditEmployeeModal from '../modals/EditEmployeeModal';
+import AddEmployeeModal from './modals/AddEmployeeModal';
+import EditEmployeeModal from './modals/EditEmployeeModal';
 
 //Import the file where my query constants are defined
 import queries from '../queries';
