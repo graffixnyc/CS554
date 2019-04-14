@@ -107,6 +107,7 @@ select {
 	padding: 2px;
 	border-width: 1px;
 	border-style: solid;
+	border-color: #28547a;
 }
 
 .card {
