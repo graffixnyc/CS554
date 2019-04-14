@@ -11,7 +11,7 @@ import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
 import './index.css';
-import App from './App';
+import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
 // The uri is a mandatory value to define the only GraphQL API endpoint used by the Apollo Client.
@@ -23,7 +23,11 @@ The http link supports both POST and GET requests with the ability to change the
 This can be used for authentication, persisted queries, dynamic uris, and other granular updates.
 */
 const httpLink = new HttpLink({
-	uri: BASE_URL
+	uri: BASE_URL,
+	onError: ({ networkError, graphQLErrors }) => {
+		console.log('graphQLErrors', graphQLErrors);
+		console.log('networkError', networkError);
+	}
 });
 
 /*create the cache as the place where the data is managed in Apollo Client. 
@@ -43,6 +47,10 @@ ReactDOM.render(
 	</ApolloProvider>,
 	document.getElementById('root')
 );
+
+if (module.hot) {
+	module.hot.accept();
+}
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

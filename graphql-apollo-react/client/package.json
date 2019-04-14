@@ -11,6 +11,8 @@
     "react": "^16.8.6",
     "react-apollo": "^2.5.4",
     "react-dom": "^16.8.6",
+    "react-modal": "^3.8.1",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8"
   },
   "scripts": {
