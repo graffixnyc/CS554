@@ -160,7 +160,7 @@ class AddEmployeeModal extends Component {
 					<br />
 					<br />
 					<button className='button' onClick={this.handleCloseAddModal}>
-						Close Modal
+						Cancel
 					</button>
 				</ReactModal>
 			</div>

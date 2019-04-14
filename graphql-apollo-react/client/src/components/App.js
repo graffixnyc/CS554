@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink, BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
+import Home from './Home';
 import Employees from './Employees';
 import Employers from './Employers';
 
@@ -23,8 +24,7 @@ class App extends Component {
 						</NavLink>
 					</nav>
 				</header>
-
-				<div />
+				<Route exact path='/' component={Home} />
 				<Route path='/employees/' component={Employees} />
 				<Route path='/employers/' component={Employers} />
 			</Router>
