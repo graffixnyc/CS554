@@ -75,7 +75,7 @@ class Employers extends Component {
 					}}
 				</Query>
 
-				{/*Add Employee Modal */}
+				{/*Add Employer Modal */}
 				{this.state &&
 				this.state.showAddModal && (
 					<AddEmployerModal isOpen={this.state.showAddModal} handleClose={this.handleCloseModals} />
