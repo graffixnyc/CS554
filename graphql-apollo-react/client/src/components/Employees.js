@@ -54,7 +54,7 @@ class Employees extends Component {
 				</button>
 				<br />
 				<br />
-				<Query query={queries.GET_EMPLOYEES} fetchPolicy={'cache-and-network'}>
+				<Query query={queries.GET_EMPLOYEES}>
 					{({ data }) => {
 						const { employees } = data;
 						if (!employees) {
@@ -75,16 +75,14 @@ class Employees extends Component {
 													className='button'
 													onClick={() => {
 														this.handleOpenEditModal(employee);
-													}}
-												>
+													}}>
 													Edit
-												</button>{' '}
+												</button>
 												<button
 													className='button'
 													onClick={() => {
 														this.handleOpenDeleteModal(employee);
-													}}
-												>
+													}}>
 													Delete
 												</button>
 												<br />

@@ -77,9 +77,9 @@ class Employers extends Component {
 
 				{/*Add Employee Modal */}
 				{this.state &&
-					this.state.showAddModal && (
-						<AddEmployerModal isOpen={this.state.showAddModal} handleClose={this.handleCloseModals} />
-					)}
+				this.state.showAddModal && (
+					<AddEmployerModal isOpen={this.state.showAddModal} handleClose={this.handleCloseModals} />
+				)}
 			</div>
 		);
 	}
