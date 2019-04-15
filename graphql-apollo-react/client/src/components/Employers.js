@@ -54,7 +54,7 @@ class Employers extends Component {
 				</button>
 				<br />
 				<br />
-				<Query query={queries.GET_EMPLOYERS_WITH_EMPLOYEES} fetchPolicy={'network-only'}>
+				<Query query={queries.GET_EMPLOYERS_WITH_EMPLOYEES} fetchPolicy={'cache-and-network'}>
 					{({ data }) => {
 						const { employers } = data;
 						if (!employers) {
