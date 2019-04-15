@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 
 //Import the Modals for Adding and Updating Employee
-import AddEmployerModal from './modals/AddEmployerModal';
+import AddModal from './modals/AddModal';
 
 //Import the file where my query constants are defined
 import queries from '../queries';
@@ -78,7 +78,11 @@ class Employers extends Component {
 				{/*Add Employer Modal */}
 				{this.state &&
 				this.state.showAddModal && (
-					<AddEmployerModal isOpen={this.state.showAddModal} handleClose={this.handleCloseModals} />
+					<AddModal
+						isOpen={this.state.showAddModal}
+						handleClose={this.handleCloseModals}
+						modal='addEmployer'
+					/>
 				)}
 			</div>
 		);

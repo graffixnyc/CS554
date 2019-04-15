@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 
 //Import the Modals for Adding and Updating Employee
-import AddEmployeeModal from './modals/AddEmployeeModal';
+import AddModal from './modals/AddModal';
 import EditEmployeeModal from './modals/EditEmployeeModal';
 import DeleteEmployeeModal from './modals/DeleteEmployeeModal';
 
@@ -75,14 +75,16 @@ class Employees extends Component {
 													className='button'
 													onClick={() => {
 														this.handleOpenEditModal(employee);
-													}}>
+													}}
+												>
 													Edit
 												</button>
 												<button
 													className='button'
 													onClick={() => {
 														this.handleOpenDeleteModal(employee);
-													}}>
+													}}
+												>
 													Delete
 												</button>
 												<br />
@@ -108,7 +110,11 @@ class Employees extends Component {
 				{/*Add Employee Modal */}
 				{this.state &&
 				this.state.showAddModal && (
-					<AddEmployeeModal isOpen={this.state.showAddModal} handleClose={this.handleCloseModals} />
+					<AddModal
+						isOpen={this.state.showAddModal}
+						handleClose={this.handleCloseModals}
+						modal='addEmployee'
+					/>
 				)}
 
 				{/*Add Employee Modal */}
