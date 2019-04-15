@@ -122,7 +122,7 @@ class AddEmployeeModal extends Component {
 								</div>
 								<br />
 
-								<Query query={queries.GET_EMPLOYERS_NAME_LIST}>
+								<Query query={queries.GET_EMPLOYERS}>
 									{({ data }) => {
 										const { employers } = data;
 										if (!employers) {

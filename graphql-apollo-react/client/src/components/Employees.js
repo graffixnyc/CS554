@@ -5,6 +5,7 @@ import { Query } from 'react-apollo';
 //Import the Modals for Adding and Updating Employee
 import AddEmployeeModal from './modals/AddEmployeeModal';
 import EditEmployeeModal from './modals/EditEmployeeModal';
+import DeleteEmployeeModal from './modals/DeleteEmployeeModal';
 
 //Import the file where my query constants are defined
 import queries from '../queries';
@@ -18,7 +19,8 @@ class Employees extends Component {
 		super(props);
 		this.state = {
 			showEditModal: false,
-			showAddModal: false
+			showAddModal: false,
+			showDeleteModal: false
 		};
 		this.handleOpenEditModal = this.handleOpenEditModal.bind(this);
 		this.handleOpenAddModal = this.handleOpenAddModal.bind(this);
@@ -30,8 +32,16 @@ class Employees extends Component {
 			editEmployee: employee
 		});
 	}
+
+	handleOpenDeleteModal(employee) {
+		console.log(employee);
+		this.setState({
+			showDeleteModal: true,
+			deleteEmployee: employee
+		});
+	}
 	handleCloseModals() {
-		this.setState({ showAddModal: false, showEditModal: false });
+		this.setState({ showAddModal: false, showEditModal: false, showDeleteModal: false });
 	}
 
 	handleOpenAddModal() {
@@ -70,7 +80,14 @@ class Employees extends Component {
 												>
 													Edit
 												</button>{' '}
-												<button className='button'>Delete</button>
+												<button
+													className='button'
+													onClick={() => {
+														this.handleOpenDeleteModal(employee);
+													}}
+												>
+													Delete
+												</button>
 												<br />
 											</div>
 										</div>
@@ -95,6 +112,16 @@ class Employees extends Component {
 				{this.state &&
 				this.state.showAddModal && (
 					<AddEmployeeModal isOpen={this.state.showAddModal} handleClose={this.handleCloseModals} />
+				)}
+
+				{/*Add Employee Modal */}
+				{this.state &&
+				this.state.showDeleteModal && (
+					<DeleteEmployeeModal
+						isOpen={this.state.showDeleteModal}
+						handleClose={this.handleCloseModals}
+						deleteEmployee={this.state.deleteEmployee}
+					/>
 				)}
 			</div>
 		);

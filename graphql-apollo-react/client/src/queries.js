@@ -14,20 +14,7 @@ const GET_EMPLOYEES = gql`
 	}
 `;
 
-const ADD_EMPLOYEE = gql`
-	mutation createEmployee($firstName: String!, $lastName: String!, $employerId: Int!) {
-		addEmployee(firstName: $firstName, lastName: $lastName, employerId: $employerId) {
-			id
-			firstName
-			lastName
-			employer {
-				name
-			}
-		}
-	}
-`;
-
-const GET_EMPLOYERS_NAME_LIST = gql`
+const GET_EMPLOYERS = gql`
 	query {
 		employers {
 			name
@@ -36,4 +23,32 @@ const GET_EMPLOYERS_NAME_LIST = gql`
 	}
 `;
 
-export default { ADD_EMPLOYEE, GET_EMPLOYEES, GET_EMPLOYERS_NAME_LIST };
+const ADD_EMPLOYEE = gql`
+	mutation createEmployee($firstName: String!, $lastName: String!, $employerId: Int!) {
+		addEmployee(firstName: $firstName, lastName: $lastName, employerId: $employerId) {
+			id
+			firstName
+			lastName
+			employer {
+				name
+				id
+			}
+		}
+	}
+`;
+
+const DELETE_EMPLOYEE = gql`
+	mutation deleteEmployee($id: Int!) {
+		removeEmployee(id: $id) {
+			id
+			firstName
+			lastName
+			employer {
+				name
+				id
+			}
+		}
+	}
+`;
+
+export default { ADD_EMPLOYEE, GET_EMPLOYEES, GET_EMPLOYERS, DELETE_EMPLOYEE };
