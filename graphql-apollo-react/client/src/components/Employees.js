@@ -34,7 +34,6 @@ class Employees extends Component {
 	}
 
 	handleOpenDeleteModal(employee) {
-		console.log(employee);
 		this.setState({
 			showDeleteModal: true,
 			deleteEmployee: employee

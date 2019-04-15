@@ -22,20 +22,7 @@ class Employers extends Component {
 		this.handleOpenAddModal = this.handleOpenAddModal.bind(this);
 		this.handleCloseModals = this.handleCloseModals.bind(this);
 	}
-	// handleOpenEditModal(employee) {
-	// 	this.setState({
-	// 		showEditModal: true,
-	// 		editEmployee: employee
-	// 	});
-	// }
 
-	// handleOpenDeleteModal(employee) {
-	// 	console.log(employee);
-	// 	this.setState({
-	// 		showDeleteModal: true,
-	// 		deleteEmployee: employee
-	// 	});
-	// }
 	handleCloseModals() {
 		this.setState({ showAddModal: false });
 	}
@@ -43,9 +30,7 @@ class Employers extends Component {
 	handleOpenAddModal() {
 		this.setState({ showAddModal: true });
 	}
-	componentWillMount() {
-		console.log(this.props);
-	}
+
 	render() {
 		return (
 			<div>
@@ -72,7 +57,7 @@ class Employers extends Component {
 												<br />
 												<span>Employees:</span>
 												<br />
-												<ul>
+												<ol>
 													{employer.employees.map((employee) => {
 														return (
 															<li key={employee.id}>
@@ -80,7 +65,7 @@ class Employers extends Component {
 															</li>
 														);
 													})}
-												</ul>
+												</ol>
 											</div>
 										</div>
 									);
@@ -92,9 +77,9 @@ class Employers extends Component {
 
 				{/*Add Employee Modal */}
 				{this.state &&
-				this.state.showAddModal && (
-					<AddEmployerModal isOpen={this.state.showAddModal} handleClose={this.handleCloseModals} />
-				)}
+					this.state.showAddModal && (
+						<AddEmployerModal isOpen={this.state.showAddModal} handleClose={this.handleCloseModals} />
+					)}
 			</div>
 		);
 	}

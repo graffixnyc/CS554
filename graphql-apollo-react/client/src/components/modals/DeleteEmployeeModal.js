@@ -29,7 +29,6 @@ It uses React’s render props pattern, using a child as a function implementati
 class DeleteEmployeeModal extends Component {
 	constructor(props) {
 		super(props);
-		console.log(this.props.deleteEmployee);
 		this.state = {
 			showDeleteModal: this.props.isOpen,
 			employee: this.props.deleteEmployee
