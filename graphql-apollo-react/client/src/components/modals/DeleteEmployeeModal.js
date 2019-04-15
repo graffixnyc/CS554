@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //Import Query from react-apollo
-import { Query, Mutation } from 'react-apollo';
+import { Mutation } from 'react-apollo';
 import ReactModal from 'react-modal';
 
 //Import the file where my query constants are defined
