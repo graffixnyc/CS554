@@ -76,7 +76,7 @@ class EditEmployeesModal extends Component {
                                     lastName.value = '';
                                     employerId.value = '1';
                                     this.setState({showEditModal: false});
-                                    alert('Employee Added');
+                                    alert('Employee Updated');
                                     this.props.handleClose();
                                 }}>
                                 <div className='form-group'>
