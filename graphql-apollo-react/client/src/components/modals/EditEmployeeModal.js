@@ -28,9 +28,11 @@ It uses React’s render props pattern, using a child as a function implementati
 */
 class EditEmployeesModal extends Component {
     constructor(props) {
+        //console.log(this.props.employee);
         super(props);
         this.state = {
-            showEditModal: this.props.isOpen
+            showEditModal: this.props.isOpen,
+            employee: this.props.employee
         };
         this.handleCloseEditModal = this.handleCloseEditModal.bind(this);
     }
@@ -41,6 +43,9 @@ class EditEmployeesModal extends Component {
     }
 
     render() {
+        let firstName;
+        let lastName;
+        let employerId;
         return (
             <div>
                 {/*Edit Employee Modal - NOT DONE YET */}
@@ -49,7 +54,95 @@ class EditEmployeesModal extends Component {
                     isOpen={this.state.showEditModal}
                     contentLabel='Edit Employee'
                     style={customStyles}>
-                    <p>TODO - </p>
+                    <Mutation mutation={queries.EDIT_EMPLOYEE}>
+                        {(editEmployee, {data}) => (
+                            <form
+                                className='form'
+                                id='add-employee'
+                                onSubmit={(e) => {
+                                    console.log(firstName.value);
+                                    console.log(lastName.value);
+                                    console.log(parseInt(employerId.value));
+                                    e.preventDefault();
+                                    editEmployee({
+                                        variables: {
+                                            id: this.props.employee.id,
+                                            firstName: firstName.value,
+                                            lastName: lastName.value,
+                                            employerId: parseInt(employerId.value)
+                                        }
+                                    });
+                                    firstName.value = '';
+                                    lastName.value = '';
+                                    employerId.value = '1';
+                                    this.setState({showEditModal: false});
+                                    alert('Employee Added');
+                                    this.props.handleClose();
+                                }}>
+                                <div className='form-group'>
+                                    <label>
+                                        First Name:
+                                        <br />
+                                        <input
+                                            ref={(node) => {
+                                                firstName = node;
+                                            }}
+                                            defaultValue={this.props.employee.firstName}
+                                        />
+                                    </label>
+                                </div>
+                                <br />
+                                <div className='form-group'>
+                                    <label>
+                                        Last Name:
+                                        <br />
+                                        <input
+                                            ref={(node) => {
+                                                lastName = node;
+                                            }}
+                                            defaultValue={this.props.employee.lastName}
+                                        />
+                                    </label>
+                                </div>
+                                <br />
+
+                                <Query query={queries.GET_EMPLOYERS}>
+                                    {({data}) => {
+                                        const {employers} = data;
+                                        if (!employers) {
+                                            return null;
+                                        }
+                                        return (
+                                            <div className='form-group'>
+                                                <label>
+                                                    Employer:
+                                                    <select
+                                                        defaultValue={this.props.employee.employer.id}
+                                                        className='form-control'
+                                                        ref={(node) => {
+                                                            employerId = node;
+                                                        }}>
+                                                        {employers.map((employer) => {
+                                                            return (
+                                                                <option key={employer.id} value={employer.id}>
+                                                                    {employer.name}
+                                                                </option>
+                                                            );
+                                                        })}
+                                                    </select>
+                                                </label>
+                                            </div>
+                                        );
+                                    }}
+                                </Query>
+                                <br />
+                                <br />
+                                <button className='button add-button' type='submit'>
+                                    Update Employee
+                                </button>
+                            </form>
+                        )}
+                    </Mutation>
                     <button className='button cancel-button' onClick={this.handleCloseEditModal}>
                         Cancel
                     </button>

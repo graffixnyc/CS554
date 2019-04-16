@@ -81,11 +81,26 @@ const DELETE_EMPLOYEE = gql`
     }
 `;
 
+const EDIT_EMPLOYEE = gql`
+    mutation changeEmployee($id: Int!, $firstName: String, $lastName: String, $employerId: Int) {
+        editEmployee(id: $id, employerId: $employerId, firstName: $firstName, lastName: $lastName) {
+            id
+            firstName
+            lastName
+            employer {
+                id
+                name
+            }
+        }
+    }
+`;
+
 export default {
     ADD_EMPLOYEE,
     GET_EMPLOYEES,
     GET_EMPLOYERS,
     DELETE_EMPLOYEE,
     GET_EMPLOYERS_WITH_EMPLOYEES,
-    ADD_EMPLOYER
+    ADD_EMPLOYER,
+    EDIT_EMPLOYEE
 };

@@ -79,7 +79,7 @@ class DeleteEmployeeModal extends Component {
 
                                 <form
                                     className='form'
-                                    id='add-employee'
+                                    id='delete-employee'
                                     onSubmit={(e) => {
                                         e.preventDefault();
                                         removeEmployee({

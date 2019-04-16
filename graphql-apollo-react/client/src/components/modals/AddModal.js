@@ -48,7 +48,7 @@ class AddModal extends Component {
         let body;
         //check which add modal they are trying to get to and then render the form, mutation/query accordingly
         //if Add Employee
-        if (this.props.modal == 'addEmployee') {
+        if (this.props.modal === 'addEmployee') {
             let firstName;
             let lastName;
             let employerId;
@@ -147,7 +147,7 @@ class AddModal extends Component {
                 </Mutation>
             );
             //If add Employer
-        } else if (this.props.modal == 'addEmployer') {
+        } else if (this.props.modal === 'addEmployer') {
             let name;
             body = (
                 <Mutation

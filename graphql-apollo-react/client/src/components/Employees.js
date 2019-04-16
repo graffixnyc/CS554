@@ -115,7 +115,7 @@ class Employees extends Component {
                     />
                 )}
 
-                {/*Add Employee Modal */}
+                {/*Delete Employee Modal */}
                 {this.state &&
                 this.state.showDeleteModal && (
                     <DeleteEmployeeModal
