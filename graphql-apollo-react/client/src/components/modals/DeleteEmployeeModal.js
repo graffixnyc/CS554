@@ -35,6 +35,7 @@ class DeleteEmployeeModal extends Component {
         };
         this.handleOpenDeleteModal = this.handleOpenDeleteModal.bind(this);
         this.handleCloseDeleteModal = this.handleCloseDeleteModal.bind(this);
+        console.log(this.state.employee);
     }
 
     handleOpenDeleteModal() {

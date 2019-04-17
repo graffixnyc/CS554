@@ -1,34 +1,34 @@
 const {ApolloServer, gql} = require('apollo-server');
 const lodash = require('lodash');
-
+const uuid = require('node-uuid');
 //some Mock data
 let employees = [
     {
-        id: 1,
+        id: uuid.v4(),
         firstName: 'Patrick',
         lastName: 'Hill',
         employerId: 1
     },
     {
-        id: 2,
+        id: uuid.v4(),
         firstName: 'Jimi',
         lastName: 'Hendrix',
         employerId: 1
     },
     {
-        id: 3,
+        id: uuid.v4(),
         firstName: 'Jim',
         lastName: 'Morrison',
         employerId: 2
     },
     {
-        id: 4,
+        id: uuid.v4(),
         firstName: 'Roger',
         lastName: 'Waters',
         employerId: 1
     },
     {
-        id: 5,
+        id: uuid.v4(),
         firstName: 'John',
         lastName: 'Smith',
         employerId: 2
@@ -43,6 +43,10 @@ let employers = [
     {
         id: 2,
         name: 'Google'
+    },
+    {
+        id: 3,
+        name: 'Apple'
     }
 ];
 
@@ -52,7 +56,7 @@ const typeDefs = gql`
         employers: [Employer]
         employees: [Employee]
         employer(id: Int): Employer
-        employee(id: Int): Employee
+        employee(id: String): Employee
     }
 
     type Employer {
@@ -63,7 +67,7 @@ const typeDefs = gql`
     }
 
     type Employee {
-        id: Int
+        id: String
         firstName: String
         lastName: String
         employer: Employer
@@ -71,8 +75,8 @@ const typeDefs = gql`
 
     type Mutation {
         addEmployee(firstName: String!, lastName: String!, employerId: Int!): Employee
-        removeEmployee(id: Int!): [Employee]
-        editEmployee(id: Int!, firstName: String, lastName: String, employerId: Int): Employee
+        removeEmployee(id: String!): [Employee]
+        editEmployee(id: String!, firstName: String, lastName: String, employerId: Int): Employee
         addEmployer(name: String!): Employer
     }
 `;
@@ -112,7 +116,7 @@ const resolvers = {
     Mutation: {
         addEmployee: (_, args) => {
             const newEmployee = {
-                id: employees.length + 1,
+                id: uuid.v4(),
                 firstName: args.firstName,
                 lastName: args.lastName,
                 employerId: args.employerId

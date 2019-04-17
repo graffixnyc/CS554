@@ -38,7 +38,7 @@ class EditEmployeesModal extends Component {
     }
 
     handleCloseEditModal() {
-        this.setState({showEditModal: false});
+        this.setState({showEditModal: false, employee: null});
         this.props.handleClose();
     }
 

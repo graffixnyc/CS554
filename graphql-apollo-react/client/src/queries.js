@@ -68,7 +68,7 @@ const ADD_EMPLOYER = gql`
 `;
 
 const DELETE_EMPLOYEE = gql`
-    mutation deleteEmployee($id: Int!) {
+    mutation deleteEmployee($id: String!) {
         removeEmployee(id: $id) {
             id
             firstName
@@ -82,7 +82,7 @@ const DELETE_EMPLOYEE = gql`
 `;
 
 const EDIT_EMPLOYEE = gql`
-    mutation changeEmployee($id: Int!, $firstName: String, $lastName: String, $employerId: Int) {
+    mutation changeEmployee($id: String!, $firstName: String, $lastName: String, $employerId: Int) {
         editEmployee(id: $id, employerId: $employerId, firstName: $firstName, lastName: $lastName) {
             id
             firstName
