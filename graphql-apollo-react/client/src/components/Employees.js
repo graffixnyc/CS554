@@ -71,18 +71,14 @@ class Employees extends Component {
                                         <div className="card" key={employee.id}>
                                             <div className="card-body">
                                                 <h5 className="card-title">
-                                                    {employee.firstName}{" "}
-                                                    {employee.lastName}
+                                                    {employee.firstName} {employee.lastName}
                                                 </h5>
-                                                Employer:{" "}
-                                                {employee.employer.name}
+                                                Employer: {employee.employer.name}
                                                 <br />
                                                 <button
                                                     className="button"
                                                     onClick={() => {
-                                                        this.handleOpenEditModal(
-                                                            employee
-                                                        );
+                                                        this.handleOpenEditModal(employee);
                                                     }}
                                                 >
                                                     Edit
@@ -90,9 +86,7 @@ class Employees extends Component {
                                                 <button
                                                     className="button"
                                                     onClick={() => {
-                                                        this.handleOpenDeleteModal(
-                                                            employee
-                                                        );
+                                                        this.handleOpenDeleteModal(employee);
                                                     }}
                                                 >
                                                     Delete

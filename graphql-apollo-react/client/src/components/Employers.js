@@ -39,10 +39,7 @@ class Employers extends Component {
                 </button>
                 <br />
                 <br />
-                <Query
-                    query={queries.GET_EMPLOYERS_WITH_EMPLOYEES}
-                    fetchPolicy={"cache-and-network"}
-                >
+                <Query query={queries.GET_EMPLOYERS_WITH_EMPLOYEES} fetchPolicy={"cache-and-network"}>
                     {({ data }) => {
                         const { employers } = data;
                         if (!employers) {
@@ -54,36 +51,20 @@ class Employers extends Component {
                                     return (
                                         <div className="card" key={employer.id}>
                                             <div className="card-body">
-                                                <h5 className="card-title">
-                                                    {employer.name}
-                                                </h5>
-                                                <span>
-                                                    Number of Employees:
-                                                </span>{" "}
-                                                {employer.numOfEmployees}
+                                                <h5 className="card-title">{employer.name}</h5>
+                                                <span>Number of Employees:</span> {employer.numOfEmployees}
                                                 <br />
                                                 <br />
                                                 <span>Employees:</span>
                                                 <br />
                                                 <ol>
-                                                    {employer.employees.map(
-                                                        employee => {
-                                                            return (
-                                                                <li
-                                                                    key={
-                                                                        employee.id
-                                                                    }
-                                                                >
-                                                                    {
-                                                                        employee.firstName
-                                                                    }{" "}
-                                                                    {
-                                                                        employee.lastName
-                                                                    }
-                                                                </li>
-                                                            );
-                                                        }
-                                                    )}
+                                                    {employer.employees.map(employee => {
+                                                        return (
+                                                            <li key={employee.id}>
+                                                                {employee.firstName} {employee.lastName}
+                                                            </li>
+                                                        );
+                                                    })}
                                                 </ol>
                                             </div>
                                         </div>
