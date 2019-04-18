@@ -1,14 +1,14 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 //Import Query from react-apollo
-import {Query} from 'react-apollo';
+import { Query } from "react-apollo";
 
 //Import the Modals for Adding and Updating Employee
-import AddModal from './modals/AddModal';
-import EditEmployeeModal from './modals/EditEmployeeModal';
-import DeleteEmployeeModal from './modals/DeleteEmployeeModal';
+import AddModal from "./modals/AddModal";
+import EditEmployeeModal from "./modals/EditEmployeeModal";
+import DeleteEmployeeModal from "./modals/DeleteEmployeeModal";
 
 //Import the file where my query constants are defined
-import queries from '../queries';
+import queries from "../queries";
 
 /* The React Apollo package grants access to a Query component, which takes a query as prop and executes it when its rendered. 
 That’s the important part: it executes the query when it is rendered. 
@@ -40,49 +40,61 @@ class Employees extends Component {
         });
     }
     handleCloseModals() {
-        this.setState({showAddModal: false, showEditModal: false, showDeleteModal: false});
+        this.setState({
+            showAddModal: false,
+            showEditModal: false,
+            showDeleteModal: false
+        });
     }
 
     handleOpenAddModal() {
-        this.setState({showAddModal: true});
+        this.setState({ showAddModal: true });
     }
     render() {
         return (
             <div>
-                <button className='button' onClick={this.handleOpenAddModal}>
+                <button className="button" onClick={this.handleOpenAddModal}>
                     Create Employee
                 </button>
                 <br />
                 <br />
                 <Query query={queries.GET_EMPLOYEES}>
-                    {({data}) => {
-                        const {employees} = data;
+                    {({ data }) => {
+                        const { employees } = data;
                         if (!employees) {
                             return null;
                         }
                         return (
                             <div>
-                                {employees.map((employee) => {
+                                {employees.map(employee => {
                                     return (
-                                        <div className='card' key={employee.id}>
-                                            <div className='card-body'>
-                                                <h5 className='card-title'>
-                                                    {employee.firstName} {employee.lastName}
+                                        <div className="card" key={employee.id}>
+                                            <div className="card-body">
+                                                <h5 className="card-title">
+                                                    {employee.firstName}{" "}
+                                                    {employee.lastName}
                                                 </h5>
-                                                Employer: {employee.employer.name}
+                                                Employer:{" "}
+                                                {employee.employer.name}
                                                 <br />
                                                 <button
-                                                    className='button'
+                                                    className="button"
                                                     onClick={() => {
-                                                        this.handleOpenEditModal(employee);
-                                                    }}>
+                                                        this.handleOpenEditModal(
+                                                            employee
+                                                        );
+                                                    }}
+                                                >
                                                     Edit
                                                 </button>
                                                 <button
-                                                    className='button'
+                                                    className="button"
                                                     onClick={() => {
-                                                        this.handleOpenDeleteModal(employee);
-                                                    }}>
+                                                        this.handleOpenDeleteModal(
+                                                            employee
+                                                        );
+                                                    }}
+                                                >
                                                     Delete
                                                 </button>
                                                 <br />
@@ -96,8 +108,7 @@ class Employees extends Component {
                 </Query>
 
                 {/*Edit Employee Modal - NOT DONE YET */}
-                {this.state &&
-                this.state.showEditModal && (
+                {this.state && this.state.showEditModal && (
                     <EditEmployeeModal
                         isOpen={this.state.showEditModal}
                         employee={this.state.editEmployee}
@@ -106,18 +117,16 @@ class Employees extends Component {
                 )}
 
                 {/*Add Employee Modal */}
-                {this.state &&
-                this.state.showAddModal && (
+                {this.state && this.state.showAddModal && (
                     <AddModal
                         isOpen={this.state.showAddModal}
                         handleClose={this.handleCloseModals}
-                        modal='addEmployee'
+                        modal="addEmployee"
                     />
                 )}
 
                 {/*Delete Employee Modal */}
-                {this.state &&
-                this.state.showDeleteModal && (
+                {this.state && this.state.showDeleteModal && (
                     <DeleteEmployeeModal
                         isOpen={this.state.showDeleteModal}
                         handleClose={this.handleCloseModals}

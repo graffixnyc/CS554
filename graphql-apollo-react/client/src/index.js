@@ -23,11 +23,11 @@ The http link supports both POST and GET requests with the ability to change the
 This can be used for authentication, persisted queries, dynamic uris, and other granular updates.
 */
 const httpLink = new HttpLink({
-  uri: BASE_URL,
-  onError: ({ networkError, graphQLErrors }) => {
-    console.log("graphQLErrors", graphQLErrors);
-    console.log("networkError", networkError);
-  }
+    uri: BASE_URL,
+    onError: ({ networkError, graphQLErrors }) => {
+        console.log("graphQLErrors", graphQLErrors);
+        console.log("networkError", networkError);
+    }
 });
 
 /*create the cache as the place where the data is managed in Apollo Client. 
@@ -37,19 +37,19 @@ const cache = new InMemoryCache();
 
 //Finally, you can use both instantiated configurations, the link and the cache, to create the instance of the Apollo Client
 const client = new ApolloClient({
-  link: httpLink,
-  cache
+    link: httpLink,
+    cache
 });
 
 ReactDOM.render(
-  <ApolloProvider client={client}>
-    <App />
-  </ApolloProvider>,
-  document.getElementById("root")
+    <ApolloProvider client={client}>
+        <App />
+    </ApolloProvider>,
+    document.getElementById("root")
 );
 
 if (module.hot) {
-  module.hot.accept();
+    module.hot.accept();
 }
 
 // If you want your app to work offline and load faster, you can change
