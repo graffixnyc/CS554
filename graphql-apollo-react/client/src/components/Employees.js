@@ -20,7 +20,9 @@ class Employees extends Component {
         this.state = {
             showEditModal: false,
             showAddModal: false,
-            showDeleteModal: false
+            showDeleteModal: false,
+            editEmployee: null,
+            deleteEmployee: null
         };
         this.handleOpenEditModal = this.handleOpenEditModal.bind(this);
         this.handleOpenAddModal = this.handleOpenAddModal.bind(this);
