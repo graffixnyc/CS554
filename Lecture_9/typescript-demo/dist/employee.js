@@ -12,8 +12,7 @@ class Employee {
         console.log("in set");
         if (newName) {
             this._fullName = newName;
-        }
-        else {
+        } else {
             throw "Name not supplied";
         }
     }
