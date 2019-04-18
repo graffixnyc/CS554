@@ -91,6 +91,7 @@ class AddModal extends Component {
                                             firstName = node;
                                         }}
                                         required
+                                        autoFocus={true}
                                     />
                                 </label>
                             </div>
@@ -184,6 +185,7 @@ class AddModal extends Component {
                                             name = node;
                                         }}
                                         required
+                                        autoFocus={true}
                                     />
                                 </label>
                             </div>

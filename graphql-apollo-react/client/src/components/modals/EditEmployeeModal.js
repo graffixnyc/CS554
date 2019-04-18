@@ -88,6 +88,7 @@ class EditEmployeesModal extends Component {
                                                 firstName = node;
                                             }}
                                             defaultValue={this.props.employee.firstName}
+                                            autoFocus={true}
                                         />
                                     </label>
                                 </div>
