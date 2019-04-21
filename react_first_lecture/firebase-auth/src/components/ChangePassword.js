@@ -1,8 +1,9 @@
-import React from 'react';
+import React from "react";
 
-const ChangePassword = ()=>
-<div>
+const ChangePassword = () => (
+  <div>
     <h1>Hello, this is the Forgotten password page</h1>
-</div>
+  </div>
+);
 
 export default ChangePassword;

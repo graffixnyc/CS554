@@ -31,7 +31,7 @@ function getName2(firstName: string, lastName?: string): string {
     }
     return `${firstName} ${lastName}`;
 }
-console.log(getName2('John'));
+console.log(getName2('John', 'Doe'));
 
 function myVoidFunc(): void {
     return;

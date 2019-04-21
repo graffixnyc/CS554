@@ -8,10 +8,10 @@ let computedResults = null;
 redisConnection.on("showResults", (data, channel) => {
   const sendResults = () => {
     if (computedResults === null) {
-      console.log("Results not computed yet!!!")
+      console.log("Results not computed yet!!!");
       setTimeout(sendResults, 5000);
     } else {
-      console.log (computedResults)
+      console.log(computedResults);
       redisConnection.emit("results-completed", { results: computedResults });
     }
   };
@@ -20,9 +20,7 @@ redisConnection.on("showResults", (data, channel) => {
 });
 
 redisConnection.on("computeResults", async (data, channel) => {
-  
-  
-  console.log ("In compute");
+  console.log("In compute");
   if (computedResults !== null) return;
 
   const gist = await axios.get(gistUrl);

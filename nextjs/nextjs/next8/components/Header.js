@@ -1,18 +1,18 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 const linkStyle = {
   marginRight: 15
-}
+};
 
 const Header = () => (
-    <div>
-        <Link href="/">
-          <a style={linkStyle}>Home</a>
-        </Link>
-        <Link href="/shows">
-          <a style={linkStyle}>Shows</a>
-        </Link>
-        <style jsx>{`
+  <div>
+    <Link href="/">
+      <a style={linkStyle}>Home</a>
+    </Link>
+    <Link href="/shows">
+      <a style={linkStyle}>Shows</a>
+    </Link>
+    <style jsx>{`
       a {
         text-decoration: none;
         color: blue;
@@ -24,7 +24,7 @@ const Header = () => (
         color: red;
       }
     `}</style>
-    </div>
-)
+  </div>
+);
 
-export default Header
+export default Header;

@@ -4,6 +4,7 @@ function employeeTest(id: number, name: string) {
 }
 var emp = new employeeTest(123, 'Smith');
 console.log(emp);
+
 employeeTest.prototype.email = 'smith@abc.com';
 console.log("Employee's Id: " + emp.id);
 console.log("Employee's name: " + emp.name);

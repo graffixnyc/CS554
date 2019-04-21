@@ -1,8 +1,9 @@
-import React from 'react';
+import React from "react";
 
-const Account = ()=>
-<div>
+const Account = () => (
+  <div>
     <h1>Hello, this is the account page</h1>
-</div>
+  </div>
+);
 
 export default Account;

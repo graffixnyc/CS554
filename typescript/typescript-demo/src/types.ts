@@ -1,9 +1,9 @@
 let myString: string;
-myString = 'Hello World';
+myString = 'Hello' + ' World';
 console.log(myString);
 
 let myNum: number;
-myNum = 5;
+myNum = 2;
 console.log(myNum);
 
 let myBool: boolean;
@@ -15,6 +15,7 @@ myAny = 3;
 console.log(myAny);
 myAny = 'Patrick';
 console.log(myAny);
+myAny = true;
 
 let strArr: string[];
 strArr = ['Vince', 'Tommy', 'Nikki', 'Mick'];
@@ -28,7 +29,7 @@ let numArr: Array<number>;
 numArr = [1, 2, 3, 4];
 
 let strNumTuple: [string, number];
-strNumTuple = ['hello', 4];
+strNumTuple = ['hello', 2];
 console.log(strNumTuple);
 
 let myVoid: void;
@@ -42,3 +43,6 @@ console.log(myUndefined);
 let myNull: null;
 myNull = null;
 console.log(myNull);
+
+let mystring2: string;
+mystring2 = 'John';

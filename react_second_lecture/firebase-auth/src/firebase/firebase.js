@@ -1,5 +1,5 @@
-import firebase from "firebase/app"
-import 'firebase/auth';
+import firebase from "firebase/app";
+import "firebase/auth";
 
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -8,17 +8,13 @@ const config = {
   projectId: process.env.REACT_APP_PROJECT_ID,
   storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID
-  };
- 
-firebase.initializeApp(config);
+};
 
+firebase.initializeApp(config);
 
 const auth = firebase.auth();
 
- function isAuthenticated () {
+function isAuthenticated() {
   return !!auth.currentUser;
-};
-export {auth,firebase,isAuthenticated}
-
-
-
+}
+export { auth, firebase, isAuthenticated };

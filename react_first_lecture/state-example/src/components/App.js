@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Clock from './Clock'
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Clock from "./Clock";
 class App extends Component {
   render() {
     return (
@@ -10,7 +10,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <Clock date={new Date()}/>
+        <Clock date={new Date()} />
       </div>
     );
   }

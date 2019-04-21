@@ -13,8 +13,8 @@ export class Pokemons {
             res.status(200).send(pokemons[id]);
         });
         app.route('/pokemons').post((req: Request, res: Response) => {
-            let name = req.body.name; //this requires body-parser package
-            let attack = req.body.attack;
+            let data = req.body;
+            res.status(200).send(data);
         });
     }
 }
