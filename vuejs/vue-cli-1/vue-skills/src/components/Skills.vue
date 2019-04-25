@@ -1,34 +1,35 @@
 <template>
   <div class="skills">
-    {{msg + ", " +  name}}
-    <br />
-
+    {{msg + ", " + name}}
+    <br>
     {{btnState ? 'The button is disabled' : 'The button is active'}}
+    <span
+      v-if="btnState"
+    >The button is disabled2</span>
+    <span v-else>The button is active2</span>
 
-    <span v-if="btnState">
-      The button is disabled 2
-    </span>
-    <span v-else>
-      The button is active 2
-    </span>
-
-    <button v-on:click="changeName" v-bind:disabled="btnState">Change Name </button>
+    <button v-on:click="changeName" v-bind:disabled="btnState">Change Name</button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Skills',
-  data(){
+  name: "Skills",
+  data() {
     return {
-      name:"Patrick",
+      name: "Patrick",
       btnState: false
-    }
+    };
   },
   props: {
-      msg: String
+    msg: String
+  },
+  methods: {
+    changeName() {
+      this.name = "John";
     }
-}
+  }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
