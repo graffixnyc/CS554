@@ -17,7 +17,7 @@ export default {
     }
     return { their_name: null };
   }
-  // watch: {
+  //, watch: {
   //   $route(to, from) {
   //     if (this.$route.params.name) {
   //       this.their_name = this.$route.params.name;
