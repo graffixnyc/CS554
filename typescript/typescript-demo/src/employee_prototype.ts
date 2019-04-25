@@ -1,6 +1,6 @@
 function employeeTest(id: number, name: string) {
-    this.id = id;
-    this.name = name;
+  this.id = id;
+  this.name = name;
 }
 var emp = new employeeTest(123, 'Smith');
 console.log(emp);

@@ -1,9 +1,8 @@
-import * as express from "express";
-import * as bodyParser from "body-parser";
-import { Request, Response } from "express";
+import * as express from 'express';
+import * as bodyParser from 'body-parser';
+import {Request, Response} from 'express';
 
 class App {
-
   constructor() {
     this.app = express();
     this.config();
@@ -14,7 +13,7 @@ class App {
 
   private config(): void {
     this.app.use(bodyParser.json());
-    this.app.use(bodyParser.urlencoded({ extended: false }));
+    this.app.use(bodyParser.urlencoded({extended: false}));
   }
 
   private routes(): void {
@@ -23,7 +22,7 @@ class App {
     router.get('/', (req: Request, res: Response) => {
       res.status(200).send({
         message: 'Hello World!'
-      })
+      });
     });
 
     router.post('/', (req: Request, res: Response) => {
@@ -32,10 +31,8 @@ class App {
       res.status(200).send(data);
     });
 
-    this.app.use('/', router)
-
+    this.app.use('/', router);
   }
-
 }
 
-export default new App().app; 
+export default new App().app;
