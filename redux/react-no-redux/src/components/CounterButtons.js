@@ -1,14 +1,14 @@
-import React, { Component } from "react";
+import React, {Component} from 'react';
 
 class CounterButtons extends Component {
   constructor(props) {
     super(props);
-    this.state = { counter: 0 };
+    this.state = {counter: 0};
     this.handleDecrease = this.handleDecrease.bind(this);
     this.handleIncrese = this.handleIncrese.bind(this);
   }
   handleIncrese() {
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       counter: prevState.counter + 1
     }));
     /*
@@ -22,7 +22,7 @@ class CounterButtons extends Component {
   }
 
   handleDecrease() {
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       counter: prevState.counter - 1
     }));
     /*
