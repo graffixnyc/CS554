@@ -1,4 +1,4 @@
-import Layout from '../components/MyLayout';
+import Layout from '../../../components/MyLayout';
 import { useRouter } from 'next/router';
 
 const Show = () => {
