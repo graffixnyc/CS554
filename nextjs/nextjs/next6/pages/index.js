@@ -1,8 +1,8 @@
-import Layout from "../components/MyLayout";
+import Layout from '../components/MyLayout';
 const Index = () => (
-  <Layout>
-    <h1>Hello Next.js</h1>
-  </Layout>
+	<Layout>
+		<h1>Welcome to the TV Maze API Next.js Demo</h1>
+	</Layout>
 );
 
 export default Index;

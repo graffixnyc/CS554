@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 
 const Show = (props) => {
-	const router = useRouter();
 	return (
 		<Layout>
 			<h1>{props.show.name}</h1>
@@ -11,7 +10,7 @@ const Show = (props) => {
 			<img src={props.show.image.medium} />
 			<style jsx>{`
 				h1 {
-					color: blue;
+					color: #1e8678;
 				}
 
 				p::first-letter {

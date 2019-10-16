@@ -3,15 +3,13 @@ import Link from 'next/link';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 const Shows = (props) => {
-	const router = useRouter();
-
 	return (
 		<Layout>
 			<h1>TV Shows</h1>
 			<ul>
 				{props.shows.map((show) => (
 					<li key={show.id}>
-						{/*<Link as={`/show/${show.id}`} href={`/show?id=${show.id}`}> */}
+						{/* as={`/show/${show.id}`}  */}
 						<Link href={`/show?id=${show.id}`}>
 							<a>{show.name}</a>
 						</Link>

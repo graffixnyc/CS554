@@ -10,25 +10,29 @@ const Shows = (props) => (
 					<Link as={`/show/${show.id}`} href={`/show?id=${show.id}`}>
 						<a>{show.name}</a>
 					</Link>
-					<style jsx>{`
-						li {
-							list-style: none;
-							margin: 5px 0;
-						}
-
-						a {
-							text-decoration: none;
-							color: blue;
-							font-family: "Arial";
-						}
-
-						a:hover {
-							color: red;
-							text-decoration: underline;
-						}
-					`}</style>
 				</li>
 			))}
+			<style jsx>{`
+				h1 {
+					color: #1e8678;
+				}
+				li {
+					list-style: none;
+					margin: 5px 0;
+				}
+
+				a:hover {
+					color: white;
+					background-color: #1e8678;
+					border: 1px solid black;
+				}
+				a {
+					color: #1e8678;
+					text-decoration: none;
+					margin-right: 15px;
+					padding: 5px;
+				}
+			`}</style>
 		</ul>
 	</Layout>
 );
