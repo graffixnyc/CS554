@@ -3,7 +3,10 @@
 	"version": "1.0.0",
 	"description": "A small demo of gulp, SASS, and  application",
 	"main": "main.js",
-	"browserslist": [ "last 2 version", "> 2%" ],
+	"browserslist": [
+		"last 2 version",
+		"> 2%"
+	],
 	"scripts": {
 		"start": "node app.js",
 		"build": "gulp build"
@@ -13,7 +16,12 @@
 		"type": "git",
 		"url": "git+https://github.com/Stevens-CS546/CS-554"
 	},
-	"keywords": [ "Electron", "quick", "start", "tutorial" ],
+	"keywords": [
+		"Electron",
+		"quick",
+		"start",
+		"tutorial"
+	],
 	"author": "GitHub",
 	"license": "CC0-1.0",
 	"bugs": {

@@ -5,8 +5,6 @@ const autoPrefix = require('gulp-autoprefixer');
 const gulpSASS = require('gulp-sass');
 const rename = require('gulp-rename');
 
-//"./src/styles/bootstrap/scss/_variables.scss"
-
 const sassFiles = [
 	'./src/styles/variables.scss',
 	'./src/styles/custom.scss',
