@@ -1,9 +1,13 @@
-import React from "react";
+import React from 'react';
 
-const ChangePassword = () => (
-  <div>
-    <h1>Hello, this is the Forgotten password page</h1>
-  </div>
-);
+import '../App.css';
+
+function ChangePassword() {
+	return (
+		<div>
+			<h2>This is the Change PW page</h2>
+		</div>
+	);
+}
 
 export default ChangePassword;

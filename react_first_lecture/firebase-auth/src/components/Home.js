@@ -1,9 +1,13 @@
-import React from "react";
+import React from 'react';
 
-const Home = () => (
-  <div>
-    <h1>Hello, this is the Homepage</h1>
-  </div>
-);
+import '../App.css';
+
+function Home() {
+	return (
+		<div>
+			<h2>This is the Home page</h2>
+		</div>
+	);
+}
 
 export default Home;
