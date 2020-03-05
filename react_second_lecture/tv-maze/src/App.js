@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './img/tvm-header-logo.png';
 import './App.css';
 import ShowsContainer from './components/ShowsContainer';
+import ShowList from './components/ShowList';
+import Show from './components/Show';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
@@ -21,7 +23,9 @@ class App extends Component {
 					<br />
 					<div className='App-body'>
 						<p>Welcome to the TV Maze API example</p>
-						<Route path='/shows/' component={ShowsContainer} />
+
+						<Route path='/shows' exact component={ShowList} />
+						<Route path='/shows/:id' exact component={Show} />
 					</div>
 				</div>
 			</Router>
