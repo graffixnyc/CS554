@@ -53,7 +53,6 @@ class ShowList extends Component {
 					let img = null;
 					if (show.image) {
 						img = <img alt='Show' src={show.image.medium} />;
-						<br />;
 					} else {
 						img = <img alt='Show' src={noImage} />;
 					}

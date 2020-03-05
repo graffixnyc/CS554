@@ -1,88 +1,71 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import noImage from '../img/download.jpeg';
-import SearchShows from './SearchShows';
 
-class Show extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			data: undefined,
-			loading: false
-		};
-	}
-	componentWillMount() {
-		this.getShow();
-	}
-	async getShow() {
-		this.setState({
-			loading: true
-		});
-		try {
-			const response = await axios.get(`http://api.tvmaze.com/shows/${this.props.match.params.id}`);
-			console.log(response);
-			this.setState({
-				data: response.data,
-				loading: false
-			});
-		} catch (e) {
-			console.log(`error ${e}`);
-		}
-	}
-	render() {
-		let body = null;
-		const regex = /(<([^>]+)>)/gi;
-		let summary = this.state.data && this.state.data.summary.replace(regex, '');
-		if (this.state.loading) {
-			body = (
-				<div>
-					<h1>Shows</h1>
-					<br />
-					Loading...
-				</div>
-			);
-		} else if (this.state.error) {
-			body = (
-				<div>
-					<h1>{this.state.error}</h1>
-				</div>
-			);
-		} else {
-			let img = null;
-			if (this.state.data.image) {
-				img = <img alt='Show' src={this.state.data.image.medium} />;
-			} else {
-				img = <img alt='Show' src={noImage} />;
+const Show = (props) => {
+	const [ showData, setShowData ] = useState(undefined);
+	useEffect(
+		() => {
+			async function fetchData() {
+				try {
+					const { data: show } = await axios.get(`http://api.tvmaze.com/shows/${props.match.params.id}`);
+					setShowData(show);
+					console.log(show);
+				} catch (e) {
+					console.log(e);
+				}
 			}
-			body = (
-				<div className='show-body'>
-					<h3 className='cap-first-letter'>{this.state.data && this.state.data.name}</h3>
-					{img}
-					<br />
-					<br />
-					<p>
-						Average Rating: {this.state.data.rating.average}
-						<br />
-						Network: {this.state.data.network && this.state.data.network.name} <br />
-						Language: {this.state.data.language}
-						<br />
-						Runtime: {this.state.data.runtime}
-						<br />
-						Premiered: {this.state.data.premiered}
-						<br />
-					</p>
-					<b>Genres</b>:
-					<dl className='list-unstyled'>
-						{this.state.data.genres.map((genre) => {
-							return <dt key={genre}>{genre}</dt>;
-						})}
-					</dl>
-					<p>Summary: {summary}</p>
-				</div>
-			);
-		}
-		return body;
+			fetchData();
+		},
+		[ props.match.params.id ]
+	);
+
+	let body = null;
+	let summary = null;
+	const regex = /(<([^>]+)>)/gi;
+	if (showData && showData.summary) {
+		summary = showData && showData.summary.replace(regex, '');
+	} else {
+		summary = 'No Summary';
 	}
-}
+
+	console.log({ showData });
+
+	let img = null;
+	if (showData && showData.image) {
+		img = <img alt='Show' src={showData.image.medium} />;
+	} else {
+		img = <img alt='Show' src={noImage} />;
+	}
+	body = (
+		<div className='show-body'>
+			<h3 className='cap-first-letter'>{showData && showData.name}</h3>
+			<br />
+			{img}
+			<br />
+			<p>
+				Average Rating: {showData && showData.rating.average}
+				<br />
+				Network: {showData && showData.network && showData.network.name} <br />
+				Language: {showData && showData.language}
+				<br />
+				Runtime: {showData && showData.runtime}
+				<br />
+				Premiered: {showData && showData.premiered}
+				<br />
+			</p>
+			<b>Genres</b>:
+			<dl className='list-unstyled'>
+				{showData &&
+					showData.genres.map((genre) => {
+						return <dt key={genre}>{genre}</dt>;
+					})}
+			</dl>
+			<p>Summary: {summary}</p>
+		</div>
+	);
+
+	return body;
+};
 
 export default Show;

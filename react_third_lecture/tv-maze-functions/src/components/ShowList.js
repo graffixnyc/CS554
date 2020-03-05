@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import SearchShows from './SearchShows';
@@ -18,8 +18,6 @@ const ShowList = () => {
 				if (searchTerm) {
 					const { data } = await axios.get('http://api.tvmaze.com/search/shows?q=' + searchTerm);
 					setSearchData(data);
-					console.log(`SearchTerm in showSearch: ${searchTerm}`);
-					console.log(searchData);
 				}
 				try {
 					const { data } = await axios.get('http://api.tvmaze.com/shows');

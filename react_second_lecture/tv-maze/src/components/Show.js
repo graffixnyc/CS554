@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import noImage from '../img/download.jpeg';
-import SearchShows from './SearchShows';
 
 class Show extends Component {
 	constructor(props) {
@@ -32,7 +31,12 @@ class Show extends Component {
 	render() {
 		let body = null;
 		const regex = /(<([^>]+)>)/gi;
-		let summary = this.state.data && this.state.data.summary.replace(regex, '');
+		let summary = null;
+		if (this.state.data && this.state.data.summary) {
+			summary = this.state.data && this.state.data.summary.replace(regex, '');
+		} else {
+			summary = 'No Summary';
+		}
 		if (this.state.loading) {
 			body = (
 				<div>

@@ -76,3 +76,17 @@ p {
 div {
 	text-align: center;
 }
+
+ul a {
+	color: #1e8678;
+	text-decoration: none !important;
+}
+
+ul a:hover {
+	background-color: transparent;
+	color: blue;
+}
+
+ul {
+	list-style: none;
+}
