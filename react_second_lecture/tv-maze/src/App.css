@@ -1,65 +1,60 @@
 .App {
-   text-align: center;
+	text-align: center;
 }
 
 .App-logo {
-   animation: App-logo-spin infinite 20s linear;
-   height: 80px;
+	height: 80px;
 }
 
 .App-header {
-   background-color: #1e8678;
-   height: 175px;
-   padding: 20px;
-   color: #222;
+	background-color: #1e8678;
+	height: 175px;
+	padding: 20px;
+	color: #222;
 }
 
 .App-title {
-   font-size: 1.5em;
-   font-weight: bold;
-   color: white;
+	font-size: 1.5em;
+	font-weight: bold;
+	color: white;
 }
 
 cite {
-   font-weight: bold;
+	font-weight: bold;
 }
 table {
-   align-content: center;
-   margin: auto;
+	align-content: center;
+	margin: auto;
 }
 td {
-   padding: 10px;
+	padding: 10px;
 }
 
 .App-intro {
-   font-size: large;
+	font-size: large;
 }
 .cap-first-letter:first-letter {
-   text-transform: capitalize;
+	text-transform: capitalize;
 }
 .col-sm-6,
 col-md-4 {
-   border: 1px;
-}
-@keyframes App-logo-spin {
-   from {
-      transform: rotate(0deg);
-   }
-   to {
-      transform: rotate(360deg);
-   }
+	border: 1px;
 }
 
 .showlink {
-   padding: 0.4rem 0.8rem;
-   background-color: white;
-   border-radius: 3px;
-   color: #1e8678;
-   text-decoration: none !important;
+	padding: 0.4rem 0.8rem;
+	background-color: white;
+	border-radius: 3px;
+	color: #1e8678;
+	text-decoration: none !important;
 }
 
 .showlink:hover {
-   background-color: transparent;
-   color: white;
-   border: 2px solid white;
+	background-color: transparent;
+	color: white;
+	border: 2px solid white;
+}
+
+li {
+	padding: 20px;
 }
