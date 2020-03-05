@@ -79,7 +79,7 @@ class ShowList extends Component {
 				));
 		}
 		body = (
-			<div>
+			<div className='App-body'>
 				<SearchShows searchValue={this.searchValue} />
 				<ul className='list-unstyled'>{li}</ul>
 			</div>

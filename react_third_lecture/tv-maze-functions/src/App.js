@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from './img/tvm-header-logo.png';
 import './App.css';
 import ShowList from './components/ShowList';
