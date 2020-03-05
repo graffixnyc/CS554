@@ -2,8 +2,7 @@ import React from 'react';
 
 const SearchShows = (props) => {
 	const handleChange = (e) => {
-		let value = e.target.value;
-		props.searchValue(value);
+		props.searchValue(e.target.value);
 	};
 	return (
 		<form method='POST ' name='formName'>
