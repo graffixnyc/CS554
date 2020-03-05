@@ -58,3 +58,13 @@ col-md-4 {
 li {
 	padding: 20px;
 }
+
+p {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+div {
+	text-align: center;
+}

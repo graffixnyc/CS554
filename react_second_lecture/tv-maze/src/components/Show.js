@@ -31,13 +31,7 @@ class Show extends Component {
 	render() {
 		let body = null;
 		const regex = /(<([^>]+)>)/gi;
-		let summary = null;
-		if (this.state.summary) {
-			summary = this.state.data && this.state.data.summary.replace(regex, '');
-		} else {
-			summary = 'No summary';
-		}
-
+		let summary = this.state.data && this.state.data.summary.replace(regex, '');
 		if (this.state.loading) {
 			body = (
 				<div>
