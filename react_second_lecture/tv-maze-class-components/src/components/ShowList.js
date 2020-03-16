@@ -24,9 +24,7 @@ class ShowList extends Component {
 		} else {
 			try {
 				const { data } = await axios.get('http://api.tvmaze.com/shows');
-				this.setState({ data: data }, () => {
-					console.log(this.state.data);
-				});
+				this.setState({ data: data });
 			} catch (e) {
 				console.log(e);
 			}
@@ -49,7 +47,7 @@ class ShowList extends Component {
 			li =
 				this.state.searchData &&
 				this.state.searchData.map((shows) => {
-					let show = shows.show;
+					let { show } = shows;
 					let img = null;
 					if (show.image) {
 						img = <img alt='Show' src={show.image.medium} />;

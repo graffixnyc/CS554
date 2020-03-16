@@ -6,85 +6,65 @@ class Show extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			data: undefined,
-			loading: false
+			data: undefined
 		};
 	}
-	componentWillMount() {
+	componentDidMount() {
 		this.getShow();
 	}
+
 	async getShow() {
-		this.setState({
-			loading: true
-		});
 		try {
-			const response = await axios.get(`http://api.tvmaze.com/shows/${this.props.match.params.id}`);
-			console.log(response);
+			const { data } = await axios.get(`http://api.tvmaze.com/shows/${this.props.match.params.id}`);
+
 			this.setState({
-				data: response.data,
-				loading: false
+				data: data
 			});
 		} catch (e) {
 			console.log(`error ${e}`);
 		}
 	}
+
 	render() {
 		let body = null;
 		const regex = /(<([^>]+)>)/gi;
-		let summary = null;
-		if (this.state.data && this.state.data.summary) {
-			summary = this.state.data && this.state.data.summary.replace(regex, '');
-		} else {
-			summary = 'No Summary';
-		}
-		if (this.state.loading) {
-			body = (
-				<div>
-					<h1>Shows</h1>
+
+		body = (
+			<div className='show-body'>
+				<h3 className='cap-first-letter'>{(this.state.data && this.state.data.name) || 'No Title'}</h3>
+				<img
+					alt='Show'
+					src={(this.state.data && this.state.data.image && this.state.data.image.medium) || noImage}
+				/>
+				<br />
+				<br />
+				<p>
+					Average Rating: {(this.state.data && this.state.data.rating.average) || 'No rating'}
 					<br />
-					Loading...
-				</div>
-			);
-		} else if (this.state.error) {
-			body = (
-				<div>
-					<h1>{this.state.error}</h1>
-				</div>
-			);
-		} else {
-			let img = null;
-			if (this.state.data.image) {
-				img = <img alt='Show' src={this.state.data.image.medium} />;
-			} else {
-				img = <img alt='Show' src={noImage} />;
-			}
-			body = (
-				<div className='show-body'>
-					<h3 className='cap-first-letter'>{this.state.data && this.state.data.name}</h3>
-					{img}
+					Network:
+					{(this.state.data && this.state.data.network && this.state.data.network.name) || 'No Network'}
 					<br />
+					Language: {(this.state.data && this.state.data.language) || 'Not specified'}
 					<br />
-					<p>
-						Average Rating: {this.state.data.rating.average}
-						<br />
-						Network: {this.state.data.network && this.state.data.network.name} <br />
-						Language: {this.state.data.language}
-						<br />
-						Runtime: {this.state.data.runtime}
-						<br />
-						Premiered: {this.state.data.premiered}
-						<br />
-					</p>
-					<b>Genres</b>:
-					<dl className='list-unstyled'>
-						{this.state.data.genres.map((genre) => {
+					Runtime: {(this.state.data && this.state.data.runtime) || 'Not Provided'}
+					<br />
+					Premiered: {(this.state.data && this.state.data.premiered) || 'Not Provided'}
+					<br />
+				</p>
+				<b>Genres</b>
+				<dl>
+					{(this.state.data &&
+						this.state.data.genres.map((genre) => {
 							return <dt key={genre}>{genre}</dt>;
-						})}
-					</dl>
-					<p>Summary: {summary}</p>
-				</div>
-			);
-		}
+						})) ||
+						'No Genre'}
+				</dl>
+				Summary:
+				{(this.state.data && this.state.data.summary && this.state.data.summary.replace(regex, '')) ||
+					'No Summary'}
+			</div>
+		);
+
 		return body;
 	}
 }

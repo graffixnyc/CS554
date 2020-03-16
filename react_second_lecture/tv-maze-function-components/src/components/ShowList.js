@@ -11,6 +11,7 @@ const ShowList = () => {
 	const [ showsData, setShowsData ] = useState(undefined);
 	const [ searchTerm, setSearchTerm ] = useState('');
 	let li = null;
+	let img = null;
 
 	useEffect(
 		() => {
@@ -19,12 +20,13 @@ const ShowList = () => {
 				if (searchTerm) {
 					const { data } = await axios.get('http://api.tvmaze.com/search/shows?q=' + searchTerm);
 					setSearchData(data);
-				}
-				try {
-					const { data } = await axios.get('http://api.tvmaze.com/shows');
-					setShowsData(data);
-				} catch (e) {
-					console.log(e);
+				} else {
+					try {
+						const { data } = await axios.get('http://api.tvmaze.com/shows');
+						setShowsData(data);
+					} catch (e) {
+						console.log(e);
+					}
 				}
 			}
 			fetchData();
@@ -40,9 +42,8 @@ const ShowList = () => {
 		li =
 			searchData &&
 			searchData.map((shows) => {
-				let show = shows.show;
-				let img = null;
-				if (show.image) {
+				let { show } = shows;
+				if (show.image && show.image.medium) {
 					img = <img alt='Show' src={show.image.medium} />;
 				} else {
 					img = <img alt='Show' src={noImage} />;
@@ -60,14 +61,22 @@ const ShowList = () => {
 	} else {
 		li =
 			showsData &&
-			showsData.map((show) => (
-				<li key={show.id}>
-					<Link to={`/shows/${show.id}`}>
-						<img alt='Show' src={show.image.medium} />; <br />
-						{show.name}
-					</Link>
-				</li>
-			));
+			showsData.map((show) => {
+				if (show.image && show.image.medium) {
+					img = <img alt='Show' src={show.image.medium} />;
+				} else {
+					img = <img alt='Show' src={noImage} />;
+				}
+
+				return (
+					<li key={show.id}>
+						<Link to={`/shows/${show.id}`}>
+							{img} <br />
+							{show.name}
+						</Link>
+					</li>
+				);
+			});
 	}
 
 	return (

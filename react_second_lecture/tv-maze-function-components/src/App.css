@@ -90,3 +90,7 @@ ul a:hover {
 ul {
 	list-style: none;
 }
+
+.title {
+	font-weight: bold;
+}

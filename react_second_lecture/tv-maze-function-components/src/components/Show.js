@@ -20,7 +20,6 @@ const Show = (props) => {
 		[ props.match.params.id ]
 	);
 
-	let body = null;
 	let summary = null;
 	const regex = /(<([^>]+)>)/gi;
 	if (showData && showData.summary) {
@@ -29,43 +28,43 @@ const Show = (props) => {
 		summary = 'No Summary';
 	}
 
-	console.log({ showData });
-
 	let img = null;
 	if (showData && showData.image) {
 		img = <img alt='Show' src={showData.image.medium} />;
 	} else {
 		img = <img alt='Show' src={noImage} />;
 	}
-	body = (
+
+	return (
 		<div className='show-body'>
-			<h3 className='cap-first-letter'>{showData && showData.name}</h3>
+			<h1 className='cap-first-letter'>{showData && showData.name}</h1>
 			<br />
 			{img}
 			<br />
 			<p>
-				Average Rating: {showData && showData.rating.average}
+				<span className='title'>Average Rating: </span>
+				{showData && showData.rating.average}
 				<br />
-				Network: {showData && showData.network && showData.network.name} <br />
-				Language: {showData && showData.language}
+				<span className='title'>Network:</span> {showData && showData.network && showData.network.name} <br />
+				<span className='title'>Language:</span> {showData && showData.language}
 				<br />
-				Runtime: {showData && showData.runtime}
+				<span className='title'>Runtime:</span> {showData && showData.runtime}
 				<br />
-				Premiered: {showData && showData.premiered}
+				<span className='title'>Premiered:</span> {showData && showData.premiered}
 				<br />
 			</p>
-			<b>Genres</b>:
+			<span className='title'>Genres</span>:
 			<dl className='list-unstyled'>
 				{showData &&
 					showData.genres.map((genre) => {
 						return <dt key={genre}>{genre}</dt>;
 					})}
 			</dl>
-			<p>Summary: {summary}</p>
+			<p>
+				<span className='title'>Summary:</span> {summary}
+			</p>
 		</div>
 	);
-
-	return body;
 };
 
 export default Show;
