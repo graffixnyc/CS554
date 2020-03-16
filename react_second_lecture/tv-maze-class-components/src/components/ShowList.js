@@ -39,6 +39,23 @@ class ShowList extends Component {
 			this.getShows();
 		});
 	};
+	buildListItem = (show) => {
+		let img = null;
+		if (show.image && show.image.medium) {
+			img = <img alt='Show' src={show.image.medium} />;
+		} else {
+			img = <img alt='Show' src={noImage} />;
+		}
+
+		return (
+			<li key={show.id}>
+				<Link to={`/shows/${show.id}`}>
+					{img} <br />
+					{show.name}
+				</Link>
+			</li>
+		);
+	};
 
 	render() {
 		let body = null;
@@ -48,32 +65,14 @@ class ShowList extends Component {
 				this.state.searchData &&
 				this.state.searchData.map((shows) => {
 					let { show } = shows;
-					let img = null;
-					if (show.image) {
-						img = <img alt='Show' src={show.image.medium} />;
-					} else {
-						img = <img alt='Show' src={noImage} />;
-					}
-					return (
-						<li key={show.id}>
-							<Link to={`/shows/${show.id}`}>
-								{img} <br />
-								{show.name}
-							</Link>
-						</li>
-					);
+					return this.buildListItem(show);
 				});
 		} else {
 			li =
 				this.state.data &&
-				this.state.data.map((show) => (
-					<li key={show.id}>
-						<Link to={`/shows/${show.id}`}>
-							<img alt='Show' src={show.image.medium} />; <br />
-							{show.name}
-						</Link>
-					</li>
-				));
+				this.state.data.map((show) => {
+					return this.buildListItem(show);
+				});
 		}
 		body = (
 			<div className='App-body'>

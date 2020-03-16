@@ -38,44 +38,35 @@ const ShowList = () => {
 		setSearchTerm(value);
 	};
 
+	const buildListItem = (show) => {
+		if (show.image && show.image.medium) {
+			img = <img alt='Show' src={show.image.medium} />;
+		} else {
+			img = <img alt='Show' src={noImage} />;
+		}
+
+		return (
+			<li key={show.id}>
+				<Link to={`/shows/${show.id}`}>
+					{img} <br />
+					{show.name}
+				</Link>
+			</li>
+		);
+	};
+
 	if (searchTerm) {
 		li =
 			searchData &&
 			searchData.map((shows) => {
 				let { show } = shows;
-				if (show.image && show.image.medium) {
-					img = <img alt='Show' src={show.image.medium} />;
-				} else {
-					img = <img alt='Show' src={noImage} />;
-				}
-
-				return (
-					<li key={show.id}>
-						<Link to={`/shows/${show.id}`}>
-							{img} <br />
-							{show.name}
-						</Link>
-					</li>
-				);
+				return buildListItem(show);
 			});
 	} else {
 		li =
 			showsData &&
 			showsData.map((show) => {
-				if (show.image && show.image.medium) {
-					img = <img alt='Show' src={show.image.medium} />;
-				} else {
-					img = <img alt='Show' src={noImage} />;
-				}
-
-				return (
-					<li key={show.id}>
-						<Link to={`/shows/${show.id}`}>
-							{img} <br />
-							{show.name}
-						</Link>
-					</li>
-				);
+				return buildListItem(show);
 			});
 	}
 
