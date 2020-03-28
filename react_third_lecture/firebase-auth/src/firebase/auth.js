@@ -1,42 +1,14 @@
-import { auth, firebase } from "./firebase";
+import React, { useState, useEffect } from 'react';
+import firebaseApp from './firebase';
 
-async function doCreateUserWithEmailAndPassword(email, password, displayName) {
-  await auth.createUserWithEmailAndPassword(email, password);
-  auth.currentUser.updateProfile({ displayName: displayName });
-  console.log(`DISPLAY NAME ${displayName}`);
-}
+export const AuthContext = React.createContext();
 
-async function doSignInWithEmailAndPassword(email, password) {
-  await auth.signInWithEmailAndPassword(email, password);
-}
+export const AuthProvider = ({ children }) => {
+	const [ currentUser, setCurrentUser ] = useState(null);
 
-async function doSocialSignIn(provider) {
-  let socialProvider = null;
-  if (provider === "google") {
-    socialProvider = new firebase.auth.GoogleAuthProvider();
-  } else if (provider === "facebook") {
-    socialProvider = new firebase.auth.FacebookAuthProvider();
-  }
-  await auth.signInWithPopup(socialProvider);
-}
+	useEffect(() => {
+		firebaseApp.auth().onAuthStateChanged(setCurrentUser);
+	}, []);
 
-async function doPasswordReset(email) {
-  await auth.sendPasswordResetEmail(email);
-}
-
-async function doPasswordUpdate(password) {
-  await auth.updatePassword(password);
-}
-
-async function doSignOut() {
-  await auth.signOut();
-}
-
-export {
-  doCreateUserWithEmailAndPassword,
-  doSocialSignIn,
-  doSignInWithEmailAndPassword,
-  doPasswordReset,
-  doPasswordUpdate,
-  doSignOut
+	return <AuthContext.Provider value={{ currentUser }}>{children}</AuthContext.Provider>;
 };

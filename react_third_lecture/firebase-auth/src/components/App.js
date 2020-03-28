@@ -1,92 +1,36 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import Navigation from "./Navigation";
-import Home from "./Home";
-import Account from "./Account";
-import SignIn from "./SignIn";
-import Landing from "./Landing";
-import SignUpPage from "./SignUp";
-import ForgotPassword from "./ForgotPassword";
-import { firebase } from "../firebase";
-class App extends Component {
-  constructor(props) {
-    super(props);
+import React from 'react';
+import '../App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Account from './Account';
+import ChangePassword from './ChangePassword';
+import ForgotPassword from './ForgotPassword';
+import Home from './Home';
+import Landing from './Landing';
+import Navigation from './Navigation';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
+import { AuthProvider } from '../firebase/Auth';
+import PrivateRoute from './PrivateRoute';
 
-    this.state = {
-      authUser: null
-    };
-  }
-  componentDidMount() {
-    firebase.auth.onAuthStateChanged(authUser => {
-      if (authUser) {
-        this.setState(
-          {
-            email: authUser.email,
-            uid: authUser.uid,
-            name: authUser.displayName,
-            lastLoginTime: authUser.metadata.lastSignInTime,
-            fullAuthUser: authUser
-          },
-          () => {
-            console.log(this.state);
-          }
-        );
-      } else {
-        this.setState(
-          {
-            email: null,
-            uid: null,
-            name: null,
-            lastLoginTime: null,
-            fullAuthUser: null
-          },
-          () => {
-            console.log(this.state);
-          }
-        );
-      }
-    });
-  }
-
-  render() {
-    return (
-      <Router>
-        <div>
-          <div className="App">
-            <header className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h1 className="App-title">Welcome to React</h1>
-            </header>
-            <Navigation />
-          </div>
-          <Route exact path="/" component={Landing} />
-          <PrivateRoute path="/home" component={Home} />
-          <Route path="/signin" component={SignIn} />
-          <PrivateRoute path="/account" component={Account} />
-          <Route path="/signup" component={SignUpPage} />
-          <Route path="/forgotpassword" component={ForgotPassword} />
-        </div>
-      </Router>
-    );
-  }
+function App() {
+	return (
+		<AuthProvider>
+			<Router>
+				<div className='App'>
+					<header className='App-header'>
+						<Navigation />
+					</header>
+				</div>
+				<Route exact path='/' component={Landing} />
+				<PrivateRoute path='/home' component={Home} />
+				<PrivateRoute path='/account' component={Account} />
+				<Route path='/signin' component={SignIn} />
+				<Route path='/signup' component={SignUp} />
+				<PrivateRoute path='/changepassword' component={ChangePassword} />
+				<Route path='/forgotpassword' component={ForgotPassword} />
+			</Router>
+		</AuthProvider>
+	);
 }
-const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route
-    {...rest}
-    render={props =>
-      firebase.isAuthenticated() === true ? (
-        <Component {...props} {...rest} />
-      ) : (
-        <Redirect
-          to={{
-            pathname: "/signin"
-          }}
-        />
-      )
-    }
-  />
-);
 
 export default App;
