@@ -3,7 +3,6 @@ import '../App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Account from './Account';
 import ChangePassword from './ChangePassword';
-import ForgotPassword from './ForgotPassword';
 import Home from './Home';
 import Landing from './Landing';
 import Navigation from './Navigation';
@@ -27,7 +26,6 @@ function App() {
 				<Route path='/signin' component={SignIn} />
 				<Route path='/signup' component={SignUp} />
 				<PrivateRoute path='/changepassword' component={ChangePassword} />
-				<Route path='/forgotpassword' component={ForgotPassword} />
 			</Router>
 		</AuthProvider>
 	);

@@ -7,15 +7,10 @@ async function doCreateUserWithEmailAndPassword(email, password, displayName) {
 
 async function doChangePassword(email, oldPassword, newPassword) {
 	console.log(oldPassword);
-	try {
-		let credential = firebase.auth.EmailAuthProvider.credential(firebase.auth().currentUser.email, oldPassword);
-		await firebase.auth().currentUser.reauthenticateWithCredential(credential);
-		//await doSignInWithEmailAndPassword(email, oldPassword);
-		await firebase.auth().currentUser.updatePassword(newPassword);
-		await doSignOut();
-	} catch (e) {
-		console.log('Old Password Supplied is not correct');
-	}
+	let credential = firebase.auth.EmailAuthProvider.credential(firebase.auth().currentUser.email, oldPassword);
+	await firebase.auth().currentUser.reauthenticateWithCredential(credential);
+	await firebase.auth().currentUser.updatePassword(newPassword);
+	await doSignOut();
 }
 
 async function doSignInWithEmailAndPassword(email, password) {
