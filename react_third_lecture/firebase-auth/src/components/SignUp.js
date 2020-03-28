@@ -1,9 +1,10 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useContext } from 'react';
 import SocialSignIn from './SocialSignIn';
-import { withRouter } from 'react-router';
+import { withRouter, Redirect } from 'react-router';
 import { doCreateUserWithEmailAndPassword } from '../firebase/FirebaseFunctions';
-
+import { AuthContext } from '../firebase/Auth.js';
 const SignUp = ({ history }) => {
+	const { currentUser } = useContext(AuthContext);
 	const handleSignUp = useCallback(
 		async (event) => {
 			//TODO, do PW checking, to make sure PW1 and PW2 match
@@ -18,6 +19,10 @@ const SignUp = ({ history }) => {
 		},
 		[ history ]
 	);
+
+	if (currentUser) {
+		return <Redirect to='/home' />;
+	}
 
 	return (
 		<div>
