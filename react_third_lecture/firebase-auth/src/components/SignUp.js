@@ -1,23 +1,9 @@
 import React, { useCallback } from 'react';
+import SocialSignIn from './SocialSignIn';
 import { withRouter } from 'react-router';
-import { doCreateUserWithEmailAndPassword, doSocialSignIn } from '../firebase/FirebaseFunctions';
+import { doCreateUserWithEmailAndPassword } from '../firebase/FirebaseFunctions';
 
 const SignUp = ({ history }) => {
-	const socialSignOn = async (provider) => {
-		try {
-			await doSocialSignIn(provider);
-			history.push('/home');
-		} catch (error) {
-			// Handle Errors here.
-			// var errorCode = error.code;
-			// var errorMessage = error.message;
-			// The email of the user's account used.
-			//var email = error.email;
-			// The firebase.auth.AuthCredential type that was used.
-			//var credential = error.credential;
-			console.log(error);
-		}
-	};
 	const handleSignUp = useCallback(
 		async (event) => {
 			//TODO, do PW checking, to make sure PW1 and PW2 match
@@ -60,9 +46,7 @@ const SignUp = ({ history }) => {
 				<button type='submit'>Sign Up</button>
 			</form>
 			<br />
-			<img onClick={() => socialSignOn('google')} alt='google signin' src='./imgs/btn_google_signin.png' />
-
-			<img onClick={() => socialSignOn('facebook')} alt='facebook signin' src='./imgs/facebook_signin.png' />
+			<SocialSignIn />
 		</div>
 	);
 };
