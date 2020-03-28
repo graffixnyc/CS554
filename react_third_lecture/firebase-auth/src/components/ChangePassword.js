@@ -1,4 +1,4 @@
-import React, { useContext, useCallback } from 'react';
+import React, { useContext, useCallback, useState } from 'react';
 import { AuthContext } from '../firebase/Auth.js';
 import { doChangePassword } from '../firebase/FirebaseFunctions';
 import { withRouter } from 'react-router';
@@ -6,15 +6,19 @@ import '../App.css';
 
 function ChangePassword() {
 	const { currentUser } = useContext(AuthContext);
-	console.log(currentUser);
+	const [ pwMatch, setPwMatch ] = useState('');
 
 	const submitForm = useCallback(
 		async (e) => {
-			//TODO, do PW checking, to make sure PW1 and PW2 match
 			e.preventDefault();
 			let currentPassword = document.getElementById('currentPassword').value;
 			let newPasswordOne = document.getElementById('newPasswordOne').value;
 			let newPasswordTwo = document.getElementById('newPasswordTwo').value;
+			if (newPasswordOne !== newPasswordTwo) {
+				setPwMatch('Passwords do not match');
+				return false;
+			}
+
 			try {
 				await doChangePassword(currentUser.email, currentPassword, newPasswordOne);
 				alert('Password changed, the system will log you out now');
@@ -27,6 +31,7 @@ function ChangePassword() {
 	if (currentUser.providerData[0].providerId === 'password') {
 		return (
 			<div>
+				{pwMatch && <h4 className='error'>{pwMatch}</h4>}
 				<h2>Change Password</h2>
 				<form onSubmit={submitForm}>
 					<div className='form-group'>
@@ -38,6 +43,7 @@ function ChangePassword() {
 								id='currentPassword'
 								type='password'
 								placeholder='Current Password'
+								required
 							/>
 						</label>
 					</div>
@@ -51,6 +57,7 @@ function ChangePassword() {
 								id='newPasswordOne'
 								type='password'
 								placeholder='Password'
+								required
 							/>
 						</label>
 					</div>
@@ -63,6 +70,7 @@ function ChangePassword() {
 								id='newPasswordTwo'
 								type='password'
 								placeholder='Confirm Password'
+								required
 							/>
 						</label>
 					</div>
