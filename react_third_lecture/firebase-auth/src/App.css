@@ -7,6 +7,18 @@
 	pointer-events: none;
 }
 
+.forgotPassword {
+	text-decoration: underline;
+	color: blue;
+	padding-left: 10px;
+	font-size: 10pt;
+}
+
+.forgotPassword:hover {
+	text-decoration: none;
+	color: red;
+}
+
 @media (prefers-reduced-motion: no-preference) {
 	.App-logo {
 		animation: App-logo-spin infinite 20s linear;
