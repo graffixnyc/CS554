@@ -42,12 +42,11 @@ const SignIn = ({ history }) => {
 			<h1>Log in</h1>
 			<form onSubmit={handleLogin}>
 				<label>
-					Email
-					<input name='email' id='email' type='email' placeholder='Email' />
+					Email: <input name='email' id='email' type='email' placeholder='Email' />
 				</label>
 				<br />
 				<label>
-					Password
+					Password:
 					<input name='password' type='password' placeholder='Password' />
 				</label>
 				<br />
