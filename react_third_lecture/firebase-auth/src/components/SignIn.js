@@ -41,15 +41,18 @@ const SignIn = ({ history }) => {
 		<div>
 			<h1>Log in</h1>
 			<form onSubmit={handleLogin}>
-				<label>
-					Email: <input name='email' id='email' type='email' placeholder='Email' />
-				</label>
-				<br />
-				<label>
-					Password:
-					<input name='password' type='password' placeholder='Password' />
-				</label>
-				<br />
+				<div className='form-group'>
+					<label>
+						Email:
+						<input className='form-control' name='email' id='email' type='email' placeholder='Email' />
+					</label>
+				</div>
+				<div className='form-group'>
+					<label>
+						Password:
+						<input className='form-control' name='password' type='password' placeholder='Password' />
+					</label>
+				</div>
 				<button type='submit'>Log in</button>
 
 				<button className='forgotPassword' onClick={passwordReset}>

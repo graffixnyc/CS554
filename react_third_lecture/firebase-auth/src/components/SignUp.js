@@ -28,26 +28,35 @@ const SignUp = ({ history }) => {
 		<div>
 			<h1>Sign up</h1>
 			<form onSubmit={handleSignUp}>
-				<label>
-					Name
-					<input name='displayName' type='text' placeholder='Name' />
-				</label>
-				<br />
-				<label>
-					Email
-					<input name='email' type='email' placeholder='Email' />
-				</label>
-				<br />
-				<label>
-					Password
-					<input name='passwordOne' type='password' placeholder='Password' />
-				</label>
-				<br />
-				<label>
-					Confirm Password
-					<input name='passwordTwo' type='password' placeholder='Confirm Password' />
-				</label>
-				<br />
+				<div className='form-group'>
+					<label>
+						Name:
+						<input className='form-control' name='displayName' type='text' placeholder='Name' />
+					</label>
+				</div>
+				<div className='form-group'>
+					<label>
+						Email:
+						<input className='form-control' name='email' type='email' placeholder='Email' />
+					</label>
+				</div>
+				<div className='form-group'>
+					<label>
+						Password:
+						<input className='form-control' name='passwordOne' type='password' placeholder='Password' />
+					</label>
+				</div>
+				<div className='form-group'>
+					<label>
+						Confirm Password:
+						<input
+							className='form-control'
+							name='passwordTwo'
+							type='password'
+							placeholder='Confirm Password'
+						/>
+					</label>
+				</div>
 				<button type='submit'>Sign Up</button>
 			</form>
 			<br />

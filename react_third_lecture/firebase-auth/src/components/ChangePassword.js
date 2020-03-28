@@ -29,31 +29,44 @@ function ChangePassword() {
 			<div>
 				<h2>Change Password</h2>
 				<form onSubmit={submitForm}>
-					<label>
-						Current Password
-						<input
-							name='currentPassword'
-							id='currentPassword'
-							type='password'
-							placeholder='Current Password'
-						/>
-					</label>
-					<br />
-					<label>
-						New Password
-						<input name='newPasswordOne' id='newPasswordOne' type='password' placeholder='Password' />
-					</label>
-					<br />
-					<label>
-						Confirm New Password
-						<input
-							name='newPasswordTwo'
-							id='newPasswordTwo'
-							type='password'
-							placeholder='Confirm Password'
-						/>
-					</label>
-					<br />
+					<div className='form-group'>
+						<label>
+							Current Password:
+							<input
+								className='form-control'
+								name='currentPassword'
+								id='currentPassword'
+								type='password'
+								placeholder='Current Password'
+							/>
+						</label>
+					</div>
+
+					<div className='form-group'>
+						<label>
+							New Password:
+							<input
+								className='form-control'
+								name='newPasswordOne'
+								id='newPasswordOne'
+								type='password'
+								placeholder='Password'
+							/>
+						</label>
+					</div>
+					<div className='form-group'>
+						<label>
+							Confirm New Password:
+							<input
+								className='form-control'
+								name='newPasswordTwo'
+								id='newPasswordTwo'
+								type='password'
+								placeholder='Confirm Password'
+							/>
+						</label>
+					</div>
+
 					<button type='submit'>Change Password</button>
 				</form>
 				<br />
