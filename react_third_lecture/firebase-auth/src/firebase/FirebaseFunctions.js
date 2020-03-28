@@ -6,22 +6,19 @@ async function doCreateUserWithEmailAndPassword(email, password, displayName) {
 }
 
 async function doChangePassword(email, oldPassword, newPassword) {
-	let credential = firebase.auth.EmailAuthProvider.credential(firebase.auth().currentUser.email, oldPassword);
+	let credential = firebase.auth.EmailAuthProvider.credential(email, oldPassword);
 	await firebase.auth().currentUser.reauthenticateWithCredential(credential);
 	await firebase.auth().currentUser.updatePassword(newPassword);
 	await doSignOut();
 }
 
 async function doSignInWithEmailAndPassword(email, password) {
-	console.log('in signin');
 	await firebase.auth().signInWithEmailAndPassword(email, password);
 }
 
 async function doSocialSignIn(provider) {
 	let socialProvider = null;
 	if (provider === 'google') {
-		console.log(provider);
-		//socialProvider = new firebaseApp.auth.GoogleAuthProvider();
 		socialProvider = new firebase.auth.GoogleAuthProvider();
 	} else if (provider === 'facebook') {
 		socialProvider = new firebase.auth.FacebookAuthProvider();
