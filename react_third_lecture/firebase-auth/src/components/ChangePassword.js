@@ -27,7 +27,7 @@ function ChangePassword() {
 	if (currentUser.providerData[0].providerId === 'password') {
 		return (
 			<div>
-				<h1>Sign up</h1>
+				<h2>Change Password</h2>
 				<form onSubmit={submitForm}>
 					<label>
 						Current Password

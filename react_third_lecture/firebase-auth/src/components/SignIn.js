@@ -32,6 +32,7 @@ const SignIn = ({ history }) => {
 
 		if (email) {
 			doPasswordReset(email);
+			alert('Password Reset Email sent!');
 		} else {
 			alert('Please enter an email address below and click forgot password');
 		}
@@ -51,9 +52,10 @@ const SignIn = ({ history }) => {
 				</label>
 				<br />
 				<button type='submit'>Log in</button>
-				<a className='forgotPassword' onClick={passwordReset}>
+
+				<button className='forgotPassword' onClick={passwordReset}>
 					Forgot Password
-				</a>
+				</button>
 			</form>
 
 			<br />

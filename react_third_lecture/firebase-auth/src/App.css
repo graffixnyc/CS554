@@ -8,10 +8,14 @@
 }
 
 .forgotPassword {
+	background: none !important;
+	border: none;
+	padding: 0px;
+
+	margin-left: 5px;
+	color: #069;
 	text-decoration: underline;
-	color: blue;
-	padding-left: 10px;
-	font-size: 10pt;
+	cursor: pointer;
 }
 
 .forgotPassword:hover {
