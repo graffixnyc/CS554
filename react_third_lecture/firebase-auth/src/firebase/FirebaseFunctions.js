@@ -6,7 +6,6 @@ async function doCreateUserWithEmailAndPassword(email, password, displayName) {
 }
 
 async function doChangePassword(email, oldPassword, newPassword) {
-	console.log(oldPassword);
 	let credential = firebase.auth.EmailAuthProvider.credential(firebase.auth().currentUser.email, oldPassword);
 	await firebase.auth().currentUser.reauthenticateWithCredential(credential);
 	await firebase.auth().currentUser.updatePassword(newPassword);

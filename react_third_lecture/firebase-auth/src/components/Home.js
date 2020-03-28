@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../firebase/Auth.js';
-import { doSignOut, doChangePassword } from '../firebase/FirebaseFunctions';
+import React from 'react';
+import { doSignOut } from '../firebase/FirebaseFunctions';
 
 import '../App.css';
 

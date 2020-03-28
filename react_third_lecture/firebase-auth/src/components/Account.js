@@ -1,5 +1,5 @@
 import React from 'react';
-import firebaseApp from '../firebase/firebase';
+
 import '../App.css';
 import ChangePassword from './ChangePassword';
 function Account() {

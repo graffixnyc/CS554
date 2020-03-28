@@ -20,6 +20,7 @@ const SignUp = ({ history }) => {
 	};
 	const handleSignUp = useCallback(
 		async (event) => {
+			//TODO, do PW checking, to make sure PW1 and PW2 match
 			event.preventDefault();
 			const { displayName, email, passwordOne } = event.target.elements;
 			try {
