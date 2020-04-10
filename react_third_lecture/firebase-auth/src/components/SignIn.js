@@ -44,13 +44,26 @@ const SignIn = ({ history }) => {
 				<div className='form-group'>
 					<label>
 						Email:
-						<input className='form-control' name='email' id='email' type='email' placeholder='Email' />
+						<input
+							className='form-control'
+							name='email'
+							id='email'
+							type='email'
+							placeholder='Email'
+							required
+						/>
 					</label>
 				</div>
 				<div className='form-group'>
 					<label>
 						Password:
-						<input className='form-control' name='password' type='password' placeholder='Password' />
+						<input
+							className='form-control'
+							name='password'
+							type='password'
+							placeholder='Password'
+							required
+						/>
 					</label>
 				</div>
 				<button type='submit'>Log in</button>
