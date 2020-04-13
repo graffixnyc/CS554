@@ -1,3 +1,4 @@
+## Firebase Auth and React Example
 This project uses React and Firebase Authentication.  You will need to put your Firebase credentials into a .env file in the project root as shown in the lecture. The .env file should look like below.  
 
 REACT_APP_FIREBASE_KEY = "YOUR FB API KEY"
