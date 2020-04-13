@@ -1,29 +1,25 @@
-import React, { useCallback, useContext, useState } from 'react';
-import SocialSignIn from './SocialSignIn';
-import { withRouter, Redirect } from 'react-router';
+import React, { useContext, useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { doCreateUserWithEmailAndPassword } from '../firebase/FirebaseFunctions';
-import { AuthContext } from '../firebase/Auth.js';
-const SignUp = ({ history }) => {
+import { AuthContext } from '../firebase/Auth';
+import SocialSignIn from './SocialSignIn';
+function SignUp() {
 	const { currentUser } = useContext(AuthContext);
 	const [ pwMatch, setPwMatch ] = useState('');
+	const handleSignUp = async (e) => {
+		e.preventDefault();
+		const { displayName, email, passwordOne, passwordTwo } = e.target.elements;
+		if (passwordOne.value !== passwordTwo.value) {
+			setPwMatch('Passwords do not match');
+			return false;
+		}
 
-	const handleSignUp = useCallback(
-		async (e) => {
-			e.preventDefault();
-			const { displayName, email, passwordOne, passwordTwo } = e.target.elements;
-			if (passwordOne.value !== passwordTwo.value) {
-				setPwMatch('Passwords do not match');
-				return false;
-			}
-			try {
-				await doCreateUserWithEmailAndPassword(email.value, passwordOne.value, displayName.value);
-				history.push('/home');
-			} catch (error) {
-				alert(error);
-			}
-		},
-		[ history ]
-	);
+		try {
+			await doCreateUserWithEmailAndPassword(email.value, passwordOne.value, displayName);
+		} catch (error) {
+			alert(error);
+		}
+	};
 
 	if (currentUser) {
 		return <Redirect to='/home' />;
@@ -79,6 +75,6 @@ const SignUp = ({ history }) => {
 			<SocialSignIn />
 		</div>
 	);
-};
+}
 
-export default withRouter(SignUp);
+export default SignUp;

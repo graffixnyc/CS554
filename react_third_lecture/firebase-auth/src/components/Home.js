@@ -1,12 +1,11 @@
 import React from 'react';
-import SignOutButton from './SignOut';
+
 import '../App.css';
 
 function Home() {
 	return (
 		<div>
-			<h1>Home Page</h1>
-			<SignOutButton />
+			<h2>This is the Home page</h2>
 		</div>
 	);
 }

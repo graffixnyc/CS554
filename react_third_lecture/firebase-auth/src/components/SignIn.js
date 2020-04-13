@@ -1,42 +1,35 @@
-import React, { useCallback, useContext } from 'react';
+import React, { useContext } from 'react';
 import SocialSignIn from './SocialSignIn';
-import { withRouter, Redirect } from 'react-router';
-import '../App.css';
-import { AuthContext } from '../firebase/Auth.js';
+import { Redirect } from 'react-router-dom';
+import { AuthContext } from '../firebase/Auth';
 import { doSignInWithEmailAndPassword, doPasswordReset } from '../firebase/FirebaseFunctions';
 
-const SignIn = ({ history }) => {
-	const handleLogin = useCallback(
-		async (event) => {
-			event.preventDefault();
-			const { email, password } = event.target.elements;
-			try {
-				await doSignInWithEmailAndPassword(email.value, password.value);
-				history.push('/home');
-			} catch (error) {
-				alert(error);
-			}
-		},
-		[ history ]
-	);
-
+function SignIn() {
 	const { currentUser } = useContext(AuthContext);
+	const handleLogin = async (event) => {
+		event.preventDefault();
+		let { email, password } = event.target.elements;
 
+		try {
+			await doSignInWithEmailAndPassword(email.value, password.value);
+		} catch (error) {
+			alert(error);
+		}
+	};
+
+	const passwordReset = (event) => {
+		event.preventDefault();
+		let email = document.getElementById('email').value;
+		if (email) {
+			doPasswordReset(email);
+			alert('Password reset email was sent');
+		} else {
+			alert('Please enter an email address below before you click the forgot password link');
+		}
+	};
 	if (currentUser) {
 		return <Redirect to='/home' />;
 	}
-	const passwordReset = (e) => {
-		e.preventDefault();
-
-		let email = document.getElementById('email').value;
-
-		if (email) {
-			doPasswordReset(email);
-			alert('Password Reset Email sent!');
-		} else {
-			alert('Please enter an email address below and click forgot password');
-		}
-	};
 	return (
 		<div>
 			<h1>Log in</h1>
@@ -77,6 +70,6 @@ const SignIn = ({ history }) => {
 			<SocialSignIn />
 		</div>
 	);
-};
+}
 
-export default withRouter(SignIn);
+export default SignIn;

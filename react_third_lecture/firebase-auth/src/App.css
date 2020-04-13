@@ -7,22 +7,6 @@
 	pointer-events: none;
 }
 
-.forgotPassword {
-	background: none !important;
-	border: none;
-	padding: 0px;
-
-	margin-left: 5px;
-	color: #069;
-	text-decoration: underline;
-	cursor: pointer;
-}
-
-.forgotPassword:hover {
-	text-decoration: none;
-	color: red;
-}
-
 @media (prefers-reduced-motion: no-preference) {
 	.App-logo {
 		animation: App-logo-spin infinite 20s linear;
@@ -73,4 +57,17 @@
 .error {
 	font-weight: bold;
 	color: red !important;
+}
+
+.forgotPassword {
+	background: none !important;
+	border: none !important;
+	text-decoration: underline;
+	margin-left: 5px;
+	color: #069;
+}
+
+.forgotPassword:hover {
+	text-decoration: none;
+	color: red;
 }

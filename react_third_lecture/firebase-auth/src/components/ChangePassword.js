@@ -1,33 +1,29 @@
-import React, { useContext, useCallback, useState } from 'react';
-import { AuthContext } from '../firebase/Auth.js';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../firebase/Auth';
 import { doChangePassword } from '../firebase/FirebaseFunctions';
-import { withRouter } from 'react-router';
 import '../App.css';
 
 function ChangePassword() {
 	const { currentUser } = useContext(AuthContext);
 	const [ pwMatch, setPwMatch ] = useState('');
+	console.log(currentUser);
 
-	const submitForm = useCallback(
-		async (e) => {
-			e.preventDefault();
-			let currentPassword = document.getElementById('currentPassword').value;
-			let newPasswordOne = document.getElementById('newPasswordOne').value;
-			let newPasswordTwo = document.getElementById('newPasswordTwo').value;
-			if (newPasswordOne !== newPasswordTwo) {
-				setPwMatch('Passwords do not match');
-				return false;
-			}
+	const submitForm = async (event) => {
+		event.preventDefault();
+		const { currentPassword, newPasswordOne, newPasswordTwo } = event.target.elements;
 
-			try {
-				await doChangePassword(currentUser.email, currentPassword, newPasswordOne);
-				alert('Password changed, the system will log you out now');
-			} catch (e) {
-				alert('Something went wrong, make sure your current password is correct');
-			}
-		},
-		[ currentUser.email ]
-	);
+		if (newPasswordOne.value !== newPasswordTwo.value) {
+			setPwMatch('New Passwords do not match, please try again');
+			return false;
+		}
+
+		try {
+			await doChangePassword(currentUser.email, currentPassword.value, newPasswordOne.value);
+			alert('Password has been changed, you will now be logged out');
+		} catch (error) {
+			alert(error);
+		}
+	};
 	if (currentUser.providerData[0].providerId === 'password') {
 		return (
 			<div>
@@ -89,4 +85,4 @@ function ChangePassword() {
 	}
 }
 
-export default withRouter(ChangePassword);
+export default ChangePassword;
