@@ -13,7 +13,7 @@ class App {
 		this.pokeRoutes.routes(this.app);
 	}
 
-	Logger = (req: Request, res: Response, next: Function) => {
+	private Logger = (req: Request, res: Response, next: Function) => {
 		totalRequests++;
 		console.log(`There has been ${totalRequests} requests made to the site`);
 		console.log('The last request came from: ' + req.protocol + '://' + req.get('host') + req.originalUrl);
