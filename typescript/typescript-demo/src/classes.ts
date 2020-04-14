@@ -5,6 +5,7 @@ interface UserInterface {
 	register();
 	payInvoice();
 }
+
 class User implements UserInterface {
 	name: string;
 	email: string;
@@ -14,7 +15,6 @@ class User implements UserInterface {
 		this.name = name;
 		this.email = email;
 		this.age = age;
-		console.log(`User Created: ${this.name}`);
 	}
 	register() {
 		console.log(`${this.name} is now registered`);
@@ -26,11 +26,13 @@ class User implements UserInterface {
 
 let patrick: User = new User('Patrick Hill', 'phill@stevens.edu', 44);
 
-console.log(patrick.age);
+console.log(patrick);
 patrick.register();
+patrick.payInvoice();
 
 class Member extends User {
 	id: number;
+
 	constructor(id: number, name: string, email: string, age: number) {
 		super(name, email, age);
 		this.id = id;
@@ -40,5 +42,6 @@ class Member extends User {
 	}
 }
 
-let tommyMember: User = new Member(1, 'Tommy', 'phill@stevens.edu', 43);
-tommyMember.payInvoice();
+let aiden: Member = new Member(1, 'Aiden Hill', 'ahill@stevens.edu', 1);
+console.log(aiden);
+aiden.payInvoice();
