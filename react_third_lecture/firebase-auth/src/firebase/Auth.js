@@ -5,16 +5,16 @@ export const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
 	const [ currentUser, setCurrentUser ] = useState(null);
-	const [ pending, setPending ] = useState(true);
+	const [ loadingUser, setLoadingUser ] = useState(true);
 
 	useEffect(() => {
 		firebaseApp.auth().onAuthStateChanged((user) => {
 			setCurrentUser(user);
-			setPending(false);
+			setLoadingUser(false);
 		});
 	}, []);
 
-	if (pending) {
+	if (loadingUser) {
 		return <div>Loading....</div>;
 	}
 
