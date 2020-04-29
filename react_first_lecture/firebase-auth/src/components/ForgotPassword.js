@@ -1,9 +1,13 @@
-import React from "react";
+import React from 'react';
 
-const ForgotPassword = () => (
-  <div>
-    <h1>Hello, this is the Forgotten password page</h1>
-  </div>
-);
+import '../App.css';
+
+function ForgotPassword() {
+	return (
+		<div>
+			<h2>This is the Forgot PW page</h2>
+		</div>
+	);
+}
 
 export default ForgotPassword;

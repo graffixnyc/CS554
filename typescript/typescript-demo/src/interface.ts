@@ -1,31 +1,31 @@
 interface IPerson {
-  firstName: string;
-  lastName: string;
-  sayHi: () => string;
+	firstName: string;
+	lastName: string;
+	sayHi: () => string;
 }
 
-var customer: IPerson = {
-  firstName: 'Tom',
-  lastName: 'Hanks',
-  sayHi: (): string => {
-    return 'Hi there';
-  }
+let customer: IPerson = {
+	firstName: 'Tom',
+	lastName: 'Hanks',
+	sayHi: (): string => {
+		return `Hello, ${customer.firstName}, ${customer.lastName} `;
+	}
 };
 
-console.log('Customer Object ');
+console.log('Customer Object');
 console.log(customer.firstName);
 console.log(customer.lastName);
 console.log(customer.sayHi());
 
-var employee: IPerson = {
-  firstName: 'Tommy',
-  lastName: 'Lee',
-  sayHi: (): string => {
-    return 'Hello, from Tommy Lee';
-  }
+let employee: IPerson = {
+	firstName: 'Tommy',
+	lastName: 'Lee',
+	sayHi: (): string => {
+		return `Hello, ${employee.firstName}, ${employee.lastName} `;
+	}
 };
 
-console.log('Employee  Object ');
+console.log('Employee Object');
 console.log(employee.firstName);
 console.log(employee.lastName);
 console.log(employee.sayHi());

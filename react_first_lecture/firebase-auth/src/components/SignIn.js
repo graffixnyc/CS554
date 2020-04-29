@@ -1,9 +1,13 @@
-import React from "react";
+import React from 'react';
 
-const SignIn = () => (
-  <div>
-    <h1>Hello, this is the Sign-In page</h1>
-  </div>
-);
+import '../App.css';
+
+function SignIn() {
+	return (
+		<div>
+			<h2>This is the Sign in page</h2>
+		</div>
+	);
+}
 
 export default SignIn;

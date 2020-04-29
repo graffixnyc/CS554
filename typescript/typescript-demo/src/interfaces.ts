@@ -1,13 +1,11 @@
 interface Todo {
-  title: string;
-  text: string;
+	title: string;
+	text: string;
 }
 
 function showTodo(todo: Todo) {
-  console.log(`${todo.title}
-    ${todo.text}`);
+	return `Title: ${todo.title} Todo: ${todo.text} `;
 }
 
-let myTodo = {title: 'Pay the Cable Bill', text: "Don't forget to pay the cable bill by May 23rd"};
-
-showTodo(myTodo);
+let myTodo = { title: 'Pay Cable Bill', text: 'Make sure you pay the cable bill by the 15th' };
+console.log(showTodo(myTodo));

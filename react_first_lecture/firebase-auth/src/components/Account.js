@@ -1,9 +1,13 @@
-import React from "react";
+import React from 'react';
 
-const Account = () => (
-  <div>
-    <h1>Hello, this is the account page</h1>
-  </div>
-);
+import '../App.css';
+
+function Account() {
+	return (
+		<div>
+			<h2>This is the account page</h2>
+		</div>
+	);
+}
 
 export default Account;

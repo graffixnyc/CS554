@@ -1,48 +1,39 @@
 let myString: string;
-myString = 'Hello' + ' World';
+myString = 'Hello';
 console.log(myString);
 
-let myNum: number;
-myNum = 2;
+let myNum: number = 2;
 console.log(myNum);
 
 let myBool: boolean;
 myBool = true;
 console.log(myBool);
+myBool = false;
 
 let myAny: any;
 myAny = 3;
-console.log(myAny);
 myAny = 'Patrick';
-console.log(myAny);
 myAny = true;
+myAny = [ 1, 2, 3 ];
 
-let strArr: string[];
-strArr = ['Vince', 'Tommy', 'Nikki', 'Mick'];
-console.log(strArr);
-//strArr = [1, 'tommy'];
+let myStrArray: string[];
 
-//another way to declare a typed array
+myStrArray = [ myString, 'Nikki', 'Tommy', 'Mick' ];
+
 let strArr2: Array<string>;
-strArr2 = ['Vince', 'Tommy', 'Nikki', 'Mick'];
-let numArr: Array<number>;
-numArr = [1, 2, 3, 4];
+strArr2 = [ myString, 'Nikki', 'Tommy', 'Mick' ];
 
 let strNumTuple: [string, number];
-strNumTuple = ['hello', 2];
-console.log(strNumTuple);
+strNumTuple = [ 'hello', 2 ];
 
 let myVoid: void;
 myVoid = null;
-console.log(myVoid);
+myVoid = undefined;
 
 let myUndefined: undefined;
 myUndefined = undefined;
-console.log(myUndefined);
+myUndefined = null;
 
 let myNull: null;
 myNull = null;
-console.log(myNull);
-
-let mystring2: string;
-mystring2 = 'John';
+myNull = undefined;
