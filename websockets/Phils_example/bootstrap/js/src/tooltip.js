@@ -44,7 +44,7 @@ const Tooltip = (($) => {
     selector: false,
     placement: 'top',
     offset: '0 0',
-    constraints: [],
+    constraints: []
   };
 
   const DefaultType = {
@@ -57,19 +57,19 @@ const Tooltip = (($) => {
     selector: '(string|boolean)',
     placement: '(string|function)',
     offset: 'string',
-    constraints: 'array',
+    constraints: 'array'
   };
 
   const AttachmentMap = {
     TOP: 'bottom center',
     RIGHT: 'middle left',
     BOTTOM: 'top center',
-    LEFT: 'middle right',
+    LEFT: 'middle right'
   };
 
   const HoverState = {
     IN: 'in',
-    OUT: 'out',
+    OUT: 'out'
   };
 
   const Event = {
@@ -82,29 +82,29 @@ const Tooltip = (($) => {
     FOCUSIN: `focusin${EVENT_KEY}`,
     FOCUSOUT: `focusout${EVENT_KEY}`,
     MOUSEENTER: `mouseenter${EVENT_KEY}`,
-    MOUSELEAVE: `mouseleave${EVENT_KEY}`,
+    MOUSELEAVE: `mouseleave${EVENT_KEY}`
   };
 
   const ClassName = {
     FADE: 'fade',
-    IN: 'in',
+    IN: 'in'
   };
 
   const Selector = {
     TOOLTIP: '.tooltip',
-    TOOLTIP_INNER: '.tooltip-inner',
+    TOOLTIP_INNER: '.tooltip-inner'
   };
 
   const TetherClass = {
     element: false,
-    enabled: false,
+    enabled: false
   };
 
   const Trigger = {
     HOVER: 'hover',
     FOCUS: 'focus',
     CLICK: 'click',
-    MANUAL: 'manual',
+    MANUAL: 'manual'
   };
 
   /**
@@ -274,7 +274,7 @@ const Tooltip = (($) => {
           classPrefix: CLASS_PREFIX,
           offset: this.config.offset,
           constraints: this.config.constraints,
-          addTargetClasses: false,
+          addTargetClasses: false
         });
 
         Util.reflow(tip);
@@ -439,7 +439,7 @@ const Tooltip = (($) => {
       if (this.config.selector) {
         this.config = $.extend({}, this.config, {
           trigger: 'manual',
-          selector: '',
+          selector: ''
         });
       } else {
         this._fixTitle();
@@ -560,7 +560,7 @@ const Tooltip = (($) => {
       if (config.delay && typeof config.delay === 'number') {
         config.delay = {
           show: config.delay,
-          hide: config.delay,
+          hide: config.delay
         };
       }
 

@@ -64,7 +64,7 @@ var Carousel = (function ($) {
     keyboard: true,
     slide: false,
     pause: 'hover',
-    wrap: true,
+    wrap: true
   };
 
   var DefaultType = {
@@ -72,12 +72,12 @@ var Carousel = (function ($) {
     keyboard: 'boolean',
     slide: '(boolean|string)',
     pause: '(string|boolean)',
-    wrap: 'boolean',
+    wrap: 'boolean'
   };
 
   var Direction = {
     NEXT: 'next',
-    PREVIOUS: 'prev',
+    PREVIOUS: 'prev'
   };
 
   var Event = {
@@ -87,7 +87,7 @@ var Carousel = (function ($) {
     MOUSEENTER: 'mouseenter' + EVENT_KEY,
     MOUSELEAVE: 'mouseleave' + EVENT_KEY,
     LOAD_DATA_API: 'load' + EVENT_KEY + DATA_API_KEY,
-    CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY,
+    CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY
   };
 
   var ClassName = {
@@ -96,7 +96,7 @@ var Carousel = (function ($) {
     SLIDE: 'slide',
     RIGHT: 'right',
     LEFT: 'left',
-    ITEM: 'carousel-item',
+    ITEM: 'carousel-item'
   };
 
   var Selector = {
@@ -106,7 +106,7 @@ var Carousel = (function ($) {
     NEXT_PREV: '.next, .prev',
     INDICATORS: '.carousel-indicators',
     DATA_SLIDE: '[data-slide], [data-slide-to]',
-    DATA_RIDE: '[data-ride="carousel"]',
+    DATA_RIDE: '[data-ride="carousel"]'
   };
 
   /**
@@ -314,7 +314,7 @@ var Carousel = (function ($) {
     ) {
       var slideEvent = $.Event(Event.SLIDE, {
         relatedTarget: relatedTarget,
-        direction: directionalClassname,
+        direction: directionalClassname
       });
 
       $(this._element).trigger(slideEvent);
@@ -381,7 +381,7 @@ var Carousel = (function ($) {
 
       var slidEvent = $.Event(Event.SLID, {
         relatedTarget: nextElement,
-        direction: directionalClassName,
+        direction: directionalClassName
       });
 
       if (
@@ -497,14 +497,14 @@ var Carousel = (function ($) {
         key: 'VERSION',
         get: function get() {
           return VERSION;
-        },
+        }
       },
       {
         key: 'Default',
         get: function get() {
           return Default;
-        },
-      },
+        }
+      }
     ]);
 
     return Carousel;

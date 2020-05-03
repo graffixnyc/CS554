@@ -7,47 +7,47 @@ let employees = [
     id: uuid.v4(),
     firstName: 'Patrick',
     lastName: 'Hill',
-    employerId: 1,
+    employerId: 1
   },
   {
     id: uuid.v4(),
     firstName: 'Jimi',
     lastName: 'Hendrix',
-    employerId: 1,
+    employerId: 1
   },
   {
     id: uuid.v4(),
     firstName: 'Jim',
     lastName: 'Morrison',
-    employerId: 2,
+    employerId: 2
   },
   {
     id: uuid.v4(),
     firstName: 'Roger',
     lastName: 'Waters',
-    employerId: 1,
+    employerId: 1
   },
   {
     id: uuid.v4(),
     firstName: 'John',
     lastName: 'Smith',
-    employerId: 2,
-  },
+    employerId: 2
+  }
 ];
 
 let employers = [
   {
     id: 1,
-    name: 'Stevens Institute of Technology',
+    name: 'Stevens Institute of Technology'
   },
   {
     id: 2,
-    name: 'Google',
+    name: 'Google'
   },
   {
     id: 3,
-    name: 'Apple',
-  },
+    name: 'Apple'
+  }
 ];
 
 //Create the type definitions for the query and our data
@@ -106,7 +106,7 @@ const resolvers = {
     employer: (_, args) => employers.filter((e) => e.id === args.id)[0],
     employee: (_, args) => employees.filter((e) => e.id === args.id)[0],
     employers: () => employers,
-    employees: () => employees,
+    employees: () => employees
   },
   Employer: {
     numOfEmployees: (parentValue) => {
@@ -115,12 +115,12 @@ const resolvers = {
     },
     employees: (parentValue) => {
       return employees.filter((e) => e.employerId === parentValue.id);
-    },
+    }
   },
   Employee: {
     employer: (parentValue) => {
       return employers.filter((e) => e.id === parentValue.employerId)[0];
-    },
+    }
   },
   Mutation: {
     addEmployee: (_, args) => {
@@ -128,7 +128,7 @@ const resolvers = {
         id: uuid.v4(),
         firstName: args.firstName,
         lastName: args.lastName,
-        employerId: args.employerId,
+        employerId: args.employerId
       };
       employees.push(newEmployee);
       return newEmployee;
@@ -159,12 +159,12 @@ const resolvers = {
     addEmployer: (_, args) => {
       const newEmployer = {
         id: employers.length + 1,
-        name: args.name,
+        name: args.name
       };
       employers.push(newEmployer);
       return newEmployer;
-    },
-  },
+    }
+  }
 };
 
 const server = new ApolloServer({ typeDefs, resolvers });

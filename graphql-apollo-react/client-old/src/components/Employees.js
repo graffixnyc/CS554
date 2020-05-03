@@ -22,7 +22,7 @@ class Employees extends Component {
       showAddModal: false,
       showDeleteModal: false,
       editEmployee: null,
-      deleteEmployee: null,
+      deleteEmployee: null
     };
     this.handleOpenEditModal = this.handleOpenEditModal.bind(this);
     this.handleOpenAddModal = this.handleOpenAddModal.bind(this);
@@ -31,21 +31,21 @@ class Employees extends Component {
   handleOpenEditModal(employee) {
     this.setState({
       showEditModal: true,
-      editEmployee: employee,
+      editEmployee: employee
     });
   }
 
   handleOpenDeleteModal(employee) {
     this.setState({
       showDeleteModal: true,
-      deleteEmployee: employee,
+      deleteEmployee: employee
     });
   }
   handleCloseModals() {
     this.setState({
       showAddModal: false,
       showEditModal: false,
-      showDeleteModal: false,
+      showDeleteModal: false
     });
   }
 

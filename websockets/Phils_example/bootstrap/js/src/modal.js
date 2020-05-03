@@ -28,14 +28,14 @@ const Modal = (($) => {
     backdrop: true,
     keyboard: true,
     focus: true,
-    show: true,
+    show: true
   };
 
   const DefaultType = {
     backdrop: '(boolean|string)',
     keyboard: 'boolean',
     focus: 'boolean',
-    show: 'boolean',
+    show: 'boolean'
   };
 
   const Event = {
@@ -49,7 +49,7 @@ const Modal = (($) => {
     KEYDOWN_DISMISS: `keydown.dismiss${EVENT_KEY}`,
     MOUSEUP_DISMISS: `mouseup.dismiss${EVENT_KEY}`,
     MOUSEDOWN_DISMISS: `mousedown.dismiss${EVENT_KEY}`,
-    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`,
+    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
   };
 
   const ClassName = {
@@ -57,14 +57,14 @@ const Modal = (($) => {
     BACKDROP: 'modal-backdrop',
     OPEN: 'modal-open',
     FADE: 'fade',
-    IN: 'in',
+    IN: 'in'
   };
 
   const Selector = {
     DIALOG: '.modal-dialog',
     DATA_TOGGLE: '[data-toggle="modal"]',
     DATA_DISMISS: '[data-dismiss="modal"]',
-    FIXED_CONTENT: '.navbar-fixed-top, .navbar-fixed-bottom, .is-fixed',
+    FIXED_CONTENT: '.navbar-fixed-top, .navbar-fixed-bottom, .is-fixed'
   };
 
   /**
@@ -104,7 +104,7 @@ const Modal = (($) => {
 
     show(relatedTarget) {
       let showEvent = $.Event(Event.SHOW, {
-        relatedTarget,
+        relatedTarget
       });
 
       $(this._element).trigger(showEvent);
@@ -232,7 +232,7 @@ const Modal = (($) => {
       }
 
       let shownEvent = $.Event(Event.SHOWN, {
-        relatedTarget,
+        relatedTarget
       });
 
       let transitionComplete = () => {

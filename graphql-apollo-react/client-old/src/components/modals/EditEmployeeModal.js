@@ -18,8 +18,8 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
     width: '50%',
     border: '1px solid #28547a',
-    borderRadius: '4px',
-  },
+    borderRadius: '4px'
+  }
 };
 
 /* The React Apollo package grants access to a Query component, which takes a query as prop and executes it when its rendered. 
@@ -32,7 +32,7 @@ class EditEmployeesModal extends Component {
     super(props);
     this.state = {
       showEditModal: this.props.isOpen,
-      employee: this.props.employee,
+      employee: this.props.employee
     };
     this.handleCloseEditModal = this.handleCloseEditModal.bind(this);
   }
@@ -70,8 +70,8 @@ class EditEmployeesModal extends Component {
                       id: this.props.employee.id,
                       firstName: firstName.value,
                       lastName: lastName.value,
-                      employerId: parseInt(employerId.value),
-                    },
+                      employerId: parseInt(employerId.value)
+                    }
                   });
                   firstName.value = '';
                   lastName.value = '';

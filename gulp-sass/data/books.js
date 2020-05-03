@@ -13,7 +13,7 @@ let exportedMethods = {
         { '132': 'Peter Pan' },
         { '135': 'Peter Pan' },
         { '829': 'Peter Pan' },
-        { '1080': 'Peter Pan' },
+        { '1080': 'Peter Pan' }
       ]);
     });
   },
@@ -25,7 +25,7 @@ let exportedMethods = {
     return fs.statAsync(bookPath).then((stats) => {
       return fs.readFileAsync(bookPath, 'utf-8');
     });
-  },
+  }
 };
 
 module.exports = exportedMethods;

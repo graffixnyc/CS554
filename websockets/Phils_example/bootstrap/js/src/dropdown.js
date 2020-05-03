@@ -32,13 +32,13 @@ const Dropdown = (($) => {
     SHOWN: `shown${EVENT_KEY}`,
     CLICK: `click${EVENT_KEY}`,
     CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`,
-    KEYDOWN_DATA_API: `keydown${EVENT_KEY}${DATA_API_KEY}`,
+    KEYDOWN_DATA_API: `keydown${EVENT_KEY}${DATA_API_KEY}`
   };
 
   const ClassName = {
     BACKDROP: 'dropdown-backdrop',
     DISABLED: 'disabled',
-    OPEN: 'open',
+    OPEN: 'open'
   };
 
   const Selector = {
@@ -50,7 +50,7 @@ const Dropdown = (($) => {
     NAVBAR_NAV: '.navbar-nav',
     VISIBLE_ITEMS:
       '[role="menu"] li:not(.disabled) a, ' +
-      '[role="listbox"] li:not(.disabled) a',
+      '[role="listbox"] li:not(.disabled) a'
   };
 
   /**

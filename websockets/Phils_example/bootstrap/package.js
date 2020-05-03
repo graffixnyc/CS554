@@ -7,7 +7,7 @@ Package.describe({
   summary:
     'The most popular front-end framework for developing responsive, mobile first projects on the web.',
   version: '4.0.0-alpha.5',
-  git: 'https://github.com/twbs/bootstrap.git',
+  git: 'https://github.com/twbs/bootstrap.git'
 });
 
 Package.onUse(function (api) {

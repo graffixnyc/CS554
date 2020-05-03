@@ -17,8 +17,8 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
     width: '50%',
     border: '1px solid #28547a',
-    borderRadius: '4px',
-  },
+    borderRadius: '4px'
+  }
 };
 
 function EditEmployeeModal(props) {
@@ -67,8 +67,8 @@ function EditEmployeeModal(props) {
                 id: props.employee.id,
                 firstName: firstName.value,
                 lastName: lastName.value,
-                employerId: parseInt(employerId.value),
-              },
+                employerId: parseInt(employerId.value)
+              }
             });
             firstName.value = '';
             lastName.value = '';

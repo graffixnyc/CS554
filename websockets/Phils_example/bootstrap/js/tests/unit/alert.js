@@ -16,7 +16,7 @@ $(function () {
     afterEach: function () {
       $.fn.alert = $.fn.bootstrapAlert;
       delete $.fn.bootstrapAlert;
-    },
+    }
   });
 
   QUnit.test('should provide no conflict', function (assert) {

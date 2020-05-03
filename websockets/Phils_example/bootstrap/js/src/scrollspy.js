@@ -24,19 +24,19 @@ const ScrollSpy = (($) => {
   const Default = {
     offset: 10,
     method: 'auto',
-    target: '',
+    target: ''
   };
 
   const DefaultType = {
     offset: 'number',
     method: 'string',
-    target: '(string|element)',
+    target: '(string|element)'
   };
 
   const Event = {
     ACTIVATE: `activate${EVENT_KEY}`,
     SCROLL: `scroll${EVENT_KEY}`,
-    LOAD_DATA_API: `load${EVENT_KEY}${DATA_API_KEY}`,
+    LOAD_DATA_API: `load${EVENT_KEY}${DATA_API_KEY}`
   };
 
   const ClassName = {
@@ -44,7 +44,7 @@ const ScrollSpy = (($) => {
     DROPDOWN_MENU: 'dropdown-menu',
     NAV_LINK: 'nav-link',
     NAV: 'nav',
-    ACTIVE: 'active',
+    ACTIVE: 'active'
   };
 
   const Selector = {
@@ -56,12 +56,12 @@ const ScrollSpy = (($) => {
     NAV_LINKS: '.nav-link',
     DROPDOWN: '.dropdown',
     DROPDOWN_ITEMS: '.dropdown-item',
-    DROPDOWN_TOGGLE: '.dropdown-toggle',
+    DROPDOWN_TOGGLE: '.dropdown-toggle'
   };
 
   const OffsetMethod = {
     OFFSET: 'offset',
-    POSITION: 'position',
+    POSITION: 'position'
   };
 
   /**
@@ -260,7 +260,7 @@ const ScrollSpy = (($) => {
       }
 
       $(this._scrollElement).trigger(Event.ACTIVATE, {
-        relatedTarget: target,
+        relatedTarget: target
       });
     }
 

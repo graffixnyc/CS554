@@ -6,7 +6,7 @@ const counter = require('./counter');
 const reducers = redux.combineReducers({
   user: userReducer,
   posts: postReducer,
-  counter: counter,
+  counter: counter
 });
 
 module.exports = reducers;

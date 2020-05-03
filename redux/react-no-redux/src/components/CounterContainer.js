@@ -11,7 +11,7 @@ class CounterContainer extends Component {
   handleStateChange(counter) {
     console.log('In set state in higher comonent');
     this.setState({
-      counter: counter,
+      counter: counter
     });
   }
   render() {

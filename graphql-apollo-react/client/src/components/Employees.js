@@ -13,7 +13,7 @@ function Employees() {
   const [editEmployee, setEditEmployee] = useState(null);
   const [deleteEmployee, setDeleteEmployee] = useState(null);
   const { loading, error, data } = useQuery(queries.GET_EMPLOYEES, {
-    fetchPolicy: 'cache-and-network',
+    fetchPolicy: 'cache-and-network'
   });
 
   const handleOpenEditModal = (employee) => {

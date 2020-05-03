@@ -18,8 +18,8 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
     width: '50%',
     border: '1px solid #28547a',
-    borderRadius: '4px',
-  },
+    borderRadius: '4px'
+  }
 };
 
 /* The React Apollo package grants access to a Query component, which takes a query as prop and executes it when its rendered. 
@@ -30,7 +30,7 @@ class AddModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showAddModal: this.props.isOpen,
+      showAddModal: this.props.isOpen
     };
     this.handleOpenAddModal = this.handleOpenAddModal.bind(this);
     this.handleCloseAddModal = this.handleCloseAddModal.bind(this);
@@ -57,11 +57,11 @@ class AddModal extends Component {
           mutation={queries.ADD_EMPLOYEE}
           update={(cache, { data: { addEmployee } }) => {
             const { employees } = cache.readQuery({
-              query: queries.GET_EMPLOYEES,
+              query: queries.GET_EMPLOYEES
             });
             cache.writeQuery({
               query: queries.GET_EMPLOYEES,
-              data: { employees: employees.concat([addEmployee]) },
+              data: { employees: employees.concat([addEmployee]) }
             });
           }}
         >
@@ -75,8 +75,8 @@ class AddModal extends Component {
                   variables: {
                     firstName: firstName.value,
                     lastName: lastName.value,
-                    employerId: parseInt(employerId.value),
-                  },
+                    employerId: parseInt(employerId.value)
+                  }
                 });
                 firstName.value = '';
                 lastName.value = '';
@@ -160,11 +160,11 @@ class AddModal extends Component {
           mutation={queries.ADD_EMPLOYER}
           update={(cache, { data: { addEmployer } }) => {
             const { employers } = cache.readQuery({
-              query: queries.GET_EMPLOYERS_WITH_EMPLOYEES,
+              query: queries.GET_EMPLOYERS_WITH_EMPLOYEES
             });
             cache.writeQuery({
               query: queries.GET_EMPLOYERS_WITH_EMPLOYEES,
-              data: { employers: employers.concat([addEmployer]) },
+              data: { employers: employers.concat([addEmployer]) }
             });
           }}
         >
@@ -176,8 +176,8 @@ class AddModal extends Component {
                 e.preventDefault();
                 addEmployer({
                   variables: {
-                    name: name.value,
-                  },
+                    name: name.value
+                  }
                 });
                 name.value = '';
                 this.setState({ showAddModal: false });

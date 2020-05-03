@@ -16,7 +16,7 @@ class Employers extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showAddModal: false,
+      showAddModal: false
     };
     //this.handleOpenEditModal = this.handleOpenEditModal.bind(this);
     this.handleOpenAddModal = this.handleOpenAddModal.bind(this);

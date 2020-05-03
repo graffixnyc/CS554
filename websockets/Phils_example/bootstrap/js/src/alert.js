@@ -23,19 +23,19 @@ const Alert = (($) => {
   const TRANSITION_DURATION = 150;
 
   const Selector = {
-    DISMISS: '[data-dismiss="alert"]',
+    DISMISS: '[data-dismiss="alert"]'
   };
 
   const Event = {
     CLOSE: `close${EVENT_KEY}`,
     CLOSED: `closed${EVENT_KEY}`,
-    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`,
+    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
   };
 
   const ClassName = {
     ALERT: 'alert',
     FADE: 'fade',
-    IN: 'in',
+    IN: 'in'
   };
 
   /**

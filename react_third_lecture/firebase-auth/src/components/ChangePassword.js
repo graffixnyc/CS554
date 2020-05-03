@@ -13,7 +13,7 @@ function ChangePassword() {
     const {
       currentPassword,
       newPasswordOne,
-      newPasswordTwo,
+      newPasswordTwo
     } = event.target.elements;
 
     if (newPasswordOne.value !== newPasswordTwo.value) {

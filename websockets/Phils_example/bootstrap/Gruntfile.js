@@ -21,7 +21,7 @@ module.exports = function (grunt) {
   var isTravis = require('is-travis');
 
   var configBridge = grunt.file.readJSON('./grunt/configBridge.json', {
-    encoding: 'utf8',
+    encoding: 'utf8'
   });
 
   Object.keys(configBridge.paths).forEach(function (key) {
@@ -55,14 +55,14 @@ module.exports = function (grunt) {
     // Task configuration.
     clean: {
       dist: 'dist',
-      docs: 'docs/dist',
+      docs: 'docs/dist'
     },
 
     // JS build configuration
     babel: {
       dev: {
         options: {
-          sourceMap: true,
+          sourceMap: true
         },
         files: {
           'js/dist/util.js': 'js/src/util.js',
@@ -75,30 +75,30 @@ module.exports = function (grunt) {
           'js/dist/scrollspy.js': 'js/src/scrollspy.js',
           'js/dist/tab.js': 'js/src/tab.js',
           'js/dist/tooltip.js': 'js/src/tooltip.js',
-          'js/dist/popover.js': 'js/src/popover.js',
-        },
+          'js/dist/popover.js': 'js/src/popover.js'
+        }
       },
       dist: {
         options: {
-          extends: '../../js/.babelrc',
+          extends: '../../js/.babelrc'
         },
         files: {
-          '<%= concat.bootstrap.dest %>': '<%= concat.bootstrap.dest %>',
-        },
-      },
+          '<%= concat.bootstrap.dest %>': '<%= concat.bootstrap.dest %>'
+        }
+      }
     },
 
     stamp: {
       options: {
         banner:
           '<%= banner %>\n<%= jqueryCheck %>\n<%= jqueryVersionCheck %>\n+function () {\n',
-        footer: '\n}();',
+        footer: '\n}();'
       },
       bootstrap: {
         files: {
-          src: '<%= concat.bootstrap.dest %>',
-        },
-      },
+          src: '<%= concat.bootstrap.dest %>'
+        }
+      }
     },
 
     concat: {
@@ -106,7 +106,7 @@ module.exports = function (grunt) {
         // Custom function to remove all export and import statements
         process: function (src) {
           return src.replace(/^(export|import).*/gm, '');
-        },
+        }
       },
       bootstrap: {
         src: [
@@ -120,35 +120,35 @@ module.exports = function (grunt) {
           'js/src/scrollspy.js',
           'js/src/tab.js',
           'js/src/tooltip.js',
-          'js/src/popover.js',
+          'js/src/popover.js'
         ],
-        dest: 'dist/js/<%= pkg.name %>.js',
-      },
+        dest: 'dist/js/<%= pkg.name %>.js'
+      }
     },
 
     uglify: {
       options: {
         compress: {
-          warnings: false,
+          warnings: false
         },
         mangle: true,
-        preserveComments: /^!|@preserve|@license|@cc_on/i,
+        preserveComments: /^!|@preserve|@license|@cc_on/i
       },
       core: {
         src: '<%= concat.bootstrap.dest %>',
-        dest: 'dist/js/<%= pkg.name %>.min.js',
+        dest: 'dist/js/<%= pkg.name %>.min.js'
       },
       docsJs: {
         src: configBridge.paths.docsJs,
-        dest: 'docs/assets/js/docs.min.js',
-      },
+        dest: 'docs/assets/js/docs.min.js'
+      }
     },
 
     qunit: {
       options: {
-        inject: 'js/tests/unit/phantom.js',
+        inject: 'js/tests/unit/phantom.js'
       },
-      files: 'js/tests/index.html',
+      files: 'js/tests/index.html'
     },
 
     // CSS build configuration
@@ -156,14 +156,14 @@ module.exports = function (grunt) {
       options: {
         bundleExec: true,
         config: 'scss/.scss-lint.yml',
-        reporterOutput: null,
+        reporterOutput: null
       },
       core: {
-        src: ['scss/*.scss', '!scss/_normalize.scss'],
+        src: ['scss/*.scss', '!scss/_normalize.scss']
       },
       docs: {
-        src: ['docs/assets/scss/*.scss', '!docs/assets/scss/docs.scss'],
-      },
+        src: ['docs/assets/scss/*.scss', '!docs/assets/scss/docs.scss']
+      }
     },
 
     cssmin: {
@@ -171,7 +171,7 @@ module.exports = function (grunt) {
         compatibility: 'ie9,-properties.zeroUnits',
         sourceMap: true,
         // sourceMapInlineSources: true,
-        advanced: false,
+        advanced: false
       },
       core: {
         files: [
@@ -180,9 +180,9 @@ module.exports = function (grunt) {
             cwd: 'dist/css',
             src: ['*.css', '!*.min.css'],
             dest: 'dist/css',
-            ext: '.min.css',
-          },
-        ],
+            ext: '.min.css'
+          }
+        ]
       },
       docs: {
         files: [
@@ -191,10 +191,10 @@ module.exports = function (grunt) {
             cwd: 'docs/assets/css',
             src: ['*.css', '!*.min.css'],
             dest: 'docs/assets/css',
-            ext: '.min.css',
-          },
-        ],
-      },
+            ext: '.min.css'
+          }
+        ]
+      }
     },
 
     copy: {
@@ -202,31 +202,31 @@ module.exports = function (grunt) {
         expand: true,
         cwd: 'dist/',
         src: ['**/*'],
-        dest: 'docs/dist/',
-      },
+        dest: 'docs/dist/'
+      }
     },
 
     connect: {
       server: {
         options: {
           port: 3000,
-          base: '.',
-        },
-      },
+          base: '.'
+        }
+      }
     },
 
     jekyll: {
       options: {
         bundleExec: true,
         config: '_config.yml',
-        incremental: false,
+        incremental: false
       },
       docs: {},
       github: {
         options: {
-          raw: 'github: true',
-        },
-      },
+          raw: 'github: true'
+        }
+      }
     },
 
     htmllint: {
@@ -243,25 +243,25 @@ module.exports = function (grunt) {
           'The “datetime-local” input type is not supported in all browsers. Please be sure to test, and consider using a polyfill.',
           'The “month” input type is not supported in all browsers. Please be sure to test, and consider using a polyfill.',
           'The “time” input type is not supported in all browsers. Please be sure to test, and consider using a polyfill.',
-          'The “week” input type is not supported in all browsers. Please be sure to test, and consider using a polyfill.',
-        ],
+          'The “week” input type is not supported in all browsers. Please be sure to test, and consider using a polyfill.'
+        ]
       },
-      src: ['_gh_pages/**/*.html', 'js/tests/visual/*.html'],
+      src: ['_gh_pages/**/*.html', 'js/tests/visual/*.html']
     },
 
     watch: {
       src: {
         files: '<%= concat.bootstrap.src %>',
-        tasks: ['babel:dev'],
+        tasks: ['babel:dev']
       },
       sass: {
         files: 'scss/**/*.scss',
-        tasks: ['dist-css', 'docs'],
+        tasks: ['dist-css', 'docs']
       },
       docs: {
         files: 'docs/assets/scss/**/*.scss',
-        tasks: ['dist-css', 'docs'],
-      },
+        tasks: ['dist-css', 'docs']
+      }
     },
 
     'saucelabs-qunit': {
@@ -272,24 +272,24 @@ module.exports = function (grunt) {
           maxRetries: 3,
           maxPollRetries: 4,
           urls: ['http://127.0.0.1:3000/js/tests/index.html?hidepassed'],
-          browsers: grunt.file.readYAML('grunt/sauce_browsers.yml'),
-        },
-      },
+          browsers: grunt.file.readYAML('grunt/sauce_browsers.yml')
+        }
+      }
     },
 
     exec: {
       postcss: {
-        command: 'npm run postcss',
+        command: 'npm run postcss'
       },
       'postcss-docs': {
-        command: 'npm run postcss-docs',
+        command: 'npm run postcss-docs'
       },
       htmlhint: {
-        command: 'npm run htmlhint',
+        command: 'npm run htmlhint'
       },
       'upload-preview': {
-        command: './grunt/upload-preview.sh',
-      },
+        command: './grunt/upload-preview.sh'
+      }
     },
 
     buildcontrol: {
@@ -298,14 +298,14 @@ module.exports = function (grunt) {
         commit: true,
         push: true,
         message:
-          'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%',
+          'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
       },
       pages: {
         options: {
           remote: 'git@github.com:twbs/derpstrap.git',
-          branch: 'gh-pages',
-        },
-      },
+          branch: 'gh-pages'
+        }
+      }
     },
 
     compress: {
@@ -314,25 +314,25 @@ module.exports = function (grunt) {
           archive: 'bootstrap-<%= pkg.version %>-dist.zip',
           mode: 'zip',
           level: 9,
-          pretty: true,
+          pretty: true
         },
         files: [
           {
             expand: true,
             cwd: 'dist/',
             src: ['**'],
-            dest: 'bootstrap-<%= pkg.version %>-dist',
-          },
-        ],
-      },
-    },
+            dest: 'bootstrap-<%= pkg.version %>-dist'
+          }
+        ]
+      }
+    }
   });
 
   // These plugins provide necessary tasks.
   require('load-grunt-tasks')(grunt, {
     scope: 'devDependencies',
     // Exclude Sass compilers. We choose the one to load later on.
-    pattern: ['grunt-*', '!grunt-sass', '!grunt-contrib-sass'],
+    pattern: ['grunt-*', '!grunt-sass', '!grunt-contrib-sass']
   });
   require('time-grunt')(grunt);
 
@@ -340,7 +340,7 @@ module.exports = function (grunt) {
   grunt.registerTask('validate-html', [
     'jekyll:docs',
     'htmllint',
-    'exec:htmlhint',
+    'exec:htmlhint'
   ]);
 
   var runSubset = function (subset) {
@@ -363,7 +363,7 @@ module.exports = function (grunt) {
       'dist-js',
       'test-scss',
       'qunit',
-      'docs',
+      'docs'
     ]);
   }
   // Skip HTML validation if running a different subset of the test suite
@@ -387,7 +387,7 @@ module.exports = function (grunt) {
       'docs-js',
       'clean:docs',
       'copy:docs',
-      'exec:upload-preview',
+      'exec:upload-preview'
     ]);
     // Skip Sauce on Travis when [skip sauce] is in the commit message
     if (isUndefOrNonZero(process.env.TWBS_DO_SAUCE)) {
@@ -403,7 +403,7 @@ module.exports = function (grunt) {
     'concat',
     'babel:dist',
     'stamp',
-    'uglify:core',
+    'uglify:core'
   ]);
 
   grunt.registerTask('test-scss', ['scsslint:core']);
@@ -420,7 +420,7 @@ module.exports = function (grunt) {
     'sass-compile',
     'exec:postcss',
     'cssmin:core',
-    'cssmin:docs',
+    'cssmin:docs'
   ]);
 
   // Full distribution task.
@@ -438,7 +438,7 @@ module.exports = function (grunt) {
     'docs-css',
     'docs-js',
     'clean:docs',
-    'copy:docs',
+    'copy:docs'
   ]);
   grunt.registerTask('docs-github', ['jekyll:github']);
 
@@ -446,7 +446,7 @@ module.exports = function (grunt) {
     'dist',
     'docs',
     'docs-github',
-    'compress',
+    'compress'
   ]);
 
   // Publish to GitHub

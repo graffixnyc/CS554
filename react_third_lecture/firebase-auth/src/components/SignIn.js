@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { AuthContext } from '../firebase/Auth';
 import {
   doSignInWithEmailAndPassword,
-  doPasswordReset,
+  doPasswordReset
 } from '../firebase/FirebaseFunctions';
 
 function SignIn() {

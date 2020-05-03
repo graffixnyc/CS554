@@ -29,7 +29,7 @@ const Carousel = (($) => {
     keyboard: true,
     slide: false,
     pause: 'hover',
-    wrap: true,
+    wrap: true
   };
 
   const DefaultType = {
@@ -37,12 +37,12 @@ const Carousel = (($) => {
     keyboard: 'boolean',
     slide: '(boolean|string)',
     pause: '(string|boolean)',
-    wrap: 'boolean',
+    wrap: 'boolean'
   };
 
   const Direction = {
     NEXT: 'next',
-    PREVIOUS: 'prev',
+    PREVIOUS: 'prev'
   };
 
   const Event = {
@@ -52,7 +52,7 @@ const Carousel = (($) => {
     MOUSEENTER: `mouseenter${EVENT_KEY}`,
     MOUSELEAVE: `mouseleave${EVENT_KEY}`,
     LOAD_DATA_API: `load${EVENT_KEY}${DATA_API_KEY}`,
-    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`,
+    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
   };
 
   const ClassName = {
@@ -61,7 +61,7 @@ const Carousel = (($) => {
     SLIDE: 'slide',
     RIGHT: 'right',
     LEFT: 'left',
-    ITEM: 'carousel-item',
+    ITEM: 'carousel-item'
   };
 
   const Selector = {
@@ -71,7 +71,7 @@ const Carousel = (($) => {
     NEXT_PREV: '.next, .prev',
     INDICATORS: '.carousel-indicators',
     DATA_SLIDE: '[data-slide], [data-slide-to]',
-    DATA_RIDE: '[data-ride="carousel"]',
+    DATA_RIDE: '[data-ride="carousel"]'
   };
 
   /**
@@ -275,7 +275,7 @@ const Carousel = (($) => {
     _triggerSlideEvent(relatedTarget, directionalClassname) {
       let slideEvent = $.Event(Event.SLIDE, {
         relatedTarget,
-        direction: directionalClassname,
+        direction: directionalClassname
       });
 
       $(this._element).trigger(slideEvent);
@@ -338,7 +338,7 @@ const Carousel = (($) => {
 
       let slidEvent = $.Event(Event.SLID, {
         relatedTarget: nextElement,
-        direction: directionalClassName,
+        direction: directionalClassName
       });
 
       if (

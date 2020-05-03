@@ -16,7 +16,7 @@ $(function () {
     afterEach: function () {
       $.fn.collapse = $.fn.bootstrapCollapse;
       delete $.fn.bootstrapCollapse;
-    },
+    }
   });
 
   QUnit.test('should provide no conflict', function (assert) {

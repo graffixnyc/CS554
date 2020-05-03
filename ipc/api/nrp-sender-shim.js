@@ -3,7 +3,7 @@ const NRP = require('node-redis-pubsub');
 
 const nrpConfig = {
   port: 6379,
-  scope: 'queue',
+  scope: 'queue'
 };
 
 const defaultRedisConnection = new NRP(nrpConfig);
@@ -13,7 +13,7 @@ const defaultMessageConfig = {
   timeout: 1000,
   eventName: 'send',
   redis: defaultRedisConnection,
-  expectsResponse: true,
+  expectsResponse: true
 };
 
 const sendMessage = (messageConfig = defaultMessageConfig) => {
@@ -63,7 +63,7 @@ const sendMessage = (messageConfig = defaultMessageConfig) => {
     redisConnection.emit(outgoingEventName, {
       requestId: messageId,
       data: settings.data,
-      eventName: settings.eventName,
+      eventName: settings.eventName
     });
 
     if (!settings.expectsResponse) {
@@ -73,5 +73,5 @@ const sendMessage = (messageConfig = defaultMessageConfig) => {
 };
 
 module.exports = {
-  sendMessage,
+  sendMessage
 };

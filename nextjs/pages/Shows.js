@@ -27,7 +27,7 @@ Shows.getInitialProps = async () => {
   console.log(`Feteched Data:  Count: ${data.length}`);
   console.log(data);
   return {
-    shows: data,
+    shows: data
   };
 };
 

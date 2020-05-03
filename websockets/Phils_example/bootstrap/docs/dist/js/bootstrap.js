@@ -76,8 +76,8 @@ if (typeof jQuery === 'undefined') {
         value: subClass,
         enumerable: false,
         writable: true,
-        configurable: true,
-      },
+        configurable: true
+      }
     });
     if (superClass)
       Object.setPrototypeOf
@@ -113,7 +113,7 @@ if (typeof jQuery === 'undefined') {
       WebkitTransition: 'webkitTransitionEnd',
       MozTransition: 'transitionend',
       OTransition: 'oTransitionEnd otransitionend',
-      transition: 'transitionend',
+      transition: 'transitionend'
     };
 
     // shoutout AngusCroll (https://goo.gl/pxwQGp)
@@ -137,7 +137,7 @@ if (typeof jQuery === 'undefined') {
             return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
           }
           return undefined;
-        },
+        }
       };
     }
 
@@ -252,7 +252,7 @@ if (typeof jQuery === 'undefined') {
             }
           }
         }
-      },
+      }
     };
 
     setTransitionEndSupport();
@@ -283,19 +283,19 @@ if (typeof jQuery === 'undefined') {
     var TRANSITION_DURATION = 150;
 
     var Selector = {
-      DISMISS: '[data-dismiss="alert"]',
+      DISMISS: '[data-dismiss="alert"]'
     };
 
     var Event = {
       CLOSE: 'close' + EVENT_KEY,
       CLOSED: 'closed' + EVENT_KEY,
-      CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY,
+      CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY
     };
 
     var ClassName = {
       ALERT: 'alert',
       FADE: 'fade',
-      IN: 'in',
+      IN: 'in'
     };
 
     /**
@@ -415,8 +415,8 @@ if (typeof jQuery === 'undefined') {
           key: 'VERSION',
           get: function get() {
             return VERSION;
-          },
-        },
+          }
+        }
       ]);
 
       return Alert;
@@ -474,7 +474,7 @@ if (typeof jQuery === 'undefined') {
     var ClassName = {
       ACTIVE: 'active',
       BUTTON: 'btn',
-      FOCUS: 'focus',
+      FOCUS: 'focus'
     };
 
     var Selector = {
@@ -482,7 +482,7 @@ if (typeof jQuery === 'undefined') {
       DATA_TOGGLE: '[data-toggle="buttons"]',
       INPUT: 'input',
       ACTIVE: '.active',
-      BUTTON: '.btn',
+      BUTTON: '.btn'
     };
 
     var Event = {
@@ -492,7 +492,7 @@ if (typeof jQuery === 'undefined') {
         EVENT_KEY +
         DATA_API_KEY +
         ' ' +
-        ('blur' + EVENT_KEY + DATA_API_KEY),
+        ('blur' + EVENT_KEY + DATA_API_KEY)
     };
 
     /**
@@ -581,8 +581,8 @@ if (typeof jQuery === 'undefined') {
           key: 'VERSION',
           get: function get() {
             return VERSION;
-          },
-        },
+          }
+        }
       ]);
 
       return Button;
@@ -658,7 +658,7 @@ if (typeof jQuery === 'undefined') {
       keyboard: true,
       slide: false,
       pause: 'hover',
-      wrap: true,
+      wrap: true
     };
 
     var DefaultType = {
@@ -666,12 +666,12 @@ if (typeof jQuery === 'undefined') {
       keyboard: 'boolean',
       slide: '(boolean|string)',
       pause: '(string|boolean)',
-      wrap: 'boolean',
+      wrap: 'boolean'
     };
 
     var Direction = {
       NEXT: 'next',
-      PREVIOUS: 'prev',
+      PREVIOUS: 'prev'
     };
 
     var Event = {
@@ -681,7 +681,7 @@ if (typeof jQuery === 'undefined') {
       MOUSEENTER: 'mouseenter' + EVENT_KEY,
       MOUSELEAVE: 'mouseleave' + EVENT_KEY,
       LOAD_DATA_API: 'load' + EVENT_KEY + DATA_API_KEY,
-      CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY,
+      CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY
     };
 
     var ClassName = {
@@ -690,7 +690,7 @@ if (typeof jQuery === 'undefined') {
       SLIDE: 'slide',
       RIGHT: 'right',
       LEFT: 'left',
-      ITEM: 'carousel-item',
+      ITEM: 'carousel-item'
     };
 
     var Selector = {
@@ -700,7 +700,7 @@ if (typeof jQuery === 'undefined') {
       NEXT_PREV: '.next, .prev',
       INDICATORS: '.carousel-indicators',
       DATA_SLIDE: '[data-slide], [data-slide-to]',
-      DATA_RIDE: '[data-ride="carousel"]',
+      DATA_RIDE: '[data-ride="carousel"]'
     };
 
     /**
@@ -909,7 +909,7 @@ if (typeof jQuery === 'undefined') {
       ) {
         var slideEvent = $.Event(Event.SLIDE, {
           relatedTarget: relatedTarget,
-          direction: directionalClassname,
+          direction: directionalClassname
         });
 
         $(this._element).trigger(slideEvent);
@@ -976,7 +976,7 @@ if (typeof jQuery === 'undefined') {
 
         var slidEvent = $.Event(Event.SLID, {
           relatedTarget: nextElement,
-          direction: directionalClassName,
+          direction: directionalClassName
         });
 
         if (
@@ -1092,14 +1092,14 @@ if (typeof jQuery === 'undefined') {
           key: 'VERSION',
           get: function get() {
             return VERSION;
-          },
+          }
         },
         {
           key: 'Default',
           get: function get() {
             return Default;
-          },
-        },
+          }
+        }
       ]);
 
       return Carousel;
@@ -1164,12 +1164,12 @@ if (typeof jQuery === 'undefined') {
 
     var Default = {
       toggle: true,
-      parent: '',
+      parent: ''
     };
 
     var DefaultType = {
       toggle: 'boolean',
-      parent: 'string',
+      parent: 'string'
     };
 
     var Event = {
@@ -1177,24 +1177,24 @@ if (typeof jQuery === 'undefined') {
       SHOWN: 'shown' + EVENT_KEY,
       HIDE: 'hide' + EVENT_KEY,
       HIDDEN: 'hidden' + EVENT_KEY,
-      CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY,
+      CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY
     };
 
     var ClassName = {
       IN: 'in',
       COLLAPSE: 'collapse',
       COLLAPSING: 'collapsing',
-      COLLAPSED: 'collapsed',
+      COLLAPSED: 'collapsed'
     };
 
     var Dimension = {
       WIDTH: 'width',
-      HEIGHT: 'height',
+      HEIGHT: 'height'
     };
 
     var Selector = {
       ACTIVES: '.card > .in, .card > .collapsing',
-      DATA_TOGGLE: '[data-toggle="collapse"]',
+      DATA_TOGGLE: '[data-toggle="collapse"]'
     };
 
     /**
@@ -1488,14 +1488,14 @@ if (typeof jQuery === 'undefined') {
           key: 'VERSION',
           get: function get() {
             return VERSION;
-          },
+          }
         },
         {
           key: 'Default',
           get: function get() {
             return Default;
-          },
-        },
+          }
+        }
       ]);
 
       return Collapse;
@@ -1567,13 +1567,13 @@ if (typeof jQuery === 'undefined') {
       SHOWN: 'shown' + EVENT_KEY,
       CLICK: 'click' + EVENT_KEY,
       CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY,
-      KEYDOWN_DATA_API: 'keydown' + EVENT_KEY + DATA_API_KEY,
+      KEYDOWN_DATA_API: 'keydown' + EVENT_KEY + DATA_API_KEY
     };
 
     var ClassName = {
       BACKDROP: 'dropdown-backdrop',
       DISABLED: 'disabled',
-      OPEN: 'open',
+      OPEN: 'open'
     };
 
     var Selector = {
@@ -1585,7 +1585,7 @@ if (typeof jQuery === 'undefined') {
       NAVBAR_NAV: '.navbar-nav',
       VISIBLE_ITEMS:
         '[role="menu"] li:not(.disabled) a, ' +
-        '[role="listbox"] li:not(.disabled) a',
+        '[role="listbox"] li:not(.disabled) a'
     };
 
     /**
@@ -1800,8 +1800,8 @@ if (typeof jQuery === 'undefined') {
           key: 'VERSION',
           get: function get() {
             return VERSION;
-          },
-        },
+          }
+        }
       ]);
 
       return Dropdown;
@@ -1879,14 +1879,14 @@ if (typeof jQuery === 'undefined') {
       backdrop: true,
       keyboard: true,
       focus: true,
-      show: true,
+      show: true
     };
 
     var DefaultType = {
       backdrop: '(boolean|string)',
       keyboard: 'boolean',
       focus: 'boolean',
-      show: 'boolean',
+      show: 'boolean'
     };
 
     var Event = {
@@ -1900,7 +1900,7 @@ if (typeof jQuery === 'undefined') {
       KEYDOWN_DISMISS: 'keydown.dismiss' + EVENT_KEY,
       MOUSEUP_DISMISS: 'mouseup.dismiss' + EVENT_KEY,
       MOUSEDOWN_DISMISS: 'mousedown.dismiss' + EVENT_KEY,
-      CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY,
+      CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY
     };
 
     var ClassName = {
@@ -1908,14 +1908,14 @@ if (typeof jQuery === 'undefined') {
       BACKDROP: 'modal-backdrop',
       OPEN: 'modal-open',
       FADE: 'fade',
-      IN: 'in',
+      IN: 'in'
     };
 
     var Selector = {
       DIALOG: '.modal-dialog',
       DATA_TOGGLE: '[data-toggle="modal"]',
       DATA_DISMISS: '[data-dismiss="modal"]',
-      FIXED_CONTENT: '.navbar-fixed-top, .navbar-fixed-bottom, .is-fixed',
+      FIXED_CONTENT: '.navbar-fixed-top, .navbar-fixed-bottom, .is-fixed'
     };
 
     /**
@@ -1951,7 +1951,7 @@ if (typeof jQuery === 'undefined') {
         var _this7 = this;
 
         var showEvent = $.Event(Event.SHOW, {
-          relatedTarget: relatedTarget,
+          relatedTarget: relatedTarget
         });
 
         $(this._element).trigger(showEvent);
@@ -2081,7 +2081,7 @@ if (typeof jQuery === 'undefined') {
         }
 
         var shownEvent = $.Event(Event.SHOWN, {
-          relatedTarget: relatedTarget,
+          relatedTarget: relatedTarget
         });
 
         var transitionComplete = function transitionComplete() {
@@ -2332,14 +2332,14 @@ if (typeof jQuery === 'undefined') {
           key: 'VERSION',
           get: function get() {
             return VERSION;
-          },
+          }
         },
         {
           key: 'Default',
           get: function get() {
             return Default;
-          },
-        },
+          }
+        }
       ]);
 
       return Modal;
@@ -2427,19 +2427,19 @@ if (typeof jQuery === 'undefined') {
     var Default = {
       offset: 10,
       method: 'auto',
-      target: '',
+      target: ''
     };
 
     var DefaultType = {
       offset: 'number',
       method: 'string',
-      target: '(string|element)',
+      target: '(string|element)'
     };
 
     var Event = {
       ACTIVATE: 'activate' + EVENT_KEY,
       SCROLL: 'scroll' + EVENT_KEY,
-      LOAD_DATA_API: 'load' + EVENT_KEY + DATA_API_KEY,
+      LOAD_DATA_API: 'load' + EVENT_KEY + DATA_API_KEY
     };
 
     var ClassName = {
@@ -2447,7 +2447,7 @@ if (typeof jQuery === 'undefined') {
       DROPDOWN_MENU: 'dropdown-menu',
       NAV_LINK: 'nav-link',
       NAV: 'nav',
-      ACTIVE: 'active',
+      ACTIVE: 'active'
     };
 
     var Selector = {
@@ -2459,12 +2459,12 @@ if (typeof jQuery === 'undefined') {
       NAV_LINKS: '.nav-link',
       DROPDOWN: '.dropdown',
       DROPDOWN_ITEMS: '.dropdown-item',
-      DROPDOWN_TOGGLE: '.dropdown-toggle',
+      DROPDOWN_TOGGLE: '.dropdown-toggle'
     };
 
     var OffsetMethod = {
       OFFSET: 'offset',
-      POSITION: 'position',
+      POSITION: 'position'
     };
 
     /**
@@ -2535,7 +2535,7 @@ if (typeof jQuery === 'undefined') {
               // todo (fat): remove sketch reliance on jQuery position/offset
               return [
                 $(target)[offsetMethod]().top + offsetBase,
-                targetSelector,
+                targetSelector
               ];
             }
             return null;
@@ -2672,7 +2672,7 @@ if (typeof jQuery === 'undefined') {
         }
 
         $(this._scrollElement).trigger(Event.ACTIVATE, {
-          relatedTarget: target,
+          relatedTarget: target
         });
       };
 
@@ -2710,14 +2710,14 @@ if (typeof jQuery === 'undefined') {
           key: 'VERSION',
           get: function get() {
             return VERSION;
-          },
+          }
         },
         {
           key: 'Default',
           get: function get() {
             return Default;
-          },
-        },
+          }
+        }
       ]);
 
       return ScrollSpy;
@@ -2781,14 +2781,14 @@ if (typeof jQuery === 'undefined') {
       HIDDEN: 'hidden' + EVENT_KEY,
       SHOW: 'show' + EVENT_KEY,
       SHOWN: 'shown' + EVENT_KEY,
-      CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY,
+      CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY
     };
 
     var ClassName = {
       DROPDOWN_MENU: 'dropdown-menu',
       ACTIVE: 'active',
       FADE: 'fade',
-      IN: 'in',
+      IN: 'in'
     };
 
     var Selector = {
@@ -2801,7 +2801,7 @@ if (typeof jQuery === 'undefined') {
       ACTIVE_CHILD: '> .nav-item > .active, > .active',
       DATA_TOGGLE: '[data-toggle="tab"], [data-toggle="pill"]',
       DROPDOWN_TOGGLE: '.dropdown-toggle',
-      DROPDOWN_ACTIVE_CHILD: '> .dropdown-menu .active',
+      DROPDOWN_ACTIVE_CHILD: '> .dropdown-menu .active'
     };
 
     /**
@@ -2843,11 +2843,11 @@ if (typeof jQuery === 'undefined') {
         }
 
         var hideEvent = $.Event(Event.HIDE, {
-          relatedTarget: this._element,
+          relatedTarget: this._element
         });
 
         var showEvent = $.Event(Event.SHOW, {
-          relatedTarget: previous,
+          relatedTarget: previous
         });
 
         if (previous) {
@@ -2868,11 +2868,11 @@ if (typeof jQuery === 'undefined') {
 
         var complete = function complete() {
           var hiddenEvent = $.Event(Event.HIDDEN, {
-            relatedTarget: _this15._element,
+            relatedTarget: _this15._element
           });
 
           var shownEvent = $.Event(Event.SHOWN, {
-            relatedTarget: previous,
+            relatedTarget: previous
           });
 
           $(previous).trigger(hiddenEvent);
@@ -3000,8 +3000,8 @@ if (typeof jQuery === 'undefined') {
           key: 'VERSION',
           get: function get() {
             return VERSION;
-          },
-        },
+          }
+        }
       ]);
 
       return Tab;
@@ -3080,7 +3080,7 @@ if (typeof jQuery === 'undefined') {
       selector: false,
       placement: 'top',
       offset: '0 0',
-      constraints: [],
+      constraints: []
     };
 
     var DefaultType = {
@@ -3093,19 +3093,19 @@ if (typeof jQuery === 'undefined') {
       selector: '(string|boolean)',
       placement: '(string|function)',
       offset: 'string',
-      constraints: 'array',
+      constraints: 'array'
     };
 
     var AttachmentMap = {
       TOP: 'bottom center',
       RIGHT: 'middle left',
       BOTTOM: 'top center',
-      LEFT: 'middle right',
+      LEFT: 'middle right'
     };
 
     var HoverState = {
       IN: 'in',
-      OUT: 'out',
+      OUT: 'out'
     };
 
     var Event = {
@@ -3118,29 +3118,29 @@ if (typeof jQuery === 'undefined') {
       FOCUSIN: 'focusin' + EVENT_KEY,
       FOCUSOUT: 'focusout' + EVENT_KEY,
       MOUSEENTER: 'mouseenter' + EVENT_KEY,
-      MOUSELEAVE: 'mouseleave' + EVENT_KEY,
+      MOUSELEAVE: 'mouseleave' + EVENT_KEY
     };
 
     var ClassName = {
       FADE: 'fade',
-      IN: 'in',
+      IN: 'in'
     };
 
     var Selector = {
       TOOLTIP: '.tooltip',
-      TOOLTIP_INNER: '.tooltip-inner',
+      TOOLTIP_INNER: '.tooltip-inner'
     };
 
     var TetherClass = {
       element: false,
-      enabled: false,
+      enabled: false
     };
 
     var Trigger = {
       HOVER: 'hover',
       FOCUS: 'focus',
       CLICK: 'click',
-      MANUAL: 'manual',
+      MANUAL: 'manual'
     };
 
     /**
@@ -3286,7 +3286,7 @@ if (typeof jQuery === 'undefined') {
             classPrefix: CLASS_PREFIX,
             offset: this.config.offset,
             constraints: this.config.constraints,
-            addTargetClasses: false,
+            addTargetClasses: false
           });
 
           Util.reflow(tip);
@@ -3470,7 +3470,7 @@ if (typeof jQuery === 'undefined') {
         if (this.config.selector) {
           this.config = $.extend({}, this.config, {
             trigger: 'manual',
-            selector: '',
+            selector: ''
           });
         } else {
           this._fixTitle();
@@ -3593,7 +3593,7 @@ if (typeof jQuery === 'undefined') {
         if (config.delay && typeof config.delay === 'number') {
           config.delay = {
             show: config.delay,
-            hide: config.delay,
+            hide: config.delay
           };
         }
 
@@ -3650,44 +3650,44 @@ if (typeof jQuery === 'undefined') {
           key: 'VERSION',
           get: function get() {
             return VERSION;
-          },
+          }
         },
         {
           key: 'Default',
           get: function get() {
             return Default;
-          },
+          }
         },
         {
           key: 'NAME',
           get: function get() {
             return NAME;
-          },
+          }
         },
         {
           key: 'DATA_KEY',
           get: function get() {
             return DATA_KEY;
-          },
+          }
         },
         {
           key: 'Event',
           get: function get() {
             return Event;
-          },
+          }
         },
         {
           key: 'EVENT_KEY',
           get: function get() {
             return EVENT_KEY;
-          },
+          }
         },
         {
           key: 'DefaultType',
           get: function get() {
             return DefaultType;
-          },
-        },
+          }
+        }
       ]);
 
       return Tooltip;
@@ -3736,21 +3736,21 @@ if (typeof jQuery === 'undefined') {
       template:
         '<div class="popover" role="tooltip">' +
         '<h3 class="popover-title"></h3>' +
-        '<div class="popover-content"></div></div>',
+        '<div class="popover-content"></div></div>'
     });
 
     var DefaultType = $.extend({}, Tooltip.DefaultType, {
-      content: '(string|element|function)',
+      content: '(string|element|function)'
     });
 
     var ClassName = {
       FADE: 'fade',
-      IN: 'in',
+      IN: 'in'
     };
 
     var Selector = {
       TITLE: '.popover-title',
-      CONTENT: '.popover-content',
+      CONTENT: '.popover-content'
     };
 
     var Event = {
@@ -3763,7 +3763,7 @@ if (typeof jQuery === 'undefined') {
       FOCUSIN: 'focusin' + EVENT_KEY,
       FOCUSOUT: 'focusout' + EVENT_KEY,
       MOUSEENTER: 'mouseenter' + EVENT_KEY,
-      MOUSELEAVE: 'mouseleave' + EVENT_KEY,
+      MOUSELEAVE: 'mouseleave' + EVENT_KEY
     };
 
     /**
@@ -3854,44 +3854,44 @@ if (typeof jQuery === 'undefined') {
 
           get: function get() {
             return VERSION;
-          },
+          }
         },
         {
           key: 'Default',
           get: function get() {
             return Default;
-          },
+          }
         },
         {
           key: 'NAME',
           get: function get() {
             return NAME;
-          },
+          }
         },
         {
           key: 'DATA_KEY',
           get: function get() {
             return DATA_KEY;
-          },
+          }
         },
         {
           key: 'Event',
           get: function get() {
             return Event;
-          },
+          }
         },
         {
           key: 'EVENT_KEY',
           get: function get() {
             return EVENT_KEY;
-          },
+          }
         },
         {
           key: 'DefaultType',
           get: function get() {
             return DefaultType;
-          },
-        },
+          }
+        }
       ]);
 
       return Popover;

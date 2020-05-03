@@ -27,21 +27,21 @@ const Popover = (($) => {
     template:
       '<div class="popover" role="tooltip">' +
       '<h3 class="popover-title"></h3>' +
-      '<div class="popover-content"></div></div>',
+      '<div class="popover-content"></div></div>'
   });
 
   const DefaultType = $.extend({}, Tooltip.DefaultType, {
-    content: '(string|element|function)',
+    content: '(string|element|function)'
   });
 
   const ClassName = {
     FADE: 'fade',
-    IN: 'in',
+    IN: 'in'
   };
 
   const Selector = {
     TITLE: '.popover-title',
-    CONTENT: '.popover-content',
+    CONTENT: '.popover-content'
   };
 
   const Event = {
@@ -54,7 +54,7 @@ const Popover = (($) => {
     FOCUSIN: `focusin${EVENT_KEY}`,
     FOCUSOUT: `focusout${EVENT_KEY}`,
     MOUSEENTER: `mouseenter${EVENT_KEY}`,
-    MOUSELEAVE: `mouseleave${EVENT_KEY}`,
+    MOUSELEAVE: `mouseleave${EVENT_KEY}`
   };
 
   /**

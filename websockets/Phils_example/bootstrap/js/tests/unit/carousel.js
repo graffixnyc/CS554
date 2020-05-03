@@ -16,7 +16,7 @@ $(function () {
     afterEach: function () {
       $.fn.carousel = $.fn.bootstrapCarousel;
       delete $.fn.bootstrapCarousel;
-    },
+    }
   });
 
   QUnit.test('should provide no conflict', function (assert) {
@@ -59,7 +59,7 @@ $(function () {
     var expectedMessage =
       'CAROUSEL: Option "interval" provided type "string" but expected type "(number|boolean)".';
     var config = {
-      interval: 'fat sux',
+      interval: 'fat sux'
     };
 
     try {
@@ -71,7 +71,7 @@ $(function () {
     assert.ok(message === expectedMessage, 'correct error message');
 
     config = {
-      keyboard: document.createElement('div'),
+      keyboard: document.createElement('div')
     };
     expectedMessage =
       'CAROUSEL: Option "keyboard" provided type "element" but expected type "boolean".';

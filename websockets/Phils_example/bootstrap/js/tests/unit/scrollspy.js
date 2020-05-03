@@ -16,7 +16,7 @@ $(function () {
     afterEach: function () {
       $.fn.scrollspy = $.fn.bootstrapScrollspy;
       delete $.fn.bootstrapScrollspy;
-    },
+    }
   });
 
   QUnit.test('should provide no conflict', function (assert) {
@@ -180,7 +180,7 @@ $(function () {
 
       $scrollspy.bootstrapScrollspy({
         target: '#navigation',
-        offset: $scrollspy.position().top,
+        offset: $scrollspy.position().top
       });
 
       $scrollspy.one('scroll', function () {
@@ -331,7 +331,7 @@ $(function () {
     $scrollspy
       .bootstrapScrollspy({
         target: '#navigation',
-        offset: $scrollspy.position().top,
+        offset: $scrollspy.position().top
       })
       .one('scroll', function () {
         assert.strictEqual(
@@ -472,7 +472,7 @@ $(function () {
         $content.bootstrapScrollspy({
           target: '.navbar',
           offset: 0,
-          method: 'offset',
+          method: 'offset'
         });
       } else if (type === 'data') {
         $(window).trigger('load');
@@ -551,7 +551,7 @@ $(function () {
         $content.bootstrapScrollspy({
           target: '.navbar',
           offset: 0,
-          method: 'position',
+          method: 'position'
         });
       else if (type === 'data') $(window).trigger('load');
 

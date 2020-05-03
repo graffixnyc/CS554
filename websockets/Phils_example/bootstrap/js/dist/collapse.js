@@ -59,12 +59,12 @@ var Collapse = (function ($) {
 
   var Default = {
     toggle: true,
-    parent: '',
+    parent: ''
   };
 
   var DefaultType = {
     toggle: 'boolean',
-    parent: 'string',
+    parent: 'string'
   };
 
   var Event = {
@@ -72,24 +72,24 @@ var Collapse = (function ($) {
     SHOWN: 'shown' + EVENT_KEY,
     HIDE: 'hide' + EVENT_KEY,
     HIDDEN: 'hidden' + EVENT_KEY,
-    CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY,
+    CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY
   };
 
   var ClassName = {
     IN: 'in',
     COLLAPSE: 'collapse',
     COLLAPSING: 'collapsing',
-    COLLAPSED: 'collapsed',
+    COLLAPSED: 'collapsed'
   };
 
   var Dimension = {
     WIDTH: 'width',
-    HEIGHT: 'height',
+    HEIGHT: 'height'
   };
 
   var Selector = {
     ACTIVES: '.card > .in, .card > .collapsing',
-    DATA_TOGGLE: '[data-toggle="collapse"]',
+    DATA_TOGGLE: '[data-toggle="collapse"]'
   };
 
   /**
@@ -383,14 +383,14 @@ var Collapse = (function ($) {
         key: 'VERSION',
         get: function get() {
           return VERSION;
-        },
+        }
       },
       {
         key: 'Default',
         get: function get() {
           return Default;
-        },
-      },
+        }
+      }
     ]);
 
     return Collapse;

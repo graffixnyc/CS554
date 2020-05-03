@@ -27,7 +27,7 @@ const httpLink = new HttpLink({
   onError: ({ networkError, graphQLErrors }) => {
     console.log('graphQLErrors', graphQLErrors);
     console.log('networkError', networkError);
-  },
+  }
 });
 
 /*create the cache as the place where the data is managed in Apollo Client. 
@@ -38,7 +38,7 @@ const cache = new InMemoryCache();
 //Finally, you can use both instantiated configurations, the link and the cache, to create the instance of the Apollo Client
 const client = new ApolloClient({
   link: httpLink,
-  cache,
+  cache
 });
 
 ReactDOM.render(

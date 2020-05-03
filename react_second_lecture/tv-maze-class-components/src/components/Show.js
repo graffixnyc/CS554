@@ -6,7 +6,7 @@ class Show extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: undefined,
+      data: undefined
     };
   }
   componentDidMount() {
@@ -20,7 +20,7 @@ class Show extends Component {
       );
 
       this.setState({
-        data: data,
+        data: data
       });
     } catch (e) {
       console.log(`error ${e}`);

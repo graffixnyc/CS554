@@ -27,14 +27,14 @@ const Tab = (($) => {
     HIDDEN: `hidden${EVENT_KEY}`,
     SHOW: `show${EVENT_KEY}`,
     SHOWN: `shown${EVENT_KEY}`,
-    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`,
+    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
   };
 
   const ClassName = {
     DROPDOWN_MENU: 'dropdown-menu',
     ACTIVE: 'active',
     FADE: 'fade',
-    IN: 'in',
+    IN: 'in'
   };
 
   const Selector = {
@@ -47,7 +47,7 @@ const Tab = (($) => {
     ACTIVE_CHILD: '> .nav-item > .active, > .active',
     DATA_TOGGLE: '[data-toggle="tab"], [data-toggle="pill"]',
     DROPDOWN_TOGGLE: '.dropdown-toggle',
-    DROPDOWN_ACTIVE_CHILD: '> .dropdown-menu .active',
+    DROPDOWN_ACTIVE_CHILD: '> .dropdown-menu .active'
   };
 
   /**
@@ -89,11 +89,11 @@ const Tab = (($) => {
       }
 
       let hideEvent = $.Event(Event.HIDE, {
-        relatedTarget: this._element,
+        relatedTarget: this._element
       });
 
       let showEvent = $.Event(Event.SHOW, {
-        relatedTarget: previous,
+        relatedTarget: previous
       });
 
       if (previous) {
@@ -114,11 +114,11 @@ const Tab = (($) => {
 
       let complete = () => {
         let hiddenEvent = $.Event(Event.HIDDEN, {
-          relatedTarget: this._element,
+          relatedTarget: this._element
         });
 
         let shownEvent = $.Event(Event.SHOWN, {
-          relatedTarget: previous,
+          relatedTarget: previous
         });
 
         $(previous).trigger(hiddenEvent);

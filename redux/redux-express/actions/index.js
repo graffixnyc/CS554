@@ -1,30 +1,30 @@
 changeUser = (name, location) => ({
   type: 'CHANGE_USER',
   name,
-  location,
+  location
 });
 
 changeUserName = (name) => ({
   type: 'CHANGE_NAME',
-  name,
+  name
 });
 
 changeUserLocation = (location) => ({
   type: 'CHANGE_LOCATION',
-  location,
+  location
 });
 
 addPost = (post) => ({
   type: 'ADD_POST',
-  post,
+  post
 });
 incCounter = (number) => ({
   type: 'INC',
-  number: number,
+  number: number
 });
 decCounter = (number) => ({
   type: 'DEC',
-  number: number,
+  number: number
 });
 
 module.exports = {
@@ -33,5 +33,5 @@ module.exports = {
   incCounter,
   decCounter,
   changeUserLocation,
-  changeUserName,
+  changeUserName
 };

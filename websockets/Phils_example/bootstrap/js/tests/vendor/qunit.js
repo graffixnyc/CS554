@@ -37,7 +37,7 @@
       } catch (e) {
         return false;
       }
-    })(),
+    })()
   };
 
   var fileName = (sourceFromStacktrace(0) || '')
@@ -246,10 +246,10 @@
     // The first unnamed module
     currentModule: {
       name: '',
-      tests: [],
+      tests: []
     },
 
-    callbacks: {},
+    callbacks: {}
   };
 
   // Push a loose unnamed module to the modules collection
@@ -267,7 +267,7 @@
         'testStart',
         'testDone',
         'moduleStart',
-        'moduleDone',
+        'moduleDone'
       ];
 
     function registerLoggingCallback(key) {
@@ -385,7 +385,7 @@
         before: setHook(module, 'before'),
         beforeEach: setHook(module, 'beforeEach'),
         afterEach: setHook(module, 'afterEach'),
-        after: setHook(module, 'after'),
+        after: setHook(module, 'after')
       };
 
       if (objectType(executeNow) === 'function') {
@@ -409,7 +409,7 @@
           parentModule: parentModule,
           tests: [],
           moduleId: generateHash(moduleName),
-          testsRun: 0,
+          testsRun: 0
         };
 
         var env = {};
@@ -490,7 +490,7 @@
           started: 0,
           updateRate: 1000,
           autostart: true,
-          filter: '',
+          filter: ''
         },
         true
       );
@@ -507,7 +507,7 @@
     stack: function (offset) {
       offset = (offset || 0) + 2;
       return sourceFromStacktrace(offset);
-    },
+    }
   });
 
   registerLoggingCallbacks(QUnit);
@@ -547,14 +547,14 @@
       for (i = 0, l = config.modules.length; i < l; i++) {
         modulesLog.push({
           name: config.modules[i].name,
-          tests: config.modules[i].tests,
+          tests: config.modules[i].tests
         });
       }
 
       // The test run is officially beginning now
       runLoggingCallbacks('begin', {
         totalTests: Test.count,
-        modules: modulesLog,
+        modules: modulesLog
       });
     }
 
@@ -609,7 +609,7 @@
         failed: config.moduleStats.bad,
         passed: config.moduleStats.all - config.moduleStats.bad,
         total: config.moduleStats.all,
-        runtime: now() - config.moduleStats.started,
+        runtime: now() - config.moduleStats.started
       });
     }
     delete config.previousModule;
@@ -621,7 +621,7 @@
       failed: config.stats.bad,
       passed: passed,
       total: config.stats.all,
-      runtime: runtime,
+      runtime: runtime
     });
   }
 
@@ -663,7 +663,7 @@
 
     this.module.tests.push({
       name: this.testName,
-      testId: this.testId,
+      testId: this.testId
     });
 
     if (settings.skip) {
@@ -696,14 +696,14 @@
             failed: config.moduleStats.bad,
             passed: config.moduleStats.all - config.moduleStats.bad,
             total: config.moduleStats.all,
-            runtime: now() - config.moduleStats.started,
+            runtime: now() - config.moduleStats.started
           });
         }
         config.previousModule = this.module;
         config.moduleStats = { all: 0, bad: 0, started: now() };
         runLoggingCallbacks('moduleStart', {
           name: this.module.name,
-          tests: this.module.tests,
+          tests: this.module.tests
         });
       }
 
@@ -721,7 +721,7 @@
       runLoggingCallbacks('testStart', {
         name: this.testName,
         module: this.module.name,
-        testId: this.testId,
+        testId: this.testId
       });
 
       if (!config.pollution) {
@@ -902,7 +902,7 @@
         testId: this.testId,
 
         // Source of Test
-        source: this.stack,
+        source: this.stack
       });
 
       config.current = undefined;
@@ -951,7 +951,7 @@
 
           function () {
             test.finish();
-          },
+          }
         ]);
       }
 
@@ -978,7 +978,7 @@
           expected: resultInfo.expected,
           testId: this.testId,
           negative: resultInfo.negative || false,
-          runtime: now() - this.started,
+          runtime: now() - this.started
         };
 
       if (!resultInfo.result) {
@@ -993,7 +993,7 @@
 
       this.assertions.push({
         result: !!resultInfo.result,
-        message: resultInfo.message,
+        message: resultInfo.message
       });
     },
 
@@ -1012,7 +1012,7 @@
         message: message || 'error',
         actual: actual || null,
         testId: this.testId,
-        runtime: now() - this.started,
+        runtime: now() - this.started
       };
 
       if (source) {
@@ -1023,7 +1023,7 @@
 
       this.assertions.push({
         result: false,
-        message: message,
+        message: message
       });
     },
 
@@ -1151,7 +1151,7 @@
 
       // Otherwise, do the opposite
       return !include;
-    },
+    }
   };
 
   QUnit.pushFailure = function () {
@@ -1290,7 +1290,7 @@
 
     newTest = new Test({
       testName: testName,
-      callback: callback,
+      callback: callback
     });
 
     newTest.queue();
@@ -1304,7 +1304,7 @@
 
     var test = new Test({
       testName: testName,
-      skip: true,
+      skip: true
     });
 
     test.queue();
@@ -1323,7 +1323,7 @@
 
     newTest = new Test({
       testName: testName,
-      callback: callback,
+      callback: callback
     });
 
     newTest.queue();
@@ -1485,7 +1485,7 @@
         actual: actual,
         expected: expected,
         message: message,
-        negative: negative,
+        negative: negative
       });
     },
 
@@ -1533,7 +1533,7 @@
         result: !!result,
         actual: result,
         expected: true,
-        message: message,
+        message: message
       });
     },
 
@@ -1548,7 +1548,7 @@
         result: !result,
         actual: result,
         expected: false,
-        message: message,
+        message: message
       });
     },
 
@@ -1558,7 +1558,7 @@
         result: expected == actual,
         actual: actual,
         expected: expected,
-        message: message,
+        message: message
       });
     },
 
@@ -1569,7 +1569,7 @@
         actual: actual,
         expected: expected,
         message: message,
-        negative: true,
+        negative: true
       });
     },
 
@@ -1580,7 +1580,7 @@
         result: QUnit.equiv(actual, expected),
         actual: actual,
         expected: expected,
-        message: message,
+        message: message
       });
     },
 
@@ -1592,7 +1592,7 @@
         actual: actual,
         expected: expected,
         message: message,
-        negative: true,
+        negative: true
       });
     },
 
@@ -1601,7 +1601,7 @@
         result: QUnit.equiv(actual, expected),
         actual: actual,
         expected: expected,
-        message: message,
+        message: message
       });
     },
 
@@ -1611,7 +1611,7 @@
         actual: actual,
         expected: expected,
         message: message,
-        negative: true,
+        negative: true
       });
     },
 
@@ -1620,7 +1620,7 @@
         result: expected === actual,
         actual: actual,
         expected: expected,
-        message: message,
+        message: message
       });
     },
 
@@ -1630,7 +1630,7 @@
         actual: actual,
         expected: expected,
         message: message,
-        negative: true,
+        negative: true
       });
     },
 
@@ -1701,9 +1701,9 @@
         result: ok,
         actual: actual,
         expected: expectedOutput,
-        message: message,
+        message: message
       });
-    },
+    }
   };
 
   // Provide an alternative to assert.throws(), for environments that consider throws a reserved word
@@ -1973,7 +1973,7 @@
 
         // Ensures identical properties name
         return eq && innerEquiv(aProperties.sort(), bProperties.sort());
-      },
+      }
     };
 
     function typeEquiv(a, b) {
@@ -2282,7 +2282,7 @@
           boolean: literal,
           symbol: function (sym) {
             return sym.toString();
-          },
+          }
         },
 
         // If true, entities are escaped ( <, >, \t, space and \n )
@@ -2292,7 +2292,7 @@
         indentChar: '  ',
 
         // If true, items in a collection, are separated by a \n, else just a space.
-        multiline: true,
+        multiline: true
       };
 
     return dump;
@@ -2340,7 +2340,7 @@
     get: function () {
       return resetThrower;
     },
-    set: resetThrower,
+    set: resetThrower
   });
 
   if (defined.document) {
@@ -2364,7 +2364,7 @@
       'strictEqual',
       'notStrictEqual',
       'throws',
-      'raises',
+      'raises'
     ].forEach(function (key) {
       window[key] = applyDeprecated('The global `' + key + '`');
     });
@@ -2472,21 +2472,21 @@
       id: 'hidepassed',
       label: 'Hide passed tests',
       tooltip:
-        'Only show tests and assertions that fail. Stored as query-strings.',
+        'Only show tests and assertions that fail. Stored as query-strings.'
     },
     {
       id: 'noglobals',
       label: 'Check for Globals',
       tooltip:
         'Enabling this will test if any test introduces new properties on the ' +
-        'global object (`window` in Browsers). Stored as query-strings.',
+        'global object (`window` in Browsers). Stored as query-strings.'
     },
     {
       id: 'notrycatch',
       label: 'No try-catch',
       tooltip:
         'Enabling this will run tests outside of a try-catch block. Makes debugging ' +
-        'exceptions in IE reasonable. Stored as query-strings.',
+        'exceptions in IE reasonable. Stored as query-strings.'
     }
   );
 
@@ -2557,7 +2557,7 @@
       filter: undefined,
       module: undefined,
       moduleId: undefined,
-      testId: undefined,
+      testId: undefined
     }),
     defined = {
       sessionStorage: (function () {
@@ -2569,7 +2569,7 @@
         } catch (e) {
           return false;
         }
-      })(),
+      })()
     },
     modulesList = [];
 
@@ -2675,7 +2675,7 @@
       if (typeof val === 'string') {
         val = {
           id: val,
-          label: val,
+          label: val
         };
       }
 
@@ -2847,7 +2847,7 @@
 
       // Remove module and testId filter
       module: undefined,
-      testId: undefined,
+      testId: undefined
     });
   }
 
@@ -3248,7 +3248,7 @@
         details.total,
         "</span> passed, <span class='failed'>",
         details.failed,
-        '</span> failed.',
+        '</span> failed.'
       ].join('');
 
     if (banner) {
@@ -3264,7 +3264,7 @@
       // use escape sequences in case file gets loaded with non-utf-8-charset
       document.title = [
         details.failed ? '\u2716' : '\u2714',
-        document.title.replace(/^[\u2714\u2716] /i, ''),
+        document.title.replace(/^[\u2714\u2716] /i, '')
       ].join(' ');
     }
 
@@ -3724,7 +3724,7 @@
             // Duplicate record.
             diffs.splice(equalities[equalitiesLength - 1], 0, [
               DIFF_DELETE,
-              lastequality,
+              lastequality
             ]);
 
             // Change second copy to insert.
@@ -3908,7 +3908,7 @@
         diffs = [
           [DIFF_INSERT, longtext.substring(0, i)],
           [DIFF_EQUAL, shorttext],
-          [DIFF_INSERT, longtext.substring(i + shorttext.length)],
+          [DIFF_INSERT, longtext.substring(i + shorttext.length)]
         ];
 
         // Swap insertions for deletions if diff is reversed.
@@ -3923,7 +3923,7 @@
         // After the previous speedup, the character can't be an equality.
         return [
           [DIFF_DELETE, text1],
-          [DIFF_INSERT, text2],
+          [DIFF_INSERT, text2]
         ];
       }
 
@@ -4035,7 +4035,7 @@
             bestLongtextB,
             bestShorttextA,
             bestShorttextB,
-            bestCommon,
+            bestCommon
           ];
         } else {
           return null;
@@ -4309,7 +4309,7 @@
       // number of diffs equals number of characters, no commonality at all.
       return [
         [DIFF_DELETE, text1],
-        [DIFF_INSERT, text2],
+        [DIFF_INSERT, text2]
       ];
     };
 
@@ -4406,7 +4406,7 @@
             // Duplicate record.
             diffs.splice(equalities[equalitiesLength - 1], 0, [
               DIFF_DELETE,
-              lastequality,
+              lastequality
             ]);
 
             // Change second copy to insert.
@@ -4461,7 +4461,7 @@
               // Overlap found.  Insert an equality and trim the surrounding edits.
               diffs.splice(pointer, 0, [
                 DIFF_EQUAL,
-                insertion.substring(0, overlapLength1),
+                insertion.substring(0, overlapLength1)
               ]);
               diffs[pointer - 1][1] = deletion.substring(
                 0,
@@ -4479,7 +4479,7 @@
               // Insert an equality and swap and trim the surrounding edits.
               diffs.splice(pointer, 0, [
                 DIFF_EQUAL,
-                deletion.substring(0, overlapLength2),
+                deletion.substring(0, overlapLength2)
               ]);
 
               diffs[pointer - 1][0] = DIFF_INSERT;
@@ -4621,7 +4621,7 @@
       return {
         chars1: chars1,
         chars2: chars2,
-        lineArray: lineArray,
+        lineArray: lineArray
       };
     };
 
@@ -4696,7 +4696,7 @@
                   } else {
                     diffs.splice(0, 0, [
                       DIFF_EQUAL,
-                      textInsert.substring(0, commonlength),
+                      textInsert.substring(0, commonlength)
                     ]);
                     pointer++;
                   }
@@ -4725,12 +4725,12 @@
               if (countDelete === 0) {
                 diffs.splice(pointer - countInsert, countDelete + countInsert, [
                   DIFF_INSERT,
-                  textInsert,
+                  textInsert
                 ]);
               } else if (countInsert === 0) {
                 diffs.splice(pointer - countDelete, countDelete + countInsert, [
                   DIFF_DELETE,
-                  textDelete,
+                  textDelete
                 ]);
               } else {
                 diffs.splice(

@@ -25,7 +25,7 @@ class App extends Component {
 
 // We choose what part our our state will be added to our component's props
 const mapStateToProps = (state) => ({
-  count: state.count,
+  count: state.count
 });
 
 const ConnectedApp = connect(

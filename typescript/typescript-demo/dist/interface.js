@@ -3,7 +3,7 @@ let customer = {
   lastName: 'Hanks',
   sayHi: () => {
     return `Hello, ${customer.firstName}, ${customer.lastName} `;
-  },
+  }
 };
 console.log('Customer Object');
 console.log(customer.firstName);
@@ -14,7 +14,7 @@ let employee = {
   lastName: 'Lee',
   sayHi: () => {
     return `Hello, ${employee.firstName}, ${employee.lastName} `;
-  },
+  }
 };
 console.log('Employee Object');
 console.log(employee.firstName);

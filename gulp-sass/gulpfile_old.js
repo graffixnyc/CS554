@@ -8,13 +8,13 @@ const rename = require('gulp-rename');
 const sassFiles = [
   './node_modules/tether/dist/css/tether.css',
   './src/styles/variables.scss',
-  './src/styles/custom.scss',
+  './src/styles/custom.scss'
 ];
 
 const vendorJsFiles = [
   './node_modules/jquery/dist/jquery.min.js',
   './node_modules/tether/dist/js/tether.min.js',
-  './node_modules/bootstrap/dist/js/bootstrap.min.js',
+  './node_modules/bootstrap/dist/js/bootstrap.min.js'
 ];
 
 gulp.task('sass', () => {
@@ -26,7 +26,7 @@ gulp.task('sass', () => {
     .pipe(
       autoPrefix({
         browsers: ['last 2 versions'],
-        cascade: false,
+        cascade: false
       })
     )
     .pipe(cleanCSS())

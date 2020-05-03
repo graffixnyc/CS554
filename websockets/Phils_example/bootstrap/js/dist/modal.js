@@ -63,14 +63,14 @@ var Modal = (function ($) {
     backdrop: true,
     keyboard: true,
     focus: true,
-    show: true,
+    show: true
   };
 
   var DefaultType = {
     backdrop: '(boolean|string)',
     keyboard: 'boolean',
     focus: 'boolean',
-    show: 'boolean',
+    show: 'boolean'
   };
 
   var Event = {
@@ -84,7 +84,7 @@ var Modal = (function ($) {
     KEYDOWN_DISMISS: 'keydown.dismiss' + EVENT_KEY,
     MOUSEUP_DISMISS: 'mouseup.dismiss' + EVENT_KEY,
     MOUSEDOWN_DISMISS: 'mousedown.dismiss' + EVENT_KEY,
-    CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY,
+    CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY
   };
 
   var ClassName = {
@@ -92,14 +92,14 @@ var Modal = (function ($) {
     BACKDROP: 'modal-backdrop',
     OPEN: 'modal-open',
     FADE: 'fade',
-    IN: 'in',
+    IN: 'in'
   };
 
   var Selector = {
     DIALOG: '.modal-dialog',
     DATA_TOGGLE: '[data-toggle="modal"]',
     DATA_DISMISS: '[data-dismiss="modal"]',
-    FIXED_CONTENT: '.navbar-fixed-top, .navbar-fixed-bottom, .is-fixed',
+    FIXED_CONTENT: '.navbar-fixed-top, .navbar-fixed-bottom, .is-fixed'
   };
 
   /**
@@ -135,7 +135,7 @@ var Modal = (function ($) {
       var _this = this;
 
       var showEvent = $.Event(Event.SHOW, {
-        relatedTarget: relatedTarget,
+        relatedTarget: relatedTarget
       });
 
       $(this._element).trigger(showEvent);
@@ -265,7 +265,7 @@ var Modal = (function ($) {
       }
 
       var shownEvent = $.Event(Event.SHOWN, {
-        relatedTarget: relatedTarget,
+        relatedTarget: relatedTarget
       });
 
       var transitionComplete = function transitionComplete() {
@@ -513,14 +513,14 @@ var Modal = (function ($) {
         key: 'VERSION',
         get: function get() {
           return VERSION;
-        },
+        }
       },
       {
         key: 'Default',
         get: function get() {
           return Default;
-        },
-      },
+        }
+      }
     ]);
 
     return Modal;

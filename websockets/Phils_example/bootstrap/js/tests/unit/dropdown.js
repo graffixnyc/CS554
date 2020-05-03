@@ -16,7 +16,7 @@ $(function () {
     afterEach: function () {
       $.fn.dropdown = $.fn.bootstrapDropdown;
       delete $.fn.bootstrapDropdown;
-    },
+    }
   });
 
   QUnit.test('should provide no conflict', function (assert) {

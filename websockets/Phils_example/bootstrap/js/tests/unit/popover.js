@@ -17,7 +17,7 @@ $(function () {
       $.fn.popover = $.fn.bootstrapPopover;
       delete $.fn.bootstrapPopover;
       $('.popover').remove();
-    },
+    }
   });
 
   QUnit.test('should provide no conflict', function (assert) {
@@ -104,7 +104,7 @@ $(function () {
         },
         content: function () {
           return 'loves writing tests （╯°□°）╯︵ ┻━┻';
-        },
+        }
       });
 
     $popover.bootstrapPopover('show');
@@ -205,7 +205,7 @@ $(function () {
         html: true,
         content: function () {
           return $div;
-        },
+        }
       });
 
     $popover.bootstrapPopover('show');
@@ -266,7 +266,7 @@ $(function () {
         .appendTo('#qunit-fixture')
         .bootstrapPopover({
           title: 'ignored title option',
-          content: 'ignored content option',
+          content: 'ignored content option'
         })
         .bootstrapPopover('show');
 
@@ -295,7 +295,7 @@ $(function () {
         title: 'Test',
         content: 'Test',
         template:
-          '<div class="popover foobar"><div class="arrow"></div><div class="inner"><h3 class="title"/><div class="content"><p/></div></div></div>',
+          '<div class="popover foobar"><div class="arrow"></div><div class="inner"><h3 class="title"/><div class="content"><p/></div></div></div>'
       });
 
     $popover.bootstrapPopover('show');
@@ -311,7 +311,7 @@ $(function () {
     assert.expect(7);
     var $popover = $('<div/>')
       .bootstrapPopover({
-        trigger: 'hover',
+        trigger: 'hover'
       })
       .on('click.foo', $.noop);
 
@@ -354,7 +354,7 @@ $(function () {
         .appendTo('#qunit-fixture')
         .bootstrapPopover({
           selector: 'a',
-          trigger: 'click',
+          trigger: 'click'
         });
 
       $div.find('a').trigger('click');
@@ -386,7 +386,7 @@ $(function () {
           container: 'body',
           content: function () {
             return $content;
-          },
+          }
         });
 
       var done = assert.async();
@@ -446,7 +446,7 @@ $(function () {
       })
       .bootstrapPopover({
         title: 'Test',
-        content: 'Test',
+        content: 'Test'
       })
       .bootstrapPopover('show');
   });

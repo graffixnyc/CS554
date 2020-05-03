@@ -20,7 +20,7 @@ var Util = (function ($) {
     WebkitTransition: 'webkitTransitionEnd',
     MozTransition: 'transitionend',
     OTransition: 'oTransitionEnd otransitionend',
-    transition: 'transitionend',
+    transition: 'transitionend'
   };
 
   // shoutout AngusCroll (https://goo.gl/pxwQGp)
@@ -44,7 +44,7 @@ var Util = (function ($) {
           return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
         }
         return undefined;
-      },
+      }
     };
   }
 
@@ -159,7 +159,7 @@ var Util = (function ($) {
           }
         }
       }
-    },
+    }
   };
 
   setTransitionEndSupport();

@@ -1,9 +1,9 @@
 export const incrementCount = () => ({
-  type: 'INC',
+  type: 'INC'
 });
 
 export const decrementCount = () => ({
-  type: 'DEC',
+  type: 'DEC'
 });
 
 /*
@@ -11,5 +11,5 @@ export const decrementCount = () => ({
 */
 export const specifyCount = (num) => ({
   type: 'SPEC',
-  payload: num,
+  payload: num
 });

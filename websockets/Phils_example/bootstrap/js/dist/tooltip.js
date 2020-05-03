@@ -77,7 +77,7 @@ var Tooltip = (function ($) {
     selector: false,
     placement: 'top',
     offset: '0 0',
-    constraints: [],
+    constraints: []
   };
 
   var DefaultType = {
@@ -90,19 +90,19 @@ var Tooltip = (function ($) {
     selector: '(string|boolean)',
     placement: '(string|function)',
     offset: 'string',
-    constraints: 'array',
+    constraints: 'array'
   };
 
   var AttachmentMap = {
     TOP: 'bottom center',
     RIGHT: 'middle left',
     BOTTOM: 'top center',
-    LEFT: 'middle right',
+    LEFT: 'middle right'
   };
 
   var HoverState = {
     IN: 'in',
-    OUT: 'out',
+    OUT: 'out'
   };
 
   var Event = {
@@ -115,29 +115,29 @@ var Tooltip = (function ($) {
     FOCUSIN: 'focusin' + EVENT_KEY,
     FOCUSOUT: 'focusout' + EVENT_KEY,
     MOUSEENTER: 'mouseenter' + EVENT_KEY,
-    MOUSELEAVE: 'mouseleave' + EVENT_KEY,
+    MOUSELEAVE: 'mouseleave' + EVENT_KEY
   };
 
   var ClassName = {
     FADE: 'fade',
-    IN: 'in',
+    IN: 'in'
   };
 
   var Selector = {
     TOOLTIP: '.tooltip',
-    TOOLTIP_INNER: '.tooltip-inner',
+    TOOLTIP_INNER: '.tooltip-inner'
   };
 
   var TetherClass = {
     element: false,
-    enabled: false,
+    enabled: false
   };
 
   var Trigger = {
     HOVER: 'hover',
     FOCUS: 'focus',
     CLICK: 'click',
-    MANUAL: 'manual',
+    MANUAL: 'manual'
   };
 
   /**
@@ -283,7 +283,7 @@ var Tooltip = (function ($) {
           classPrefix: CLASS_PREFIX,
           offset: this.config.offset,
           constraints: this.config.constraints,
-          addTargetClasses: false,
+          addTargetClasses: false
         });
 
         Util.reflow(tip);
@@ -463,7 +463,7 @@ var Tooltip = (function ($) {
       if (this.config.selector) {
         this.config = $.extend({}, this.config, {
           trigger: 'manual',
-          selector: '',
+          selector: ''
         });
       } else {
         this._fixTitle();
@@ -584,7 +584,7 @@ var Tooltip = (function ($) {
       if (config.delay && typeof config.delay === 'number') {
         config.delay = {
           show: config.delay,
-          hide: config.delay,
+          hide: config.delay
         };
       }
 
@@ -641,44 +641,44 @@ var Tooltip = (function ($) {
         key: 'VERSION',
         get: function get() {
           return VERSION;
-        },
+        }
       },
       {
         key: 'Default',
         get: function get() {
           return Default;
-        },
+        }
       },
       {
         key: 'NAME',
         get: function get() {
           return NAME;
-        },
+        }
       },
       {
         key: 'DATA_KEY',
         get: function get() {
           return DATA_KEY;
-        },
+        }
       },
       {
         key: 'Event',
         get: function get() {
           return Event;
-        },
+        }
       },
       {
         key: 'EVENT_KEY',
         get: function get() {
           return EVENT_KEY;
-        },
+        }
       },
       {
         key: 'DefaultType',
         get: function get() {
           return DefaultType;
-        },
-      },
+        }
+      }
     ]);
 
     return Tooltip;

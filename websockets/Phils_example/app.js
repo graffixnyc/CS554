@@ -22,7 +22,7 @@ chat.on('connection', (socket) => {
   socket.on('direct message', (msg) => {
     usersToSocket[msg.userName].emit('private message', {
       from: msg.fromUserName,
-      text: msg.text,
+      text: msg.text
     });
   });
 

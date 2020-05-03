@@ -44,19 +44,19 @@ var Alert = (function ($) {
   var TRANSITION_DURATION = 150;
 
   var Selector = {
-    DISMISS: '[data-dismiss="alert"]',
+    DISMISS: '[data-dismiss="alert"]'
   };
 
   var Event = {
     CLOSE: 'close' + EVENT_KEY,
     CLOSED: 'closed' + EVENT_KEY,
-    CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY,
+    CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY
   };
 
   var ClassName = {
     ALERT: 'alert',
     FADE: 'fade',
-    IN: 'in',
+    IN: 'in'
   };
 
   /**
@@ -171,8 +171,8 @@ var Alert = (function ($) {
         key: 'VERSION',
         get: function get() {
           return VERSION;
-        },
-      },
+        }
+      }
     ]);
 
     return Alert;

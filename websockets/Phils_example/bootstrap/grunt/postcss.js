@@ -3,7 +3,7 @@ module.exports = {
   map: {
     inline: false,
     annotation: true,
-    sourcesContent: true,
+    sourcesContent: true
   },
   autoprefixer: {
     browsers: [
@@ -33,7 +33,7 @@ module.exports = {
       // The following remain NOT officially supported, but we're lenient and include their prefixes to avoid severely breaking in them.
       'Android 2.3',
       'Android >= 4',
-      'Opera >= 12',
-    ],
-  },
+      'Opera >= 12'
+    ]
+  }
 };

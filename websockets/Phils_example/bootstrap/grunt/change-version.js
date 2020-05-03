@@ -105,7 +105,7 @@ function main(args) {
     '.md',
     '.scss',
     '.txt',
-    '.yml',
+    '.yml'
   ]);
   replaceRecursively(
     '.',

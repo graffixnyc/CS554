@@ -58,8 +58,8 @@ function _inherits(subClass, superClass) {
       value: subClass,
       enumerable: false,
       writable: true,
-      configurable: true,
-    },
+      configurable: true
+    }
   });
   if (superClass)
     Object.setPrototypeOf
@@ -94,21 +94,21 @@ var Popover = (function ($) {
     template:
       '<div class="popover" role="tooltip">' +
       '<h3 class="popover-title"></h3>' +
-      '<div class="popover-content"></div></div>',
+      '<div class="popover-content"></div></div>'
   });
 
   var DefaultType = $.extend({}, Tooltip.DefaultType, {
-    content: '(string|element|function)',
+    content: '(string|element|function)'
   });
 
   var ClassName = {
     FADE: 'fade',
-    IN: 'in',
+    IN: 'in'
   };
 
   var Selector = {
     TITLE: '.popover-title',
-    CONTENT: '.popover-content',
+    CONTENT: '.popover-content'
   };
 
   var Event = {
@@ -121,7 +121,7 @@ var Popover = (function ($) {
     FOCUSIN: 'focusin' + EVENT_KEY,
     FOCUSOUT: 'focusout' + EVENT_KEY,
     MOUSEENTER: 'mouseenter' + EVENT_KEY,
-    MOUSELEAVE: 'mouseleave' + EVENT_KEY,
+    MOUSELEAVE: 'mouseleave' + EVENT_KEY
   };
 
   /**
@@ -209,44 +209,44 @@ var Popover = (function ($) {
 
         get: function get() {
           return VERSION;
-        },
+        }
       },
       {
         key: 'Default',
         get: function get() {
           return Default;
-        },
+        }
       },
       {
         key: 'NAME',
         get: function get() {
           return NAME;
-        },
+        }
       },
       {
         key: 'DATA_KEY',
         get: function get() {
           return DATA_KEY;
-        },
+        }
       },
       {
         key: 'Event',
         get: function get() {
           return Event;
-        },
+        }
       },
       {
         key: 'EVENT_KEY',
         get: function get() {
           return EVENT_KEY;
-        },
+        }
       },
       {
         key: 'DefaultType',
         get: function get() {
           return DefaultType;
-        },
-      },
+        }
+      }
     ]);
 
     return Popover;

@@ -10,7 +10,7 @@ class ShowList extends Component {
     this.state = {
       data: undefined,
       searchTerm: undefined,
-      searchData: undefined,
+      searchData: undefined
     };
   }
   async getShows() {

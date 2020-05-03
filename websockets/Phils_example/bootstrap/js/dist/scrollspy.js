@@ -59,19 +59,19 @@ var ScrollSpy = (function ($) {
   var Default = {
     offset: 10,
     method: 'auto',
-    target: '',
+    target: ''
   };
 
   var DefaultType = {
     offset: 'number',
     method: 'string',
-    target: '(string|element)',
+    target: '(string|element)'
   };
 
   var Event = {
     ACTIVATE: 'activate' + EVENT_KEY,
     SCROLL: 'scroll' + EVENT_KEY,
-    LOAD_DATA_API: 'load' + EVENT_KEY + DATA_API_KEY,
+    LOAD_DATA_API: 'load' + EVENT_KEY + DATA_API_KEY
   };
 
   var ClassName = {
@@ -79,7 +79,7 @@ var ScrollSpy = (function ($) {
     DROPDOWN_MENU: 'dropdown-menu',
     NAV_LINK: 'nav-link',
     NAV: 'nav',
-    ACTIVE: 'active',
+    ACTIVE: 'active'
   };
 
   var Selector = {
@@ -91,12 +91,12 @@ var ScrollSpy = (function ($) {
     NAV_LINKS: '.nav-link',
     DROPDOWN: '.dropdown',
     DROPDOWN_ITEMS: '.dropdown-item',
-    DROPDOWN_TOGGLE: '.dropdown-toggle',
+    DROPDOWN_TOGGLE: '.dropdown-toggle'
   };
 
   var OffsetMethod = {
     OFFSET: 'offset',
-    POSITION: 'position',
+    POSITION: 'position'
   };
 
   /**
@@ -301,7 +301,7 @@ var ScrollSpy = (function ($) {
       }
 
       $(this._scrollElement).trigger(Event.ACTIVATE, {
-        relatedTarget: target,
+        relatedTarget: target
       });
     };
 
@@ -339,14 +339,14 @@ var ScrollSpy = (function ($) {
         key: 'VERSION',
         get: function get() {
           return VERSION;
-        },
+        }
       },
       {
         key: 'Default',
         get: function get() {
           return Default;
-        },
-      },
+        }
+      }
     ]);
 
     return ScrollSpy;

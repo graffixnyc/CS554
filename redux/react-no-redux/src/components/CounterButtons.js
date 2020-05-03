@@ -9,7 +9,7 @@ class CounterButtons extends Component {
   }
   handleIncrese() {
     this.setState((prevState) => ({
-      counter: prevState.counter + 1,
+      counter: prevState.counter + 1
     }));
     /*
           ,function(){
@@ -23,7 +23,7 @@ class CounterButtons extends Component {
 
   handleDecrease() {
     this.setState((prevState) => ({
-      counter: prevState.counter - 1,
+      counter: prevState.counter - 1
     }));
     /*
           ,function(){

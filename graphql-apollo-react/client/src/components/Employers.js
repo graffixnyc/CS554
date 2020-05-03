@@ -10,7 +10,7 @@ function Employers() {
   const { loading, error, data } = useQuery(
     queries.GET_EMPLOYERS_WITH_EMPLOYEES,
     {
-      fetchPolicy: 'cache-and-network',
+      fetchPolicy: 'cache-and-network'
     }
   );
 

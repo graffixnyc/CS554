@@ -18,8 +18,8 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
     width: '50%',
     border: '1px solid #28547a',
-    borderRadius: '4px',
-  },
+    borderRadius: '4px'
+  }
 };
 
 function DeleteEmployeeModal(props) {
@@ -29,15 +29,15 @@ function DeleteEmployeeModal(props) {
   const [removeEmployee] = useMutation(queries.DELETE_EMPLOYEE, {
     update(cache, { data: { removeEmployee } }) {
       const { employees } = cache.readQuery({
-        query: queries.GET_EMPLOYEES,
+        query: queries.GET_EMPLOYEES
       });
       cache.writeQuery({
         query: queries.GET_EMPLOYEES,
         data: {
-          employees: employees.filter((e) => e.id !== employee.id),
-        },
+          employees: employees.filter((e) => e.id !== employee.id)
+        }
       });
-    },
+    }
   });
 
   const handleCloseDeleteModal = () => {
@@ -75,8 +75,8 @@ function DeleteEmployeeModal(props) {
               e.preventDefault();
               removeEmployee({
                 variables: {
-                  id: employee.id,
-                },
+                  id: employee.id
+                }
               });
               setShowDeleteModal(false);
 

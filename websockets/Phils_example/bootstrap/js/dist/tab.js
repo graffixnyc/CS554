@@ -48,14 +48,14 @@ var Tab = (function ($) {
     HIDDEN: 'hidden' + EVENT_KEY,
     SHOW: 'show' + EVENT_KEY,
     SHOWN: 'shown' + EVENT_KEY,
-    CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY,
+    CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY
   };
 
   var ClassName = {
     DROPDOWN_MENU: 'dropdown-menu',
     ACTIVE: 'active',
     FADE: 'fade',
-    IN: 'in',
+    IN: 'in'
   };
 
   var Selector = {
@@ -68,7 +68,7 @@ var Tab = (function ($) {
     ACTIVE_CHILD: '> .nav-item > .active, > .active',
     DATA_TOGGLE: '[data-toggle="tab"], [data-toggle="pill"]',
     DROPDOWN_TOGGLE: '.dropdown-toggle',
-    DROPDOWN_ACTIVE_CHILD: '> .dropdown-menu .active',
+    DROPDOWN_ACTIVE_CHILD: '> .dropdown-menu .active'
   };
 
   /**
@@ -110,11 +110,11 @@ var Tab = (function ($) {
       }
 
       var hideEvent = $.Event(Event.HIDE, {
-        relatedTarget: this._element,
+        relatedTarget: this._element
       });
 
       var showEvent = $.Event(Event.SHOW, {
-        relatedTarget: previous,
+        relatedTarget: previous
       });
 
       if (previous) {
@@ -135,11 +135,11 @@ var Tab = (function ($) {
 
       var complete = function complete() {
         var hiddenEvent = $.Event(Event.HIDDEN, {
-          relatedTarget: _this._element,
+          relatedTarget: _this._element
         });
 
         var shownEvent = $.Event(Event.SHOWN, {
-          relatedTarget: previous,
+          relatedTarget: previous
         });
 
         $(previous).trigger(hiddenEvent);
@@ -263,8 +263,8 @@ var Tab = (function ($) {
         key: 'VERSION',
         get: function get() {
           return VERSION;
-        },
-      },
+        }
+      }
     ]);
 
     return Tab;

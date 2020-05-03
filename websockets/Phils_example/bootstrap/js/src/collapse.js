@@ -24,12 +24,12 @@ const Collapse = (($) => {
 
   const Default = {
     toggle: true,
-    parent: '',
+    parent: ''
   };
 
   const DefaultType = {
     toggle: 'boolean',
-    parent: 'string',
+    parent: 'string'
   };
 
   const Event = {
@@ -37,24 +37,24 @@ const Collapse = (($) => {
     SHOWN: `shown${EVENT_KEY}`,
     HIDE: `hide${EVENT_KEY}`,
     HIDDEN: `hidden${EVENT_KEY}`,
-    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`,
+    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
   };
 
   const ClassName = {
     IN: 'in',
     COLLAPSE: 'collapse',
     COLLAPSING: 'collapsing',
-    COLLAPSED: 'collapsed',
+    COLLAPSED: 'collapsed'
   };
 
   const Dimension = {
     WIDTH: 'width',
-    HEIGHT: 'height',
+    HEIGHT: 'height'
   };
 
   const Selector = {
     ACTIVES: '.card > .in, .card > .collapsing',
-    DATA_TOGGLE: '[data-toggle="collapse"]',
+    DATA_TOGGLE: '[data-toggle="collapse"]'
   };
 
   /**

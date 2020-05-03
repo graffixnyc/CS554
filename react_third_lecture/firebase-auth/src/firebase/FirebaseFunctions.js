@@ -48,5 +48,5 @@ export {
   doPasswordReset,
   doPasswordUpdate,
   doSignOut,
-  doChangePassword,
+  doChangePassword
 };

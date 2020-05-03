@@ -20,8 +20,8 @@ redisConnection.on('send-message-with-reply:request:*', (message, channel) => {
     requestId: requestId,
     data: {
       message: messageText,
-      reversedMessage: messageText.split('').reverse().join(''),
+      reversedMessage: messageText.split('').reverse().join('')
     },
-    eventName: eventName,
+    eventName: eventName
   });
 });

@@ -10,12 +10,12 @@ export default new Router({
     {
       path: '/',
       name: 'skills',
-      component: Skills,
+      component: Skills
     },
     {
       path: '/about/:name?',
       name: 'about',
-      component: About,
-    },
-  ],
+      component: About
+    }
+  ]
 });

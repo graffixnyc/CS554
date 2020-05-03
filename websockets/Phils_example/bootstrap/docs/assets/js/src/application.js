@@ -19,7 +19,7 @@
     // Tooltip and popover demos
     $('.tooltip-demo').tooltip({
       selector: '[data-toggle="tooltip"]',
-      container: 'body',
+      container: 'body'
     });
 
     $('[data-toggle="popover"]').popover();
@@ -61,7 +61,7 @@
     var clipboard = new Clipboard('.btn-clipboard', {
       target: function (trigger) {
         return trigger.parentNode.nextElementSibling;
-      },
+      }
     });
 
     clipboard.on('success', function (e) {

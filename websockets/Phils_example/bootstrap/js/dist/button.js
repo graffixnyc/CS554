@@ -45,7 +45,7 @@ var Button = (function ($) {
   var ClassName = {
     ACTIVE: 'active',
     BUTTON: 'btn',
-    FOCUS: 'focus',
+    FOCUS: 'focus'
   };
 
   var Selector = {
@@ -53,7 +53,7 @@ var Button = (function ($) {
     DATA_TOGGLE: '[data-toggle="buttons"]',
     INPUT: 'input',
     ACTIVE: '.active',
-    BUTTON: '.btn',
+    BUTTON: '.btn'
   };
 
   var Event = {
@@ -63,7 +63,7 @@ var Button = (function ($) {
       EVENT_KEY +
       DATA_API_KEY +
       ' ' +
-      ('blur' + EVENT_KEY + DATA_API_KEY),
+      ('blur' + EVENT_KEY + DATA_API_KEY)
   };
 
   /**
@@ -149,8 +149,8 @@ var Button = (function ($) {
         key: 'VERSION',
         get: function get() {
           return VERSION;
-        },
-      },
+        }
+      }
     ]);
 
     return Button;

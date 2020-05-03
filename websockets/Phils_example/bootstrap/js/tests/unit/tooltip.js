@@ -17,7 +17,7 @@ $(function () {
       $.fn.tooltip = $.fn.bootstrapTooltip;
       delete $.fn.bootstrapTooltip;
       $('.tooltip').remove();
-    },
+    }
   });
 
   QUnit.test('should provide no conflict', function (assert) {
@@ -234,7 +234,7 @@ $(function () {
       .appendTo('#qunit-fixture')
       .bootstrapTooltip({
         template:
-          '<div class="tooltip some-class"><div class="tooltip-arrow"/><div class="tooltip-inner"/></div>',
+          '<div class="tooltip some-class"><div class="tooltip-arrow"/><div class="tooltip-inner"/></div>'
       });
 
     $tooltip.bootstrapTooltip('show');
@@ -483,7 +483,7 @@ $(function () {
       )
         .appendTo($container)
         .bootstrapTooltip({
-          placement: 'right',
+          placement: 'right'
         })
         .bootstrapTooltip('show');
 
@@ -529,7 +529,7 @@ $(function () {
     var $tooltip = $('<a href="#" rel="tooltip" title="Simple tooltip"/>')
       .appendTo('#qunit-fixture')
       .bootstrapTooltip({
-        title: 'This is a tooltip with some content',
+        title: 'This is a tooltip with some content'
       });
 
     $tooltip.bootstrapTooltip('show');
@@ -548,7 +548,7 @@ $(function () {
     var $tooltip = $('<a href="#" rel="tooltip"/>')
       .appendTo('#qunit-fixture')
       .bootstrapTooltip({
-        title: 'This is a tooltip with some content',
+        title: 'This is a tooltip with some content'
       });
 
     $tooltip.bootstrapTooltip('show');
@@ -606,7 +606,7 @@ $(function () {
         left: 0,
         textAlign: 'right',
         width: 300,
-        height: 300,
+        height: 300
       })
       .appendTo('#qunit-fixture');
 
@@ -615,7 +615,7 @@ $(function () {
       .css('margin-top', 200)
       .bootstrapTooltip({
         placement: 'top',
-        animate: false,
+        animate: false
       })
       .bootstrapTooltip('show');
 
@@ -871,7 +871,7 @@ $(function () {
         trigger: 'hover',
         delay: { show: 0, hide: 500 },
         container: $tooltip,
-        title: titleHtml,
+        title: titleHtml
       });
 
       $('#tt-outer').trigger('mouseenter');
@@ -910,7 +910,7 @@ $(function () {
         animation: false,
         trigger: 'hover',
         delay: { show: 0, hide: 500 },
-        title: titleHtml,
+        title: titleHtml
       });
 
       var obj = $tooltip.data('bs.tooltip');
@@ -983,7 +983,7 @@ $(function () {
           done();
         })
         .bootstrapTooltip({
-          trigger: 'manual',
+          trigger: 'manual'
         });
 
       $element.bootstrapTooltip('show');
@@ -1040,7 +1040,7 @@ $(function () {
 
         ['click', 'focusin', 'mouseenter', 'focusout', 'mouseleave', 'click'],
         ['mouseenter', 'click', 'focusin', 'focusout', 'mouseleave', 'click'],
-        ['mouseenter', 'focusin', 'click', 'click', 'mouseleave', 'focusout'],
+        ['mouseenter', 'focusin', 'click', 'click', 'mouseleave', 'focusout']
       ];
 
       assert.ok(!showingTooltip());

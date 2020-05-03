@@ -16,7 +16,7 @@ $(function () {
     afterEach: function () {
       $.fn.tab = $.fn.bootstrapTab;
       delete $.fn.bootstrapTab;
-    },
+    }
   });
 
   QUnit.test('should provide no conflict', function (assert) {
