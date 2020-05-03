@@ -35,7 +35,7 @@ function EditEmployeeModal(props) {
 
 	let firstName;
 	let lastName;
-	let employerId = employee.employer.id;
+	let employerId;
 	if (data) {
 		var { employers } = data;
 	}
