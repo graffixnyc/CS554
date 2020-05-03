@@ -1,4 +1,4 @@
-import Util from "./util";
+import Util from './util';
 
 /**
  * --------------------------------------------------------------------------
@@ -7,18 +7,18 @@ import Util from "./util";
  * --------------------------------------------------------------------------
  */
 
-const Dropdown = ($ => {
+const Dropdown = (($) => {
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
 
-  const NAME = "dropdown";
-  const VERSION = "4.0.0-alpha.5";
-  const DATA_KEY = "bs.dropdown";
+  const NAME = 'dropdown';
+  const VERSION = '4.0.0-alpha.5';
+  const DATA_KEY = 'bs.dropdown';
   const EVENT_KEY = `.${DATA_KEY}`;
-  const DATA_API_KEY = ".data-api";
+  const DATA_API_KEY = '.data-api';
   const JQUERY_NO_CONFLICT = $.fn[NAME];
   const ESCAPE_KEYCODE = 27; // KeyboardEvent.which value for Escape (Esc) key
   const ARROW_UP_KEYCODE = 38; // KeyboardEvent.which value for up arrow key
@@ -32,25 +32,25 @@ const Dropdown = ($ => {
     SHOWN: `shown${EVENT_KEY}`,
     CLICK: `click${EVENT_KEY}`,
     CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`,
-    KEYDOWN_DATA_API: `keydown${EVENT_KEY}${DATA_API_KEY}`
+    KEYDOWN_DATA_API: `keydown${EVENT_KEY}${DATA_API_KEY}`,
   };
 
   const ClassName = {
-    BACKDROP: "dropdown-backdrop",
-    DISABLED: "disabled",
-    OPEN: "open"
+    BACKDROP: 'dropdown-backdrop',
+    DISABLED: 'disabled',
+    OPEN: 'open',
   };
 
   const Selector = {
-    BACKDROP: ".dropdown-backdrop",
+    BACKDROP: '.dropdown-backdrop',
     DATA_TOGGLE: '[data-toggle="dropdown"]',
-    FORM_CHILD: ".dropdown form",
+    FORM_CHILD: '.dropdown form',
     ROLE_MENU: '[role="menu"]',
     ROLE_LISTBOX: '[role="listbox"]',
-    NAVBAR_NAV: ".navbar-nav",
+    NAVBAR_NAV: '.navbar-nav',
     VISIBLE_ITEMS:
       '[role="menu"] li:not(.disabled) a, ' +
-      '[role="listbox"] li:not(.disabled) a'
+      '[role="listbox"] li:not(.disabled) a',
   };
 
   /**
@@ -89,14 +89,14 @@ const Dropdown = ($ => {
       }
 
       if (
-        "ontouchstart" in document.documentElement &&
+        'ontouchstart' in document.documentElement &&
         !$(parent).closest(Selector.NAVBAR_NAV).length
       ) {
         // if mobile we use a backdrop because click events don't delegate
-        let dropdown = document.createElement("div");
+        let dropdown = document.createElement('div');
         dropdown.className = ClassName.BACKDROP;
         $(dropdown).insertBefore(this);
-        $(dropdown).on("click", Dropdown._clearMenus);
+        $(dropdown).on('click', Dropdown._clearMenus);
       }
 
       let relatedTarget = { relatedTarget: this };
@@ -109,7 +109,7 @@ const Dropdown = ($ => {
       }
 
       this.focus();
-      this.setAttribute("aria-expanded", "true");
+      this.setAttribute('aria-expanded', 'true');
 
       $(parent).toggleClass(ClassName.OPEN);
       $(parent).trigger($.Event(Event.SHOWN, relatedTarget));
@@ -132,14 +132,14 @@ const Dropdown = ($ => {
     // static
 
     static _jQueryInterface(config) {
-      return this.each(function() {
+      return this.each(function () {
         let data = $(this).data(DATA_KEY);
 
         if (!data) {
           $(this).data(DATA_KEY, (data = new Dropdown(this)));
         }
 
-        if (typeof config === "string") {
+        if (typeof config === 'string') {
           if (data[config] === undefined) {
             throw new Error(`No method named "${config}"`);
           }
@@ -170,7 +170,7 @@ const Dropdown = ($ => {
 
         if (
           event &&
-          event.type === "click" &&
+          event.type === 'click' &&
           /input|textarea/i.test(event.target.tagName) &&
           $.contains(parent, event.target)
         ) {
@@ -183,7 +183,7 @@ const Dropdown = ($ => {
           continue;
         }
 
-        toggles[i].setAttribute("aria-expanded", "false");
+        toggles[i].setAttribute('aria-expanded', 'false');
 
         $(parent)
           .removeClass(ClassName.OPEN)
@@ -226,16 +226,16 @@ const Dropdown = ($ => {
       ) {
         if (event.which === ESCAPE_KEYCODE) {
           let toggle = $(parent).find(Selector.DATA_TOGGLE)[0];
-          $(toggle).trigger("focus");
+          $(toggle).trigger('focus');
         }
 
-        $(this).trigger("click");
+        $(this).trigger('click');
         return;
       }
 
       let items = $.makeArray($(Selector.VISIBLE_ITEMS));
 
-      items = items.filter(item => {
+      items = items.filter((item) => {
         return item.offsetWidth || item.offsetHeight;
       });
 
@@ -287,7 +287,7 @@ const Dropdown = ($ => {
     )
     .on(Event.CLICK_DATA_API, Dropdown._clearMenus)
     .on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, Dropdown.prototype.toggle)
-    .on(Event.CLICK_DATA_API, Selector.FORM_CHILD, e => {
+    .on(Event.CLICK_DATA_API, Selector.FORM_CHILD, (e) => {
       e.stopPropagation();
     });
 
@@ -299,7 +299,7 @@ const Dropdown = ($ => {
 
   $.fn[NAME] = Dropdown._jQueryInterface;
   $.fn[NAME].Constructor = Dropdown;
-  $.fn[NAME].noConflict = function() {
+  $.fn[NAME].noConflict = function () {
     $.fn[NAME] = JQUERY_NO_CONFLICT;
     return Dropdown._jQueryInterface;
   };

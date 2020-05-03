@@ -1,23 +1,23 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const data = require("../data");
+const data = require('../data');
 const bookData = data.books;
 
-router.get("/:id", (req, res) => {
+router.get('/:id', (req, res) => {
   bookData
     .getBook(req.params.id)
-    .then(book => {
-      res.render("books/single", { bookContent: book });
+    .then((book) => {
+      res.render('books/single', { bookContent: book });
     })
     .catch(() => {
-      res.status(404).json({ error: "Book not found" });
+      res.status(404).json({ error: 'Book not found' });
     });
 });
 
-router.get("/", (req, res) => {
+router.get('/', (req, res) => {
   bookData.getLocalBooks().then(
-    bookList => {
-      res.render("books/local", bookList);
+    (bookList) => {
+      res.render('books/local', bookList);
     },
     () => {
       // Something went wrong with the server!

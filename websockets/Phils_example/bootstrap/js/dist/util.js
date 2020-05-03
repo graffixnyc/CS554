@@ -5,7 +5,7 @@
  * --------------------------------------------------------------------------
  */
 
-var Util = (function($) {
+var Util = (function ($) {
   /**
    * ------------------------------------------------------------------------
    * Private TransitionEnd Helpers
@@ -17,10 +17,10 @@ var Util = (function($) {
   var MAX_UID = 1000000;
 
   var TransitionEndEvent = {
-    WebkitTransition: "webkitTransitionEnd",
-    MozTransition: "transitionend",
-    OTransition: "oTransitionEnd otransitionend",
-    transition: "transitionend"
+    WebkitTransition: 'webkitTransitionEnd',
+    MozTransition: 'transitionend',
+    OTransition: 'oTransitionEnd otransitionend',
+    transition: 'transitionend',
   };
 
   // shoutout AngusCroll (https://goo.gl/pxwQGp)
@@ -44,7 +44,7 @@ var Util = (function($) {
           return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
         }
         return undefined;
-      }
+      },
     };
   }
 
@@ -53,7 +53,7 @@ var Util = (function($) {
       return false;
     }
 
-    var el = document.createElement("bootstrap");
+    var el = document.createElement('bootstrap');
 
     for (var name in TransitionEndEvent) {
       if (el.style[name] !== undefined) {
@@ -69,11 +69,11 @@ var Util = (function($) {
 
     var called = false;
 
-    $(this).one(Util.TRANSITION_END, function() {
+    $(this).one(Util.TRANSITION_END, function () {
       called = true;
     });
 
-    setTimeout(function() {
+    setTimeout(function () {
       if (!called) {
         Util.triggerTransitionEnd(_this);
       }
@@ -99,7 +99,7 @@ var Util = (function($) {
    */
 
   var Util = {
-    TRANSITION_END: "bsTransitionEnd",
+    TRANSITION_END: 'bsTransitionEnd',
 
     getUID: function getUID(prefix) {
       do {
@@ -110,17 +110,17 @@ var Util = (function($) {
       return prefix;
     },
     getSelectorFromElement: function getSelectorFromElement(element) {
-      var selector = element.getAttribute("data-target");
+      var selector = element.getAttribute('data-target');
 
       if (!selector) {
-        selector = element.getAttribute("href") || "";
+        selector = element.getAttribute('href') || '';
         selector = /^#[a-z]/i.test(selector) ? selector : null;
       }
 
       return selector;
     },
     reflow: function reflow(element) {
-      new Function("bs", "return bs")(element.offsetHeight);
+      new Function('bs', 'return bs')(element.offsetHeight);
     },
     triggerTransitionEnd: function triggerTransitionEnd(element) {
       $(element).trigger(transition.end);
@@ -140,7 +140,7 @@ var Util = (function($) {
           var valueType = void 0;
 
           if (value && isElement(value)) {
-            valueType = "element";
+            valueType = 'element';
           } else {
             valueType = toType(value);
           }
@@ -148,7 +148,7 @@ var Util = (function($) {
           if (!new RegExp(expectedTypes).test(valueType)) {
             throw new Error(
               componentName.toUpperCase() +
-                ": " +
+                ': ' +
                 ('Option "' +
                   property +
                   '" provided type "' +
@@ -159,7 +159,7 @@ var Util = (function($) {
           }
         }
       }
-    }
+    },
   };
 
   setTransitionEndSupport();

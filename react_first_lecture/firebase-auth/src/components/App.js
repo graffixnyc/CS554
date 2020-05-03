@@ -11,22 +11,22 @@ import SignIn from './SignIn';
 import SignUp from './SignUp';
 
 function App() {
-	return (
-		<Router>
-			<div className='App'>
-				<header className='App-header'>
-					<Navigation />
-				</header>
-			</div>
-			<Route exact path='/' component={Landing} />
-			<Route path='/home' component={Home} />
-			<Route path='/account' component={Account} />
-			<Route path='/signin' component={SignIn} />
-			<Route path='/signup' component={SignUp} />
-			<Route path='/changepassword' component={ChangePassword} />
-			<Route path='/forgotpassword' component={ForgotPassword} />
-		</Router>
-	);
+  return (
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <Navigation />
+        </header>
+      </div>
+      <Route exact path="/" component={Landing} />
+      <Route path="/home" component={Home} />
+      <Route path="/account" component={Account} />
+      <Route path="/signin" component={SignIn} />
+      <Route path="/signup" component={SignUp} />
+      <Route path="/changepassword" component={ChangePassword} />
+      <Route path="/forgotpassword" component={ForgotPassword} />
+    </Router>
+  );
 }
 
 export default App;

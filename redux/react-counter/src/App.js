@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import Button from "./components/Button";
-import "./App.css";
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import Button from './components/Button';
+import './App.css';
 
 class App extends Component {
   state = {
-    count: 0
+    count: 0,
   };
 
   render() {
@@ -22,14 +22,14 @@ class App extends Component {
           <Button
             type="INC"
             currentCount={count}
-            setCount={newCount => this.setState({ count: newCount })}
+            setCount={(newCount) => this.setState({ count: newCount })}
           >
             Increment
           </Button>
           <Button
             type="DEC"
             currentCount={count}
-            setCount={newCount => this.setState({ count: newCount })}
+            setCount={(newCount) => this.setState({ count: newCount })}
           >
             Decrement
           </Button>

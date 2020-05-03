@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { NavLink, BrowserRouter as Router, Route } from "react-router-dom";
-import "./App.css";
-import Home from "./Home";
-import Employees from "./Employees";
-import Employers from "./Employers";
+import React, { Component } from 'react';
+import { NavLink, BrowserRouter as Router, Route } from 'react-router-dom';
+import './App.css';
+import Home from './Home';
+import Employees from './Employees';
+import Employers from './Employers';
 
 class App extends Component {
   render() {

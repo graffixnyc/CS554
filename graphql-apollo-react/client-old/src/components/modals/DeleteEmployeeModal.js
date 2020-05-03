@@ -1,25 +1,25 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 //Import Query from react-apollo
-import { Mutation } from "react-apollo";
-import ReactModal from "react-modal";
+import { Mutation } from 'react-apollo';
+import ReactModal from 'react-modal';
 
 //Import the file where my query constants are defined
-import queries from "../../queries";
+import queries from '../../queries';
 
 //For react-modal
-ReactModal.setAppElement("#root");
+ReactModal.setAppElement('#root');
 const customStyles = {
   content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    width: "50%",
-    border: "1px solid #28547a",
-    borderRadius: "4px"
-  }
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    width: '50%',
+    border: '1px solid #28547a',
+    borderRadius: '4px',
+  },
 };
 
 /* The React Apollo package grants access to a Query component, which takes a query as prop and executes it when its rendered. 
@@ -31,7 +31,7 @@ class DeleteEmployeeModal extends Component {
     super(props);
     this.state = {
       showDeleteModal: this.props.isOpen,
-      employee: this.props.deleteEmployee
+      employee: this.props.deleteEmployee,
     };
     this.handleOpenDeleteModal = this.handleOpenDeleteModal.bind(this);
     this.handleCloseDeleteModal = this.handleCloseDeleteModal.bind(this);
@@ -67,22 +67,22 @@ class DeleteEmployeeModal extends Component {
             mutation={queries.DELETE_EMPLOYEE}
             update={(cache, { data: { removeEmployee } }) => {
               const { employees } = cache.readQuery({
-                query: queries.GET_EMPLOYEES
+                query: queries.GET_EMPLOYEES,
               });
               cache.writeQuery({
                 query: queries.GET_EMPLOYEES,
                 data: {
                   employees: employees.filter(
-                    e => e.id !== this.state.employee.id
-                  )
-                }
+                    (e) => e.id !== this.state.employee.id
+                  ),
+                },
               });
             }}
           >
             {(removeEmployee, { data }) => (
               <div>
                 <p>
-                  Are you sure you want to delete{" "}
+                  Are you sure you want to delete{' '}
                   {this.state.employee.firstName} {this.state.employee.lastName}
                   ?
                 </p>
@@ -90,15 +90,15 @@ class DeleteEmployeeModal extends Component {
                 <form
                   className="form"
                   id="delete-employee"
-                  onSubmit={e => {
+                  onSubmit={(e) => {
                     e.preventDefault();
                     removeEmployee({
                       variables: {
-                        id: this.state.employee.id
-                      }
+                        id: this.state.employee.id,
+                      },
                     });
                     this.setState({ showDeleteModal: false });
-                    alert("Employee Deleted");
+                    alert('Employee Deleted');
                     this.props.handleClose();
                   }}
                 >

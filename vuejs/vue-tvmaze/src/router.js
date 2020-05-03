@@ -6,16 +6,16 @@ import Show from './components/Show.vue';
 Vue.use(Router);
 
 export default new Router({
-	routes: [
-		{
-			path: '/',
-			name: 'showList',
-			component: ShowList
-		},
-		{
-			path: '/show/:id',
-			name: 'show',
-			component: Show
-		}
-	]
+  routes: [
+    {
+      path: '/',
+      name: 'showList',
+      component: ShowList,
+    },
+    {
+      path: '/show/:id',
+      name: 'show',
+      component: Show,
+    },
+  ],
 });

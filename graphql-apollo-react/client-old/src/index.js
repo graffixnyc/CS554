@@ -1,21 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 // / import its ApolloProvider component, and use it as a composing component around your App component
-import { ApolloProvider } from "react-apollo";
+import { ApolloProvider } from 'react-apollo';
 
 /*The ApolloClient class is used to create the client instance, and the HttpLink and InMemoryCache are used for its mandatory configurations. 
 First, you can create a configured HttpLink instance, which will be fed to the Apollo Client creation.*/
-import { ApolloClient } from "apollo-client";
-import { HttpLink } from "apollo-link-http";
-import { InMemoryCache } from "apollo-cache-inmemory";
+import { ApolloClient } from 'apollo-client';
+import { HttpLink } from 'apollo-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 
-import "./index.css";
-import App from "./components/App";
-import * as serviceWorker from "./serviceWorker";
+import './index.css';
+import App from './components/App';
+import * as serviceWorker from './serviceWorker';
 
 // The uri is a mandatory value to define the only GraphQL API endpoint used by the Apollo Client.
-const BASE_URL = "http://localhost:4000";
+const BASE_URL = 'http://localhost:4000';
 
 /*
 he http link is a terminating link that fetches GraphQL results from a GraphQL endpoint over an http connection. 
@@ -25,9 +25,9 @@ This can be used for authentication, persisted queries, dynamic uris, and other 
 const httpLink = new HttpLink({
   uri: BASE_URL,
   onError: ({ networkError, graphQLErrors }) => {
-    console.log("graphQLErrors", graphQLErrors);
-    console.log("networkError", networkError);
-  }
+    console.log('graphQLErrors', graphQLErrors);
+    console.log('networkError', networkError);
+  },
 });
 
 /*create the cache as the place where the data is managed in Apollo Client. 
@@ -38,14 +38,14 @@ const cache = new InMemoryCache();
 //Finally, you can use both instantiated configurations, the link and the cache, to create the instance of the Apollo Client
 const client = new ApolloClient({
   link: httpLink,
-  cache
+  cache,
 });
 
 ReactDOM.render(
   <ApolloProvider client={client}>
     <App />
   </ApolloProvider>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 
 if (module.hot) {

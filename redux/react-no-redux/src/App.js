@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import "./App.css";
-import Navigation from "./components/Navigation";
-import CounterContainer from "./components/CounterContainer";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import './App.css';
+import Navigation from './components/Navigation';
+import CounterContainer from './components/CounterContainer';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
   render() {

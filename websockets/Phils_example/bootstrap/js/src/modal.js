@@ -1,4 +1,4 @@
-import Util from "./util";
+import Util from './util';
 
 /**
  * --------------------------------------------------------------------------
@@ -7,18 +7,18 @@ import Util from "./util";
  * --------------------------------------------------------------------------
  */
 
-const Modal = ($ => {
+const Modal = (($) => {
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
 
-  const NAME = "modal";
-  const VERSION = "4.0.0-alpha.5";
-  const DATA_KEY = "bs.modal";
+  const NAME = 'modal';
+  const VERSION = '4.0.0-alpha.5';
+  const DATA_KEY = 'bs.modal';
   const EVENT_KEY = `.${DATA_KEY}`;
-  const DATA_API_KEY = ".data-api";
+  const DATA_API_KEY = '.data-api';
   const JQUERY_NO_CONFLICT = $.fn[NAME];
   const TRANSITION_DURATION = 300;
   const BACKDROP_TRANSITION_DURATION = 150;
@@ -28,14 +28,14 @@ const Modal = ($ => {
     backdrop: true,
     keyboard: true,
     focus: true,
-    show: true
+    show: true,
   };
 
   const DefaultType = {
-    backdrop: "(boolean|string)",
-    keyboard: "boolean",
-    focus: "boolean",
-    show: "boolean"
+    backdrop: '(boolean|string)',
+    keyboard: 'boolean',
+    focus: 'boolean',
+    show: 'boolean',
   };
 
   const Event = {
@@ -49,22 +49,22 @@ const Modal = ($ => {
     KEYDOWN_DISMISS: `keydown.dismiss${EVENT_KEY}`,
     MOUSEUP_DISMISS: `mouseup.dismiss${EVENT_KEY}`,
     MOUSEDOWN_DISMISS: `mousedown.dismiss${EVENT_KEY}`,
-    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
+    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`,
   };
 
   const ClassName = {
-    SCROLLBAR_MEASURER: "modal-scrollbar-measure",
-    BACKDROP: "modal-backdrop",
-    OPEN: "modal-open",
-    FADE: "fade",
-    IN: "in"
+    SCROLLBAR_MEASURER: 'modal-scrollbar-measure',
+    BACKDROP: 'modal-backdrop',
+    OPEN: 'modal-open',
+    FADE: 'fade',
+    IN: 'in',
   };
 
   const Selector = {
-    DIALOG: ".modal-dialog",
+    DIALOG: '.modal-dialog',
     DATA_TOGGLE: '[data-toggle="modal"]',
     DATA_DISMISS: '[data-dismiss="modal"]',
-    FIXED_CONTENT: ".navbar-fixed-top, .navbar-fixed-bottom, .is-fixed"
+    FIXED_CONTENT: '.navbar-fixed-top, .navbar-fixed-bottom, .is-fixed',
   };
 
   /**
@@ -104,7 +104,7 @@ const Modal = ($ => {
 
     show(relatedTarget) {
       let showEvent = $.Event(Event.SHOW, {
-        relatedTarget
+        relatedTarget,
       });
 
       $(this._element).trigger(showEvent);
@@ -130,7 +130,7 @@ const Modal = ($ => {
       );
 
       $(this._dialog).on(Event.MOUSEDOWN_DISMISS, () => {
-        $(this._element).one(Event.MOUSEUP_DISMISS, event => {
+        $(this._element).one(Event.MOUSEUP_DISMISS, (event) => {
           if ($(event.target).is(this._element)) {
             this._ignoreBackdropClick = true;
           }
@@ -217,8 +217,8 @@ const Modal = ($ => {
         document.body.appendChild(this._element);
       }
 
-      this._element.style.display = "block";
-      this._element.removeAttribute("aria-hidden");
+      this._element.style.display = 'block';
+      this._element.removeAttribute('aria-hidden');
       this._element.scrollTop = 0;
 
       if (transition) {
@@ -232,7 +232,7 @@ const Modal = ($ => {
       }
 
       let shownEvent = $.Event(Event.SHOWN, {
-        relatedTarget
+        relatedTarget,
       });
 
       let transitionComplete = () => {
@@ -254,7 +254,7 @@ const Modal = ($ => {
     _enforceFocus() {
       $(document)
         .off(Event.FOCUSIN) // guard against infinite focus loop
-        .on(Event.FOCUSIN, event => {
+        .on(Event.FOCUSIN, (event) => {
           if (
             document !== event.target &&
             this._element !== event.target &&
@@ -267,7 +267,7 @@ const Modal = ($ => {
 
     _setEscapeEvent() {
       if (this._isShown && this._config.keyboard) {
-        $(this._element).on(Event.KEYDOWN_DISMISS, event => {
+        $(this._element).on(Event.KEYDOWN_DISMISS, (event) => {
           if (event.which === ESCAPE_KEYCODE) {
             this.hide();
           }
@@ -286,8 +286,8 @@ const Modal = ($ => {
     }
 
     _hideModal() {
-      this._element.style.display = "none";
-      this._element.setAttribute("aria-hidden", "true");
+      this._element.style.display = 'none';
+      this._element.setAttribute('aria-hidden', 'true');
       this._showBackdrop(() => {
         $(document.body).removeClass(ClassName.OPEN);
         this._resetAdjustments();
@@ -306,12 +306,12 @@ const Modal = ($ => {
     _showBackdrop(callback) {
       let animate = $(this._element).hasClass(ClassName.FADE)
         ? ClassName.FADE
-        : "";
+        : '';
 
       if (this._isShown && this._config.backdrop) {
         let doAnimate = Util.supportsTransitionEnd() && animate;
 
-        this._backdrop = document.createElement("div");
+        this._backdrop = document.createElement('div');
         this._backdrop.className = ClassName.BACKDROP;
 
         if (animate) {
@@ -320,7 +320,7 @@ const Modal = ($ => {
 
         $(this._backdrop).appendTo(document.body);
 
-        $(this._element).on(Event.CLICK_DISMISS, event => {
+        $(this._element).on(Event.CLICK_DISMISS, (event) => {
           if (this._ignoreBackdropClick) {
             this._ignoreBackdropClick = false;
             return;
@@ -328,7 +328,7 @@ const Modal = ($ => {
           if (event.target !== event.currentTarget) {
             return;
           }
-          if (this._config.backdrop === "static") {
+          if (this._config.backdrop === 'static') {
             this._element.focus();
           } else {
             this.hide();
@@ -401,8 +401,8 @@ const Modal = ($ => {
     }
 
     _resetAdjustments() {
-      this._element.style.paddingLeft = "";
-      this._element.style.paddingRight = "";
+      this._element.style.paddingLeft = '';
+      this._element.style.paddingRight = '';
     }
 
     _checkScrollbar() {
@@ -412,15 +412,16 @@ const Modal = ($ => {
 
     _setScrollbar() {
       let bodyPadding = parseInt(
-        $(Selector.FIXED_CONTENT).css("padding-right") || 0,
+        $(Selector.FIXED_CONTENT).css('padding-right') || 0,
         10
       );
 
-      this._originalBodyPadding = document.body.style.paddingRight || "";
+      this._originalBodyPadding = document.body.style.paddingRight || '';
 
       if (this._isBodyOverflowing) {
-        document.body.style.paddingRight = `${bodyPadding +
-          this._scrollbarWidth}px`;
+        document.body.style.paddingRight = `${
+          bodyPadding + this._scrollbarWidth
+        }px`;
       }
     }
 
@@ -430,7 +431,7 @@ const Modal = ($ => {
 
     _getScrollbarWidth() {
       // thx d.walsh
-      let scrollDiv = document.createElement("div");
+      let scrollDiv = document.createElement('div');
       scrollDiv.className = ClassName.SCROLLBAR_MEASURER;
       document.body.appendChild(scrollDiv);
       let scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
@@ -441,13 +442,13 @@ const Modal = ($ => {
     // static
 
     static _jQueryInterface(config, relatedTarget) {
-      return this.each(function() {
+      return this.each(function () {
         let data = $(this).data(DATA_KEY);
         let _config = $.extend(
           {},
           Modal.Default,
           $(this).data(),
-          typeof config === "object" && config
+          typeof config === 'object' && config
         );
 
         if (!data) {
@@ -455,7 +456,7 @@ const Modal = ($ => {
           $(this).data(DATA_KEY, data);
         }
 
-        if (typeof config === "string") {
+        if (typeof config === 'string') {
           if (data[config] === undefined) {
             throw new Error(`No method named "${config}"`);
           }
@@ -473,7 +474,7 @@ const Modal = ($ => {
    * ------------------------------------------------------------------------
    */
 
-  $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function(event) {
+  $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
     let target;
     let selector = Util.getSelectorFromElement(this);
 
@@ -482,21 +483,21 @@ const Modal = ($ => {
     }
 
     let config = $(target).data(DATA_KEY)
-      ? "toggle"
+      ? 'toggle'
       : $.extend({}, $(target).data(), $(this).data());
 
-    if (this.tagName === "A") {
+    if (this.tagName === 'A') {
       event.preventDefault();
     }
 
-    let $target = $(target).one(Event.SHOW, showEvent => {
+    let $target = $(target).one(Event.SHOW, (showEvent) => {
       if (showEvent.isDefaultPrevented()) {
         // only register focus restorer if modal will actually get shown
         return;
       }
 
       $target.one(Event.HIDDEN, () => {
-        if ($(this).is(":visible")) {
+        if ($(this).is(':visible')) {
           this.focus();
         }
       });
@@ -513,7 +514,7 @@ const Modal = ($ => {
 
   $.fn[NAME] = Modal._jQueryInterface;
   $.fn[NAME].Constructor = Modal;
-  $.fn[NAME].noConflict = function() {
+  $.fn[NAME].noConflict = function () {
     $.fn[NAME] = JQUERY_NO_CONFLICT;
     return Modal._jQueryInterface;
   };

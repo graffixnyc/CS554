@@ -10,22 +10,22 @@ import SignUp from './SignUp';
 import { AuthProvider } from '../firebase/Auth';
 import PrivateRoute from './PrivateRoute';
 function App() {
-	return (
-		<AuthProvider>
-			<Router>
-				<div className='App'>
-					<header className='App-header'>
-						<Navigation />
-					</header>
-				</div>
-				<Route exact path='/' component={Landing} />
-				<PrivateRoute path='/home' component={Home} />
-				<PrivateRoute path='/account' component={Account} />
-				<Route path='/signin' component={SignIn} />
-				<Route path='/signup' component={SignUp} />
-			</Router>
-		</AuthProvider>
-	);
+  return (
+    <AuthProvider>
+      <Router>
+        <div className="App">
+          <header className="App-header">
+            <Navigation />
+          </header>
+        </div>
+        <Route exact path="/" component={Landing} />
+        <PrivateRoute path="/home" component={Home} />
+        <PrivateRoute path="/account" component={Account} />
+        <Route path="/signin" component={SignIn} />
+        <Route path="/signup" component={SignUp} />
+      </Router>
+    </AuthProvider>
+  );
 }
 
 export default App;

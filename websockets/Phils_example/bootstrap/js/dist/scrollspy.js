@@ -1,28 +1,28 @@
 var _typeof =
-  typeof Symbol === "function" && typeof Symbol.iterator === "symbol"
-    ? function(obj) {
+  typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol'
+    ? function (obj) {
         return typeof obj;
       }
-    : function(obj) {
+    : function (obj) {
         return obj &&
-          typeof Symbol === "function" &&
+          typeof Symbol === 'function' &&
           obj.constructor === Symbol &&
           obj !== Symbol.prototype
-          ? "symbol"
+          ? 'symbol'
           : typeof obj;
       };
 
-var _createClass = (function() {
+var _createClass = (function () {
   function defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
       var descriptor = props[i];
       descriptor.enumerable = descriptor.enumerable || false;
       descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
+      if ('value' in descriptor) descriptor.writable = true;
       Object.defineProperty(target, descriptor.key, descriptor);
     }
   }
-  return function(Constructor, protoProps, staticProps) {
+  return function (Constructor, protoProps, staticProps) {
     if (protoProps) defineProperties(Constructor.prototype, protoProps);
     if (staticProps) defineProperties(Constructor, staticProps);
     return Constructor;
@@ -31,7 +31,7 @@ var _createClass = (function() {
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
+    throw new TypeError('Cannot call a class as a function');
   }
 }
 
@@ -42,61 +42,61 @@ function _classCallCheck(instance, Constructor) {
  * --------------------------------------------------------------------------
  */
 
-var ScrollSpy = (function($) {
+var ScrollSpy = (function ($) {
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
 
-  var NAME = "scrollspy";
-  var VERSION = "4.0.0-alpha.5";
-  var DATA_KEY = "bs.scrollspy";
-  var EVENT_KEY = "." + DATA_KEY;
-  var DATA_API_KEY = ".data-api";
+  var NAME = 'scrollspy';
+  var VERSION = '4.0.0-alpha.5';
+  var DATA_KEY = 'bs.scrollspy';
+  var EVENT_KEY = '.' + DATA_KEY;
+  var DATA_API_KEY = '.data-api';
   var JQUERY_NO_CONFLICT = $.fn[NAME];
 
   var Default = {
     offset: 10,
-    method: "auto",
-    target: ""
+    method: 'auto',
+    target: '',
   };
 
   var DefaultType = {
-    offset: "number",
-    method: "string",
-    target: "(string|element)"
+    offset: 'number',
+    method: 'string',
+    target: '(string|element)',
   };
 
   var Event = {
-    ACTIVATE: "activate" + EVENT_KEY,
-    SCROLL: "scroll" + EVENT_KEY,
-    LOAD_DATA_API: "load" + EVENT_KEY + DATA_API_KEY
+    ACTIVATE: 'activate' + EVENT_KEY,
+    SCROLL: 'scroll' + EVENT_KEY,
+    LOAD_DATA_API: 'load' + EVENT_KEY + DATA_API_KEY,
   };
 
   var ClassName = {
-    DROPDOWN_ITEM: "dropdown-item",
-    DROPDOWN_MENU: "dropdown-menu",
-    NAV_LINK: "nav-link",
-    NAV: "nav",
-    ACTIVE: "active"
+    DROPDOWN_ITEM: 'dropdown-item',
+    DROPDOWN_MENU: 'dropdown-menu',
+    NAV_LINK: 'nav-link',
+    NAV: 'nav',
+    ACTIVE: 'active',
   };
 
   var Selector = {
     DATA_SPY: '[data-spy="scroll"]',
-    ACTIVE: ".active",
-    LIST_ITEM: ".list-item",
-    LI: "li",
-    LI_DROPDOWN: "li.dropdown",
-    NAV_LINKS: ".nav-link",
-    DROPDOWN: ".dropdown",
-    DROPDOWN_ITEMS: ".dropdown-item",
-    DROPDOWN_TOGGLE: ".dropdown-toggle"
+    ACTIVE: '.active',
+    LIST_ITEM: '.list-item',
+    LI: 'li',
+    LI_DROPDOWN: 'li.dropdown',
+    NAV_LINKS: '.nav-link',
+    DROPDOWN: '.dropdown',
+    DROPDOWN_ITEMS: '.dropdown-item',
+    DROPDOWN_TOGGLE: '.dropdown-toggle',
   };
 
   var OffsetMethod = {
-    OFFSET: "offset",
-    POSITION: "position"
+    OFFSET: 'offset',
+    POSITION: 'position',
   };
 
   /**
@@ -105,19 +105,19 @@ var ScrollSpy = (function($) {
    * ------------------------------------------------------------------------
    */
 
-  var ScrollSpy = (function() {
+  var ScrollSpy = (function () {
     function ScrollSpy(element, config) {
       _classCallCheck(this, ScrollSpy);
 
       this._element = element;
-      this._scrollElement = element.tagName === "BODY" ? window : element;
+      this._scrollElement = element.tagName === 'BODY' ? window : element;
       this._config = this._getConfig(config);
       this._selector =
         this._config.target +
-        " " +
+        ' ' +
         Selector.NAV_LINKS +
-        "," +
-        (this._config.target + " " + Selector.DROPDOWN_ITEMS);
+        ',' +
+        (this._config.target + ' ' + Selector.DROPDOWN_ITEMS);
       this._offsets = [];
       this._targets = [];
       this._activeTarget = null;
@@ -142,7 +142,7 @@ var ScrollSpy = (function($) {
           : OffsetMethod.OFFSET;
 
       var offsetMethod =
-        this._config.method === "auto" ? autoMethod : this._config.method;
+        this._config.method === 'auto' ? autoMethod : this._config.method;
 
       var offsetBase =
         offsetMethod === OffsetMethod.POSITION ? this._getScrollTop() : 0;
@@ -155,7 +155,7 @@ var ScrollSpy = (function($) {
       var targets = $.makeArray($(this._selector));
 
       targets
-        .map(function(element) {
+        .map(function (element) {
           var target = void 0;
           var targetSelector = Util.getSelectorFromElement(element);
 
@@ -169,13 +169,13 @@ var ScrollSpy = (function($) {
           }
           return null;
         })
-        .filter(function(item) {
+        .filter(function (item) {
           return item;
         })
-        .sort(function(a, b) {
+        .sort(function (a, b) {
           return a[0] - b[0];
         })
-        .forEach(function(item) {
+        .forEach(function (item) {
           _this._offsets.push(item[0]);
           _this._targets.push(item[1]);
         });
@@ -200,13 +200,13 @@ var ScrollSpy = (function($) {
     ScrollSpy.prototype._getConfig = function _getConfig(config) {
       config = $.extend({}, Default, config);
 
-      if (typeof config.target !== "string") {
-        var id = $(config.target).attr("id");
+      if (typeof config.target !== 'string') {
+        var id = $(config.target).attr('id');
         if (!id) {
           id = Util.getUID(NAME);
-          $(config.target).attr("id", id);
+          $(config.target).attr('id', id);
         }
-        config.target = "#" + id;
+        config.target = '#' + id;
       }
 
       Util.typeCheckConfig(NAME, config, DefaultType);
@@ -272,8 +272,8 @@ var ScrollSpy = (function($) {
 
       this._clear();
 
-      var queries = this._selector.split(",");
-      queries = queries.map(function(selector) {
+      var queries = this._selector.split(',');
+      queries = queries.map(function (selector) {
         return (
           selector +
           '[data-target="' +
@@ -283,7 +283,7 @@ var ScrollSpy = (function($) {
         );
       });
 
-      var $link = $(queries.join(","));
+      var $link = $(queries.join(','));
 
       if ($link.hasClass(ClassName.DROPDOWN_ITEM)) {
         $link
@@ -301,24 +301,22 @@ var ScrollSpy = (function($) {
       }
 
       $(this._scrollElement).trigger(Event.ACTIVATE, {
-        relatedTarget: target
+        relatedTarget: target,
       });
     };
 
     ScrollSpy.prototype._clear = function _clear() {
-      $(this._selector)
-        .filter(Selector.ACTIVE)
-        .removeClass(ClassName.ACTIVE);
+      $(this._selector).filter(Selector.ACTIVE).removeClass(ClassName.ACTIVE);
     };
 
     // static
 
     ScrollSpy._jQueryInterface = function _jQueryInterface(config) {
-      return this.each(function() {
+      return this.each(function () {
         var data = $(this).data(DATA_KEY);
         var _config =
-          ((typeof config === "undefined" ? "undefined" : _typeof(config)) ===
-            "object" &&
+          ((typeof config === 'undefined' ? 'undefined' : _typeof(config)) ===
+            'object' &&
             config) ||
           null;
 
@@ -327,7 +325,7 @@ var ScrollSpy = (function($) {
           $(this).data(DATA_KEY, data);
         }
 
-        if (typeof config === "string") {
+        if (typeof config === 'string') {
           if (data[config] === undefined) {
             throw new Error('No method named "' + config + '"');
           }
@@ -338,17 +336,17 @@ var ScrollSpy = (function($) {
 
     _createClass(ScrollSpy, null, [
       {
-        key: "VERSION",
+        key: 'VERSION',
         get: function get() {
           return VERSION;
-        }
+        },
       },
       {
-        key: "Default",
+        key: 'Default',
         get: function get() {
           return Default;
-        }
-      }
+        },
+      },
     ]);
 
     return ScrollSpy;
@@ -360,7 +358,7 @@ var ScrollSpy = (function($) {
    * ------------------------------------------------------------------------
    */
 
-  $(window).on(Event.LOAD_DATA_API, function() {
+  $(window).on(Event.LOAD_DATA_API, function () {
     var scrollSpys = $.makeArray($(Selector.DATA_SPY));
 
     for (var i = scrollSpys.length; i--; ) {
@@ -377,7 +375,7 @@ var ScrollSpy = (function($) {
 
   $.fn[NAME] = ScrollSpy._jQueryInterface;
   $.fn[NAME].Constructor = ScrollSpy;
-  $.fn[NAME].noConflict = function() {
+  $.fn[NAME].noConflict = function () {
     $.fn[NAME] = JQUERY_NO_CONFLICT;
     return ScrollSpy._jQueryInterface;
   };

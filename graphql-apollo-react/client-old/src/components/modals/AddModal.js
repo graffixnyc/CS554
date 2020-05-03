@@ -1,25 +1,25 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 //Import Query from react-apollo
-import { Query, Mutation } from "react-apollo";
-import ReactModal from "react-modal";
+import { Query, Mutation } from 'react-apollo';
+import ReactModal from 'react-modal';
 
 //Import the file where my query constants are defined
-import queries from "../../queries";
+import queries from '../../queries';
 
 //For react-modal
-ReactModal.setAppElement("#root");
+ReactModal.setAppElement('#root');
 const customStyles = {
   content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    width: "50%",
-    border: "1px solid #28547a",
-    borderRadius: "4px"
-  }
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    width: '50%',
+    border: '1px solid #28547a',
+    borderRadius: '4px',
+  },
 };
 
 /* The React Apollo package grants access to a Query component, which takes a query as prop and executes it when its rendered. 
@@ -30,7 +30,7 @@ class AddModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showAddModal: this.props.isOpen
+      showAddModal: this.props.isOpen,
     };
     this.handleOpenAddModal = this.handleOpenAddModal.bind(this);
     this.handleCloseAddModal = this.handleCloseAddModal.bind(this);
@@ -48,7 +48,7 @@ class AddModal extends Component {
     let body;
     //check which add modal they are trying to get to and then render the form, mutation/query accordingly
     //if Add Employee
-    if (this.props.modal === "addEmployee") {
+    if (this.props.modal === 'addEmployee') {
       let firstName;
       let lastName;
       let employerId;
@@ -57,11 +57,11 @@ class AddModal extends Component {
           mutation={queries.ADD_EMPLOYEE}
           update={(cache, { data: { addEmployee } }) => {
             const { employees } = cache.readQuery({
-              query: queries.GET_EMPLOYEES
+              query: queries.GET_EMPLOYEES,
             });
             cache.writeQuery({
               query: queries.GET_EMPLOYEES,
-              data: { employees: employees.concat([addEmployee]) }
+              data: { employees: employees.concat([addEmployee]) },
             });
           }}
         >
@@ -69,20 +69,20 @@ class AddModal extends Component {
             <form
               className="form"
               id="add-employee"
-              onSubmit={e => {
+              onSubmit={(e) => {
                 e.preventDefault();
                 addEmployee({
                   variables: {
                     firstName: firstName.value,
                     lastName: lastName.value,
-                    employerId: parseInt(employerId.value)
-                  }
+                    employerId: parseInt(employerId.value),
+                  },
                 });
-                firstName.value = "";
-                lastName.value = "";
-                employerId.value = "1";
+                firstName.value = '';
+                lastName.value = '';
+                employerId.value = '1';
                 this.setState({ showAddModal: false });
-                alert("Employee Added");
+                alert('Employee Added');
                 this.props.handleClose();
               }}
             >
@@ -91,7 +91,7 @@ class AddModal extends Component {
                   First Name:
                   <br />
                   <input
-                    ref={node => {
+                    ref={(node) => {
                       firstName = node;
                     }}
                     required
@@ -105,7 +105,7 @@ class AddModal extends Component {
                   Last Name:
                   <br />
                   <input
-                    ref={node => {
+                    ref={(node) => {
                       lastName = node;
                     }}
                     required
@@ -126,11 +126,11 @@ class AddModal extends Component {
                         Employer:
                         <select
                           className="form-control"
-                          ref={node => {
+                          ref={(node) => {
                             employerId = node;
                           }}
                         >
-                          {employers.map(employer => {
+                          {employers.map((employer) => {
                             return (
                               <option key={employer.id} value={employer.id}>
                                 {employer.name}
@@ -153,18 +153,18 @@ class AddModal extends Component {
         </Mutation>
       );
       //If add Employer
-    } else if (this.props.modal === "addEmployer") {
+    } else if (this.props.modal === 'addEmployer') {
       let name;
       body = (
         <Mutation
           mutation={queries.ADD_EMPLOYER}
           update={(cache, { data: { addEmployer } }) => {
             const { employers } = cache.readQuery({
-              query: queries.GET_EMPLOYERS_WITH_EMPLOYEES
+              query: queries.GET_EMPLOYERS_WITH_EMPLOYEES,
             });
             cache.writeQuery({
               query: queries.GET_EMPLOYERS_WITH_EMPLOYEES,
-              data: { employers: employers.concat([addEmployer]) }
+              data: { employers: employers.concat([addEmployer]) },
             });
           }}
         >
@@ -172,16 +172,16 @@ class AddModal extends Component {
             <form
               className="form"
               id="add-employer"
-              onSubmit={e => {
+              onSubmit={(e) => {
                 e.preventDefault();
                 addEmployer({
                   variables: {
-                    name: name.value
-                  }
+                    name: name.value,
+                  },
                 });
-                name.value = "";
+                name.value = '';
                 this.setState({ showAddModal: false });
-                alert("Employer Added");
+                alert('Employer Added');
                 this.props.handleClose();
               }}
             >
@@ -190,7 +190,7 @@ class AddModal extends Component {
                   Employer Name:
                   <br />
                   <input
-                    ref={node => {
+                    ref={(node) => {
                       name = node;
                     }}
                     required

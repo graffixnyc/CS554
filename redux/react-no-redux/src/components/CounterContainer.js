@@ -1,17 +1,17 @@
 import CounterButtons from './CounterButtons';
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class CounterContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {counter: 0};
+    this.state = { counter: 0 };
     this.handleStateChange = this.handleStateChange.bind(this);
   }
 
   handleStateChange(counter) {
     console.log('In set state in higher comonent');
     this.setState({
-      counter: counter
+      counter: counter,
     });
   }
   render() {

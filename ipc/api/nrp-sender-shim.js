@@ -1,9 +1,9 @@
-const uuid = require("node-uuid");
-const NRP = require("node-redis-pubsub");
+const uuid = require('node-uuid');
+const NRP = require('node-redis-pubsub');
 
 const nrpConfig = {
   port: 6379,
-  scope: "queue"
+  scope: 'queue',
 };
 
 const defaultRedisConnection = new NRP(nrpConfig);
@@ -11,9 +11,9 @@ const defaultRedisConnection = new NRP(nrpConfig);
 const defaultMessageConfig = {
   data: {},
   timeout: 1000,
-  eventName: "send",
+  eventName: 'send',
   redis: defaultRedisConnection,
-  expectsResponse: true
+  expectsResponse: true,
 };
 
 const sendMessage = (messageConfig = defaultMessageConfig) => {
@@ -46,7 +46,7 @@ const sendMessage = (messageConfig = defaultMessageConfig) => {
       let shutoffEvents = [success, error];
 
       let endMessageLifeCycle = () => {
-        shutoffEvents.forEach(shutOff => {
+        shutoffEvents.forEach((shutOff) => {
           shutOff();
         });
         clearTimeout(killswitchTimeoutId);
@@ -54,7 +54,7 @@ const sendMessage = (messageConfig = defaultMessageConfig) => {
 
       if (settings.timeout >= 0) {
         killswitchTimeoutId = setTimeout(() => {
-          reject(new Error("timed out"));
+          reject(new Error('timed out'));
           endMessageLifeCycle();
         }, settings.timeout);
       }
@@ -63,7 +63,7 @@ const sendMessage = (messageConfig = defaultMessageConfig) => {
     redisConnection.emit(outgoingEventName, {
       requestId: messageId,
       data: settings.data,
-      eventName: settings.eventName
+      eventName: settings.eventName,
     });
 
     if (!settings.expectsResponse) {
@@ -73,5 +73,5 @@ const sendMessage = (messageConfig = defaultMessageConfig) => {
 };
 
 module.exports = {
-  sendMessage
+  sendMessage,
 };

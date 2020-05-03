@@ -1,12 +1,12 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 //Import Query from react-apollo
-import { Query } from "react-apollo";
+import { Query } from 'react-apollo';
 
 //Import the Modals for Adding and Updating Employee
-import AddModal from "./modals/AddModal";
+import AddModal from './modals/AddModal';
 
 //Import the file where my query constants are defined
-import queries from "../queries";
+import queries from '../queries';
 
 /* The React Apollo package grants access to a Query component, which takes a query as prop and executes it when its rendered. 
 That’s the important part: it executes the query when it is rendered. 
@@ -16,7 +16,7 @@ class Employers extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showAddModal: false
+      showAddModal: false,
     };
     //this.handleOpenEditModal = this.handleOpenEditModal.bind(this);
     this.handleOpenAddModal = this.handleOpenAddModal.bind(this);
@@ -41,7 +41,7 @@ class Employers extends Component {
         <br />
         <Query
           query={queries.GET_EMPLOYERS_WITH_EMPLOYEES}
-          fetchPolicy={"cache-and-network"}
+          fetchPolicy={'cache-and-network'}
         >
           {({ data }) => {
             const { employers } = data;
@@ -50,19 +50,19 @@ class Employers extends Component {
             }
             return (
               <div>
-                {employers.map(employer => {
+                {employers.map((employer) => {
                   return (
                     <div className="card" key={employer.id}>
                       <div className="card-body">
                         <h5 className="card-title">{employer.name}</h5>
-                        <span>Number of Employees:</span>{" "}
+                        <span>Number of Employees:</span>{' '}
                         {employer.numOfEmployees}
                         <br />
                         <br />
                         <span>Employees:</span>
                         <br />
                         <ol>
-                          {employer.employees.map(employee => {
+                          {employer.employees.map((employee) => {
                             return (
                               <li key={employee.id}>
                                 {employee.firstName} {employee.lastName}

@@ -7,13 +7,12 @@ import queries from '../queries';
 
 function Employers() {
   const [showAddModal, setShowAddModal] = useState(false);
-  const {
-    loading,
-    error,
-    data,
-  } = useQuery(queries.GET_EMPLOYERS_WITH_EMPLOYEES, {
-    fetchPolicy: 'cache-and-network',
-  });
+  const { loading, error, data } = useQuery(
+    queries.GET_EMPLOYERS_WITH_EMPLOYEES,
+    {
+      fetchPolicy: 'cache-and-network',
+    }
+  );
 
   const handleCloseModals = () => {
     setShowAddModal(false);

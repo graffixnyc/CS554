@@ -1,4 +1,4 @@
-import gql from "graphql-tag";
+import gql from 'graphql-tag';
 
 const GET_EMPLOYEES = gql`
   query {
@@ -120,5 +120,5 @@ export default {
   DELETE_EMPLOYEE,
   GET_EMPLOYERS_WITH_EMPLOYEES,
   ADD_EMPLOYER,
-  EDIT_EMPLOYEE
+  EDIT_EMPLOYEE,
 };

@@ -1,4 +1,4 @@
-import Util from "./util";
+import Util from './util';
 
 /**
  * --------------------------------------------------------------------------
@@ -7,35 +7,35 @@ import Util from "./util";
  * --------------------------------------------------------------------------
  */
 
-const Alert = ($ => {
+const Alert = (($) => {
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
 
-  const NAME = "alert";
-  const VERSION = "4.0.0-alpha.5";
-  const DATA_KEY = "bs.alert";
+  const NAME = 'alert';
+  const VERSION = '4.0.0-alpha.5';
+  const DATA_KEY = 'bs.alert';
   const EVENT_KEY = `.${DATA_KEY}`;
-  const DATA_API_KEY = ".data-api";
+  const DATA_API_KEY = '.data-api';
   const JQUERY_NO_CONFLICT = $.fn[NAME];
   const TRANSITION_DURATION = 150;
 
   const Selector = {
-    DISMISS: '[data-dismiss="alert"]'
+    DISMISS: '[data-dismiss="alert"]',
   };
 
   const Event = {
     CLOSE: `close${EVENT_KEY}`,
     CLOSED: `closed${EVENT_KEY}`,
-    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
+    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`,
   };
 
   const ClassName = {
-    ALERT: "alert",
-    FADE: "fade",
-    IN: "in"
+    ALERT: 'alert',
+    FADE: 'fade',
+    IN: 'in',
   };
 
   /**
@@ -116,16 +116,13 @@ const Alert = ($ => {
     }
 
     _destroyElement(element) {
-      $(element)
-        .detach()
-        .trigger(Event.CLOSED)
-        .remove();
+      $(element).detach().trigger(Event.CLOSED).remove();
     }
 
     // static
 
     static _jQueryInterface(config) {
-      return this.each(function() {
+      return this.each(function () {
         let $element = $(this);
         let data = $element.data(DATA_KEY);
 
@@ -134,14 +131,14 @@ const Alert = ($ => {
           $element.data(DATA_KEY, data);
         }
 
-        if (config === "close") {
+        if (config === 'close') {
           data[config](this);
         }
       });
     }
 
     static _handleDismiss(alertInstance) {
-      return function(event) {
+      return function (event) {
         if (event) {
           event.preventDefault();
         }
@@ -171,7 +168,7 @@ const Alert = ($ => {
 
   $.fn[NAME] = Alert._jQueryInterface;
   $.fn[NAME].Constructor = Alert;
-  $.fn[NAME].noConflict = function() {
+  $.fn[NAME].noConflict = function () {
     $.fn[NAME] = JQUERY_NO_CONFLICT;
     return Alert._jQueryInterface;
   };

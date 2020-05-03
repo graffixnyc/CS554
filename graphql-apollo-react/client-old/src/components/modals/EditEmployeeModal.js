@@ -1,25 +1,25 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 //Import Query from react-apollo
-import { Query, Mutation } from "react-apollo";
-import ReactModal from "react-modal";
+import { Query, Mutation } from 'react-apollo';
+import ReactModal from 'react-modal';
 
 //Import the file where my query constants are defined
-import queries from "../../queries";
+import queries from '../../queries';
 
 //For react-modal
-ReactModal.setAppElement("#root");
+ReactModal.setAppElement('#root');
 const customStyles = {
   content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    width: "50%",
-    border: "1px solid #28547a",
-    borderRadius: "4px"
-  }
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    width: '50%',
+    border: '1px solid #28547a',
+    borderRadius: '4px',
+  },
 };
 
 /* The React Apollo package grants access to a Query component, which takes a query as prop and executes it when its rendered. 
@@ -32,7 +32,7 @@ class EditEmployeesModal extends Component {
     super(props);
     this.state = {
       showEditModal: this.props.isOpen,
-      employee: this.props.employee
+      employee: this.props.employee,
     };
     this.handleCloseEditModal = this.handleCloseEditModal.bind(this);
   }
@@ -60,7 +60,7 @@ class EditEmployeesModal extends Component {
               <form
                 className="form"
                 id="add-employee"
-                onSubmit={e => {
+                onSubmit={(e) => {
                   console.log(firstName.value);
                   console.log(lastName.value);
                   console.log(parseInt(employerId.value));
@@ -70,14 +70,14 @@ class EditEmployeesModal extends Component {
                       id: this.props.employee.id,
                       firstName: firstName.value,
                       lastName: lastName.value,
-                      employerId: parseInt(employerId.value)
-                    }
+                      employerId: parseInt(employerId.value),
+                    },
                   });
-                  firstName.value = "";
-                  lastName.value = "";
-                  employerId.value = "1";
+                  firstName.value = '';
+                  lastName.value = '';
+                  employerId.value = '1';
                   this.setState({ showEditModal: false });
-                  alert("Employee Updated");
+                  alert('Employee Updated');
                   this.props.handleClose();
                 }}
               >
@@ -86,7 +86,7 @@ class EditEmployeesModal extends Component {
                     First Name:
                     <br />
                     <input
-                      ref={node => {
+                      ref={(node) => {
                         firstName = node;
                       }}
                       defaultValue={this.props.employee.firstName}
@@ -100,7 +100,7 @@ class EditEmployeesModal extends Component {
                     Last Name:
                     <br />
                     <input
-                      ref={node => {
+                      ref={(node) => {
                         lastName = node;
                       }}
                       defaultValue={this.props.employee.lastName}
@@ -122,11 +122,11 @@ class EditEmployeesModal extends Component {
                           <select
                             defaultValue={this.props.employee.employer.id}
                             className="form-control"
-                            ref={node => {
+                            ref={(node) => {
                               employerId = node;
                             }}
                           >
-                            {employers.map(employer => {
+                            {employers.map((employer) => {
                               return (
                                 <option key={employer.id} value={employer.id}>
                                   {employer.name}
