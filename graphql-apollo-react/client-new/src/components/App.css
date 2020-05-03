@@ -1,0 +1,128 @@
+.App {
+	text-align: center;
+}
+
+.App-logo {
+	animation: App-logo-spin infinite 20s linear;
+	height: 80px;
+}
+
+.App-header {
+	background-color: #28547a;
+	height: 150px;
+	padding: 20px;
+	color: #222;
+	position: relative;
+}
+
+.App-title {
+	font-size: 2.5em;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	position: absolute;
+	display: inline-block;
+	bottom: 50%;
+	right: 32%;
+}
+
+cite {
+	font-weight: bold;
+}
+table {
+	align-content: center;
+	margin: auto;
+}
+td {
+	padding: 10px;
+}
+
+.App-intro {
+	font-size: large;
+}
+.cap-first-letter:first-letter {
+	text-transform: capitalize;
+}
+.col-sm-6,
+col-md-4 {
+	border: 1px;
+}
+@keyframes App-logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+ul {
+	list-style: none;
+}
+nav {
+	list-style: none;
+
+	text-align: center;
+	position: absolute;
+	bottom: 20px;
+	right: 40%;
+}
+
+.navlink {
+	padding: 0.4rem 0.8rem;
+	background-color: white;
+	border-radius: 3px;
+	color: #28547a;
+	text-decoration: none !important;
+	margin-right: 20px;
+}
+
+.button {
+	padding: 0.4rem .8rem;
+	background-color: #28547a;
+	border-radius: 3px;
+	color: white;
+	text-decoration: none !important;
+}
+
+.button:hover {
+	padding: 0.4rem 0.8rem;
+	background-color: white;
+	border-radius: 3px;
+	color: #28547a;
+	text-decoration: none !important;
+}
+
+.navlink:hover {
+	background-color: transparent;
+	color: white;
+	border: 1px solid white;
+}
+
+input,
+select {
+	padding: 2px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #28547a;
+}
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	width: 50%;
+	margin: 0 auto 20px;
+}
+
+.cancel-button {
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+}
+
+.add-button {
+	position: absolute;
+	bottom: 20px;
+}
+span {
+	font-weight: bold;
+}
