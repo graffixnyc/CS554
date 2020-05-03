@@ -40,10 +40,6 @@ function DeleteEmployeeModal(props) {
 		}
 	});
 
-	const handleOpenDeleteModal = () => {
-		setShowDeleteModal(true);
-	};
-
 	const handleCloseDeleteModal = () => {
 		setShowDeleteModal(false);
 		props.handleClose(false);
