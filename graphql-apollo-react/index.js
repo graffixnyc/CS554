@@ -1,6 +1,6 @@
 const { ApolloServer, gql } = require('apollo-server');
 const lodash = require('lodash');
-const uuid = require('node-uuid');
+const uuid = require('uuid');
 //some Mock data
 let employees = [
   {

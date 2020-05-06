@@ -4,8 +4,12 @@ import { NavLink, BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './Home';
 import Employees from './Employees';
 import Employers from './Employers';
-import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
-import { ApolloProvider } from '@apollo/client';
+import {
+  ApolloClient,
+  HttpLink,
+  InMemoryCache,
+  ApolloProvider
+} from '@apollo/client';
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
