@@ -1,5 +1,5 @@
 @import "variables";
-@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "./src/styles/bootstrap/scss/bootstrap";
 
 /* That imports the entirety of bootstrap, taken from ../../node_modules/bootstrap/scss/bootstrap.scss
  we can optimize it by only selectively including the modules we need:

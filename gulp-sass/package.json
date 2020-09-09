@@ -34,21 +34,21 @@
 		"express": "^4.17.1",
 		"express-handlebars": "^3.1.0",
 		"handlebars": "^4.7.2",
-		"mongodb": "^3.5.2",
+		"mongodb": "^3.6.1",
 		"popper.js": "^1.16.1",
 		"uuid": "^3.4.0",
 		"xss": "^1.0.6"
 	},
 	"devDependencies": {
-		"bootstrap": "^4.4.1",
+		"bootstrap": "^4.5.2",
 		"gulp": "^4.0.2",
 		"gulp-autoprefixer": "^7.0.1",
-		"gulp-clean-css": "^4.2.0",
+		"gulp-clean-css": "^4.3.0",
 		"gulp-concat": "^2.6.1",
 		"gulp-rename": "^2.0.0",
-		"gulp-sass": "^4.0.2",
+		"gulp-sass": "^4.1.0",
 		"gulp-sourcemaps": "^2.6.5",
-		"jquery": "^3.4.1",
+		"jquery": "^3.5.1",
 		"tether": "^1.4.7"
 	}
 }
