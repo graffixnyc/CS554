@@ -3,13 +3,8 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import SearchShows from './SearchShows';
 import noImage from '../img/download.jpeg';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
+import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography, makeStyles } from '@material-ui/core';
+
 import '../App.css';
 const useStyles = makeStyles({
 	card: {
