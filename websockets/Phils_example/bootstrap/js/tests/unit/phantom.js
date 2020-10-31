@@ -6,8 +6,8 @@
  * Licensed under the MIT license.
  */
 
-(function() {
-  "use strict";
+(function () {
+  'use strict';
 
   // Don't re-order tests.
   QUnit.config.reorder = false;
@@ -21,9 +21,9 @@
   }
 
   // These methods connect QUnit to PhantomJS.
-  QUnit.log(function(obj) {
+  QUnit.log(function (obj) {
     // What is this I don’t even
-    if (obj.message === "[object Object], undefined:undefined") {
+    if (obj.message === '[object Object], undefined:undefined') {
       return;
     }
 
@@ -38,7 +38,7 @@
     }
     // Send it.
     sendMessage(
-      "qunit.log",
+      'qunit.log',
       obj.result,
       actual,
       expected,
@@ -47,13 +47,13 @@
     );
   });
 
-  QUnit.testStart(function(obj) {
-    sendMessage("qunit.testStart", obj.name);
+  QUnit.testStart(function (obj) {
+    sendMessage('qunit.testStart', obj.name);
   });
 
-  QUnit.testDone(function(obj) {
+  QUnit.testDone(function (obj) {
     sendMessage(
-      "qunit.testDone",
+      'qunit.testDone',
       obj.name,
       obj.failed,
       obj.passed,
@@ -62,20 +62,20 @@
     );
   });
 
-  QUnit.moduleStart(function(obj) {
-    sendMessage("qunit.moduleStart", obj.name);
+  QUnit.moduleStart(function (obj) {
+    sendMessage('qunit.moduleStart', obj.name);
   });
 
-  QUnit.moduleDone(function(obj) {
+  QUnit.moduleDone(function (obj) {
     if (obj.failed === 0) {
       console.log('\r\u221A All tests passed in "' + obj.name + '" module');
     } else {
       console.log(
-        "\u00D7 " + obj.failed + ' tests failed in "' + obj.name + '" module'
+        '\u00D7 ' + obj.failed + ' tests failed in "' + obj.name + '" module'
       );
     }
     sendMessage(
-      "qunit.moduleDone",
+      'qunit.moduleDone',
       obj.name,
       obj.failed,
       obj.passed,
@@ -83,14 +83,14 @@
     );
   });
 
-  QUnit.begin(function() {
-    sendMessage("qunit.begin");
-    console.log("\n\nStarting test suite");
-    console.log("================================================\n");
+  QUnit.begin(function () {
+    sendMessage('qunit.begin');
+    console.log('\n\nStarting test suite');
+    console.log('================================================\n');
   });
 
-  QUnit.done(function(obj) {
-    sendMessage("qunit.done", obj.failed, obj.passed, obj.total, obj.runtime);
+  QUnit.done(function (obj) {
+    sendMessage('qunit.done', obj.failed, obj.passed, obj.total, obj.runtime);
   });
 })();
 
@@ -98,19 +98,19 @@
 // shoutout mdn: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind#Polyfill
 
 if (!Function.prototype.bind) {
-  Function.prototype.bind = function(oThis) {
-    if (typeof this !== "function") {
+  Function.prototype.bind = function (oThis) {
+    if (typeof this !== 'function') {
       // closest thing possible to the ECMAScript 5
       // internal IsCallable function
       throw new TypeError(
-        "Function.prototype.bind - what is trying to be bound is not callable"
+        'Function.prototype.bind - what is trying to be bound is not callable'
       );
     }
 
     var aArgs = Array.prototype.slice.call(arguments, 1);
     var fToBind = this;
-    var FNOP = function() {};
-    var fBound = function() {
+    var FNOP = function () {};
+    var fBound = function () {
       return fToBind.apply(
         this instanceof FNOP ? this : oThis,
         aArgs.concat(Array.prototype.slice.call(arguments))

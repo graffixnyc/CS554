@@ -5,7 +5,7 @@
  * --------------------------------------------------------------------------
  */
 
-const Util = ($ => {
+const Util = (($) => {
   /**
    * ------------------------------------------------------------------------
    * Private TransitionEnd Helpers
@@ -17,10 +17,10 @@ const Util = ($ => {
   const MAX_UID = 1000000;
 
   const TransitionEndEvent = {
-    WebkitTransition: "webkitTransitionEnd",
-    MozTransition: "transitionend",
-    OTransition: "oTransitionEnd otransitionend",
-    transition: "transitionend"
+    WebkitTransition: 'webkitTransitionEnd',
+    MozTransition: 'transitionend',
+    OTransition: 'oTransitionEnd otransitionend',
+    transition: 'transitionend'
   };
 
   // shoutout AngusCroll (https://goo.gl/pxwQGp)
@@ -53,7 +53,7 @@ const Util = ($ => {
       return false;
     }
 
-    let el = document.createElement("bootstrap");
+    let el = document.createElement('bootstrap');
 
     for (let name in TransitionEndEvent) {
       if (el.style[name] !== undefined) {
@@ -97,7 +97,7 @@ const Util = ($ => {
    */
 
   let Util = {
-    TRANSITION_END: "bsTransitionEnd",
+    TRANSITION_END: 'bsTransitionEnd',
 
     getUID(prefix) {
       do {
@@ -109,10 +109,10 @@ const Util = ($ => {
     },
 
     getSelectorFromElement(element) {
-      let selector = element.getAttribute("data-target");
+      let selector = element.getAttribute('data-target');
 
       if (!selector) {
-        selector = element.getAttribute("href") || "";
+        selector = element.getAttribute('href') || '';
         selector = /^#[a-z]/i.test(selector) ? selector : null;
       }
 
@@ -120,7 +120,7 @@ const Util = ($ => {
     },
 
     reflow(element) {
-      new Function("bs", "return bs")(element.offsetHeight);
+      new Function('bs', 'return bs')(element.offsetHeight);
     },
 
     triggerTransitionEnd(element) {
@@ -139,7 +139,7 @@ const Util = ($ => {
           let valueType;
 
           if (value && isElement(value)) {
-            valueType = "element";
+            valueType = 'element';
           } else {
             valueType = toType(value);
           }

@@ -1,4 +1,4 @@
-import Tooltip from "./tooltip";
+import Tooltip from './tooltip';
 
 /**
  * --------------------------------------------------------------------------
@@ -7,23 +7,23 @@ import Tooltip from "./tooltip";
  * --------------------------------------------------------------------------
  */
 
-const Popover = ($ => {
+const Popover = (($) => {
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
 
-  const NAME = "popover";
-  const VERSION = "4.0.0-alpha.5";
-  const DATA_KEY = "bs.popover";
+  const NAME = 'popover';
+  const VERSION = '4.0.0-alpha.5';
+  const DATA_KEY = 'bs.popover';
   const EVENT_KEY = `.${DATA_KEY}`;
   const JQUERY_NO_CONFLICT = $.fn[NAME];
 
   const Default = $.extend({}, Tooltip.Default, {
-    placement: "right",
-    trigger: "click",
-    content: "",
+    placement: 'right',
+    trigger: 'click',
+    content: '',
     template:
       '<div class="popover" role="tooltip">' +
       '<h3 class="popover-title"></h3>' +
@@ -31,17 +31,17 @@ const Popover = ($ => {
   });
 
   const DefaultType = $.extend({}, Tooltip.DefaultType, {
-    content: "(string|element|function)"
+    content: '(string|element|function)'
   });
 
   const ClassName = {
-    FADE: "fade",
-    IN: "in"
+    FADE: 'fade',
+    IN: 'in'
   };
 
   const Selector = {
-    TITLE: ".popover-title",
-    CONTENT: ".popover-content"
+    TITLE: '.popover-title',
+    CONTENT: '.popover-content'
   };
 
   const Event = {
@@ -120,8 +120,8 @@ const Popover = ($ => {
 
     _getContent() {
       return (
-        this.element.getAttribute("data-content") ||
-        (typeof this.config.content === "function"
+        this.element.getAttribute('data-content') ||
+        (typeof this.config.content === 'function'
           ? this.config.content.call(this.element)
           : this.config.content)
       );
@@ -130,9 +130,9 @@ const Popover = ($ => {
     // static
 
     static _jQueryInterface(config) {
-      return this.each(function() {
+      return this.each(function () {
         let data = $(this).data(DATA_KEY);
-        let _config = typeof config === "object" ? config : null;
+        let _config = typeof config === 'object' ? config : null;
 
         if (!data && /destroy|hide/.test(config)) {
           return;
@@ -143,7 +143,7 @@ const Popover = ($ => {
           $(this).data(DATA_KEY, data);
         }
 
-        if (typeof config === "string") {
+        if (typeof config === 'string') {
           if (data[config] === undefined) {
             throw new Error(`No method named "${config}"`);
           }
@@ -161,7 +161,7 @@ const Popover = ($ => {
 
   $.fn[NAME] = Popover._jQueryInterface;
   $.fn[NAME].Constructor = Popover;
-  $.fn[NAME].noConflict = function() {
+  $.fn[NAME].noConflict = function () {
     $.fn[NAME] = JQUERY_NO_CONFLICT;
     return Popover._jQueryInterface;
   };

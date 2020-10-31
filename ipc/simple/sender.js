@@ -1,7 +1,7 @@
-const redisConnection = require("./redis-connection");
+const redisConnection = require('./redis-connection');
 
-redisConnection.emit("send-message", {
-  message: "Hello, world!"
+redisConnection.emit('send-message', {
+  message: 'Hello, world!'
 });
 
 setTimeout(() => {

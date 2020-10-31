@@ -1,13 +1,25 @@
-import React, { Component } from "react";
-import { NavLink, BrowserRouter as Router, Route } from "react-router-dom";
-import "./App.css";
-import Home from "./Home";
-import Employees from "./Employees";
-import Employers from "./Employers";
+import React from 'react';
+import './App.css';
+import { NavLink, BrowserRouter as Router, Route } from 'react-router-dom';
+import Home from './Home';
+import Employees from './Employees';
+import Employers from './Employers';
+import {
+  ApolloClient,
+  HttpLink,
+  InMemoryCache,
+  ApolloProvider
+} from '@apollo/client';
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: new HttpLink({
+    uri: 'http://localhost:4000'
+  })
+});
 
-class App extends Component {
-  render() {
-    return (
+function App() {
+  return (
+    <ApolloProvider client={client}>
       <Router>
         <div>
           <header className="App-header">
@@ -32,8 +44,8 @@ class App extends Component {
           <Route path="/employers/" component={Employers} />
         </div>
       </Router>
-    );
-  }
+    </ApolloProvider>
+  );
 }
 
 export default App;

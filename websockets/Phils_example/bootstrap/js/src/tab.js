@@ -1,4 +1,4 @@
-import Util from "./util";
+import Util from './util';
 
 /**
  * --------------------------------------------------------------------------
@@ -7,18 +7,18 @@ import Util from "./util";
  * --------------------------------------------------------------------------
  */
 
-const Tab = ($ => {
+const Tab = (($) => {
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
 
-  const NAME = "tab";
-  const VERSION = "4.0.0-alpha.5";
-  const DATA_KEY = "bs.tab";
+  const NAME = 'tab';
+  const VERSION = '4.0.0-alpha.5';
+  const DATA_KEY = 'bs.tab';
   const EVENT_KEY = `.${DATA_KEY}`;
-  const DATA_API_KEY = ".data-api";
+  const DATA_API_KEY = '.data-api';
   const JQUERY_NO_CONFLICT = $.fn[NAME];
   const TRANSITION_DURATION = 150;
 
@@ -31,23 +31,23 @@ const Tab = ($ => {
   };
 
   const ClassName = {
-    DROPDOWN_MENU: "dropdown-menu",
-    ACTIVE: "active",
-    FADE: "fade",
-    IN: "in"
+    DROPDOWN_MENU: 'dropdown-menu',
+    ACTIVE: 'active',
+    FADE: 'fade',
+    IN: 'in'
   };
 
   const Selector = {
-    A: "a",
-    LI: "li",
-    DROPDOWN: ".dropdown",
-    UL: "ul:not(.dropdown-menu)",
-    FADE_CHILD: "> .nav-item .fade, > .fade",
-    ACTIVE: ".active",
-    ACTIVE_CHILD: "> .nav-item > .active, > .active",
+    A: 'a',
+    LI: 'li',
+    DROPDOWN: '.dropdown',
+    UL: 'ul:not(.dropdown-menu)',
+    FADE_CHILD: '> .nav-item .fade, > .fade',
+    ACTIVE: '.active',
+    ACTIVE_CHILD: '> .nav-item > .active, > .active',
     DATA_TOGGLE: '[data-toggle="tab"], [data-toggle="pill"]',
-    DROPDOWN_TOGGLE: ".dropdown-toggle",
-    DROPDOWN_ACTIVE_CHILD: "> .dropdown-menu .active"
+    DROPDOWN_TOGGLE: '.dropdown-toggle',
+    DROPDOWN_ACTIVE_CHILD: '> .dropdown-menu .active'
   };
 
   /**
@@ -179,11 +179,11 @@ const Tab = ($ => {
           $(dropdownChild).removeClass(ClassName.ACTIVE);
         }
 
-        active.setAttribute("aria-expanded", false);
+        active.setAttribute('aria-expanded', false);
       }
 
       $(element).addClass(ClassName.ACTIVE);
-      element.setAttribute("aria-expanded", true);
+      element.setAttribute('aria-expanded', true);
 
       if (isTransitioning) {
         Util.reflow(element);
@@ -203,7 +203,7 @@ const Tab = ($ => {
             .addClass(ClassName.ACTIVE);
         }
 
-        element.setAttribute("aria-expanded", true);
+        element.setAttribute('aria-expanded', true);
       }
 
       if (callback) {
@@ -214,7 +214,7 @@ const Tab = ($ => {
     // static
 
     static _jQueryInterface(config) {
-      return this.each(function() {
+      return this.each(function () {
         let $this = $(this);
         let data = $this.data(DATA_KEY);
 
@@ -223,7 +223,7 @@ const Tab = ($ => {
           $this.data(DATA_KEY, data);
         }
 
-        if (typeof config === "string") {
+        if (typeof config === 'string') {
           if (data[config] === undefined) {
             throw new Error(`No method named "${config}"`);
           }
@@ -239,9 +239,9 @@ const Tab = ($ => {
    * ------------------------------------------------------------------------
    */
 
-  $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function(event) {
+  $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
     event.preventDefault();
-    Tab._jQueryInterface.call($(this), "show");
+    Tab._jQueryInterface.call($(this), 'show');
   });
 
   /**
@@ -252,7 +252,7 @@ const Tab = ($ => {
 
   $.fn[NAME] = Tab._jQueryInterface;
   $.fn[NAME].Constructor = Tab;
-  $.fn[NAME].noConflict = function() {
+  $.fn[NAME].noConflict = function () {
     $.fn[NAME] = JQUERY_NO_CONFLICT;
     return Tab._jQueryInterface;
   };

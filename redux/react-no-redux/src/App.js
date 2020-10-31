@@ -1,24 +1,21 @@
-import React, { Component } from "react";
+import React, { useState } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import Counter from './Counter';
 
-import "./App.css";
-import Navigation from "./components/Navigation";
-import CounterContainer from "./components/CounterContainer";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+function App() {
+  const [counter, setCouter] = useState(0);
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <div>
-          <div className="App">
-            <Navigation />
-          </div>
-
-          <Route path="/counter" component={CounterContainer} />
-        </div>
-      </Router>
-    );
-  }
+  const setCounterState = (count) => {
+    setCouter(count);
+  };
+  return (
+    <div className="App">
+      App Component: {counter}
+      <br />
+      <Counter setCounterState={setCounterState} />
+    </div>
+  );
 }
 
 export default App;

@@ -1,4 +1,4 @@
-import Util from "./util";
+import Util from './util';
 
 /**
  * --------------------------------------------------------------------------
@@ -7,18 +7,18 @@ import Util from "./util";
  * --------------------------------------------------------------------------
  */
 
-const Carousel = ($ => {
+const Carousel = (($) => {
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
 
-  const NAME = "carousel";
-  const VERSION = "4.0.0-alpha.5";
-  const DATA_KEY = "bs.carousel";
+  const NAME = 'carousel';
+  const VERSION = '4.0.0-alpha.5';
+  const DATA_KEY = 'bs.carousel';
   const EVENT_KEY = `.${DATA_KEY}`;
-  const DATA_API_KEY = ".data-api";
+  const DATA_API_KEY = '.data-api';
   const JQUERY_NO_CONFLICT = $.fn[NAME];
   const TRANSITION_DURATION = 600;
   const ARROW_LEFT_KEYCODE = 37; // KeyboardEvent.which value for left arrow key
@@ -28,21 +28,21 @@ const Carousel = ($ => {
     interval: 5000,
     keyboard: true,
     slide: false,
-    pause: "hover",
+    pause: 'hover',
     wrap: true
   };
 
   const DefaultType = {
-    interval: "(number|boolean)",
-    keyboard: "boolean",
-    slide: "(boolean|string)",
-    pause: "(string|boolean)",
-    wrap: "boolean"
+    interval: '(number|boolean)',
+    keyboard: 'boolean',
+    slide: '(boolean|string)',
+    pause: '(string|boolean)',
+    wrap: 'boolean'
   };
 
   const Direction = {
-    NEXT: "next",
-    PREVIOUS: "prev"
+    NEXT: 'next',
+    PREVIOUS: 'prev'
   };
 
   const Event = {
@@ -56,21 +56,21 @@ const Carousel = ($ => {
   };
 
   const ClassName = {
-    CAROUSEL: "carousel",
-    ACTIVE: "active",
-    SLIDE: "slide",
-    RIGHT: "right",
-    LEFT: "left",
-    ITEM: "carousel-item"
+    CAROUSEL: 'carousel',
+    ACTIVE: 'active',
+    SLIDE: 'slide',
+    RIGHT: 'right',
+    LEFT: 'left',
+    ITEM: 'carousel-item'
   };
 
   const Selector = {
-    ACTIVE: ".active",
-    ACTIVE_ITEM: ".active.carousel-item",
-    ITEM: ".carousel-item",
-    NEXT_PREV: ".next, .prev",
-    INDICATORS: ".carousel-indicators",
-    DATA_SLIDE: "[data-slide], [data-slide-to]",
+    ACTIVE: '.active',
+    ACTIVE_ITEM: '.active.carousel-item',
+    ITEM: '.carousel-item',
+    NEXT_PREV: '.next, .prev',
+    INDICATORS: '.carousel-indicators',
+    DATA_SLIDE: '[data-slide], [data-slide-to]',
     DATA_RIDE: '[data-ride="carousel"]'
   };
 
@@ -218,8 +218,8 @@ const Carousel = ($ => {
       }
 
       if (
-        this._config.pause === "hover" &&
-        !("ontouchstart" in document.documentElement)
+        this._config.pause === 'hover' &&
+        !('ontouchstart' in document.documentElement)
       ) {
         $(this._element)
           .on(Event.MOUSEENTER, $.proxy(this.pause, this))
@@ -247,11 +247,7 @@ const Carousel = ($ => {
     }
 
     _getItemIndex(element) {
-      this._items = $.makeArray(
-        $(element)
-          .parent()
-          .find(Selector.ITEM)
-      );
+      this._items = $.makeArray($(element).parent().find(Selector.ITEM));
       return this._items.indexOf(element);
     }
 
@@ -390,24 +386,24 @@ const Carousel = ($ => {
     // static
 
     static _jQueryInterface(config) {
-      return this.each(function() {
+      return this.each(function () {
         let data = $(this).data(DATA_KEY);
         let _config = $.extend({}, Default, $(this).data());
 
-        if (typeof config === "object") {
+        if (typeof config === 'object') {
           $.extend(_config, config);
         }
 
-        let action = typeof config === "string" ? config : _config.slide;
+        let action = typeof config === 'string' ? config : _config.slide;
 
         if (!data) {
           data = new Carousel(this, _config);
           $(this).data(DATA_KEY, data);
         }
 
-        if (typeof config === "number") {
+        if (typeof config === 'number') {
           data.to(config);
-        } else if (typeof action === "string") {
+        } else if (typeof action === 'string') {
           if (data[action] === undefined) {
             throw new Error(`No method named "${action}"`);
           }
@@ -433,7 +429,7 @@ const Carousel = ($ => {
       }
 
       let config = $.extend({}, $(target).data(), $(this).data());
-      let slideIndex = this.getAttribute("data-slide-to");
+      let slideIndex = this.getAttribute('data-slide-to');
 
       if (slideIndex) {
         config.interval = false;
@@ -442,9 +438,7 @@ const Carousel = ($ => {
       Carousel._jQueryInterface.call($(target), config);
 
       if (slideIndex) {
-        $(target)
-          .data(DATA_KEY)
-          .to(slideIndex);
+        $(target).data(DATA_KEY).to(slideIndex);
       }
 
       event.preventDefault();
@@ -464,7 +458,7 @@ const Carousel = ($ => {
   );
 
   $(window).on(Event.LOAD_DATA_API, () => {
-    $(Selector.DATA_RIDE).each(function() {
+    $(Selector.DATA_RIDE).each(function () {
       let $carousel = $(this);
       Carousel._jQueryInterface.call($carousel, $carousel.data());
     });
@@ -478,7 +472,7 @@ const Carousel = ($ => {
 
   $.fn[NAME] = Carousel._jQueryInterface;
   $.fn[NAME].Constructor = Carousel;
-  $.fn[NAME].noConflict = function() {
+  $.fn[NAME].noConflict = function () {
     $.fn[NAME] = JQUERY_NO_CONFLICT;
     return Carousel._jQueryInterface;
   };

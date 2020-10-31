@@ -1,10 +1,10 @@
-const mainRoutes = require("./main");
+const mainRoutes = require('./main');
 
-const constructorMethod = app => {
-  app.use("/", mainRoutes);
+const constructorMethod = (app) => {
+  app.use('/', mainRoutes);
 
-  app.use("*", (req, res) => {
-    res.status(404).json({ error: "Not found" });
+  app.use('*', (req, res) => {
+    res.status(404).json({ error: 'Not found' });
   });
 };
 

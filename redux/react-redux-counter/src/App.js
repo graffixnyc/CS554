@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
+import React, { Component } from 'react';
+import logo from './logo.svg';
 
 // We use connect from react-redux to "connect" our components to our store
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import Button from "./components/Button";
-import "./App.css";
+import Button from './components/Button';
+import './App.css';
 
 class App extends Component {
   render() {
@@ -24,7 +24,7 @@ class App extends Component {
 }
 
 // We choose what part our our state will be added to our component's props
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   count: state.count
 });
 

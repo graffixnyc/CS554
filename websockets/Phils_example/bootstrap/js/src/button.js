@@ -5,32 +5,32 @@
  * --------------------------------------------------------------------------
  */
 
-const Button = ($ => {
+const Button = (($) => {
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
 
-  const NAME = "button";
-  const VERSION = "4.0.0-alpha.5";
-  const DATA_KEY = "bs.button";
+  const NAME = 'button';
+  const VERSION = '4.0.0-alpha.5';
+  const DATA_KEY = 'bs.button';
   const EVENT_KEY = `.${DATA_KEY}`;
-  const DATA_API_KEY = ".data-api";
+  const DATA_API_KEY = '.data-api';
   const JQUERY_NO_CONFLICT = $.fn[NAME];
 
   const ClassName = {
-    ACTIVE: "active",
-    BUTTON: "btn",
-    FOCUS: "focus"
+    ACTIVE: 'active',
+    BUTTON: 'btn',
+    FOCUS: 'focus'
   };
 
   const Selector = {
     DATA_TOGGLE_CARROT: '[data-toggle^="button"]',
     DATA_TOGGLE: '[data-toggle="buttons"]',
-    INPUT: "input",
-    ACTIVE: ".active",
-    BUTTON: ".btn"
+    INPUT: 'input',
+    ACTIVE: '.active',
+    BUTTON: '.btn'
   };
 
   const Event = {
@@ -66,7 +66,7 @@ const Button = ($ => {
         let input = $(this._element).find(Selector.INPUT)[0];
 
         if (input) {
-          if (input.type === "radio") {
+          if (input.type === 'radio') {
             if (input.checked && $(this._element).hasClass(ClassName.ACTIVE)) {
               triggerChangeEvent = false;
             } else {
@@ -80,14 +80,14 @@ const Button = ($ => {
 
           if (triggerChangeEvent) {
             input.checked = !$(this._element).hasClass(ClassName.ACTIVE);
-            $(this._element).trigger("change");
+            $(this._element).trigger('change');
           }
 
           input.focus();
         }
       } else {
         this._element.setAttribute(
-          "aria-pressed",
+          'aria-pressed',
           !$(this._element).hasClass(ClassName.ACTIVE)
         );
       }
@@ -105,7 +105,7 @@ const Button = ($ => {
     // static
 
     static _jQueryInterface(config) {
-      return this.each(function() {
+      return this.each(function () {
         let data = $(this).data(DATA_KEY);
 
         if (!data) {
@@ -113,7 +113,7 @@ const Button = ($ => {
           $(this).data(DATA_KEY, data);
         }
 
-        if (config === "toggle") {
+        if (config === 'toggle') {
           data[config]();
         }
       });
@@ -127,7 +127,7 @@ const Button = ($ => {
    */
 
   $(document)
-    .on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE_CARROT, event => {
+    .on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE_CARROT, (event) => {
       event.preventDefault();
 
       let button = event.target;
@@ -136,9 +136,9 @@ const Button = ($ => {
         button = $(button).closest(Selector.BUTTON);
       }
 
-      Button._jQueryInterface.call($(button), "toggle");
+      Button._jQueryInterface.call($(button), 'toggle');
     })
-    .on(Event.FOCUS_BLUR_DATA_API, Selector.DATA_TOGGLE_CARROT, event => {
+    .on(Event.FOCUS_BLUR_DATA_API, Selector.DATA_TOGGLE_CARROT, (event) => {
       let button = $(event.target).closest(Selector.BUTTON)[0];
       $(button).toggleClass(ClassName.FOCUS, /^focus(in)?$/.test(event.type));
     });
@@ -151,7 +151,7 @@ const Button = ($ => {
 
   $.fn[NAME] = Button._jQueryInterface;
   $.fn[NAME].Constructor = Button;
-  $.fn[NAME].noConflict = function() {
+  $.fn[NAME].noConflict = function () {
     $.fn[NAME] = JQUERY_NO_CONFLICT;
     return Button._jQueryInterface;
   };

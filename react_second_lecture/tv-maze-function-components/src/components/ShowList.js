@@ -7,75 +7,74 @@ import noImage from '../img/download.jpeg';
 import '../App.css';
 
 const ShowList = () => {
-	const [ searchData, setSearchData ] = useState(undefined);
-	const [ showsData, setShowsData ] = useState(undefined);
-	const [ searchTerm, setSearchTerm ] = useState('');
-	let li = null;
-	let img = null;
+  const [searchData, setSearchData] = useState(undefined);
+  const [showsData, setShowsData] = useState(undefined);
+  const [searchTerm, setSearchTerm] = useState('');
+  let li = null;
+  let img = null;
 
-	useEffect(
-		() => {
-			console.log('render');
-			async function fetchData() {
-				if (searchTerm) {
-					const { data } = await axios.get('http://api.tvmaze.com/search/shows?q=' + searchTerm);
-					setSearchData(data);
-				} else {
-					try {
-						const { data } = await axios.get('http://api.tvmaze.com/shows');
-						setShowsData(data);
-					} catch (e) {
-						console.log(e);
-					}
-				}
-			}
-			fetchData();
-		},
-		[ searchTerm ]
-	);
+  useEffect(() => {
+    console.log('render');
+    async function fetchData() {
+      if (searchTerm) {
+        const { data } = await axios.get(
+          'http://api.tvmaze.com/search/shows?q=' + searchTerm
+        );
+        setSearchData(data);
+      } else {
+        try {
+          const { data } = await axios.get('http://api.tvmaze.com/shows');
+          setShowsData(data);
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    }
+    fetchData();
+  }, [searchTerm]);
 
-	const searchValue = async (value) => {
-		setSearchTerm(value);
-	};
+  const searchValue = async (value) => {
+    setSearchTerm(value);
+  };
 
-	const buildListItem = (show) => {
-		if (show.image && show.image.medium) {
-			img = <img alt='Show' src={show.image.medium} />;
-		} else {
-			img = <img alt='Show' src={noImage} />;
-		}
+  const buildListItem = (show) => {
+    if (show.image && show.image.medium) {
+      img = <img alt="Show" src={show.image.medium} />;
+    } else {
+      img = <img alt="Show" src={noImage} />;
+    }
 
-		return (
-			<li key={show.id}>
-				<Link to={`/shows/${show.id}`}>
-					{img} <br />
-					{show.name}
-				</Link>
-			</li>
-		);
-	};
+    return (
+      <li key={show.id}>
+        <Link to={`/shows/${show.id}`}>
+          {img} <br />
+          {show.name}
+        </Link>
+      </li>
+    );
+  };
 
-	if (searchTerm) {
-		li =
-			searchData &&
-			searchData.map((shows) => {
-				let { show } = shows;
-				return buildListItem(show);
-			});
-	} else {
-		li =
-			showsData &&
-			showsData.map((show) => {
-				return buildListItem(show);
-			});
-	}
+  if (searchTerm) {
+    li =
+      searchData &&
+      searchData.map((shows) => {
+        let { show } = shows;
+        return buildListItem(show);
+      });
+  } else {
+    li =
+      showsData &&
+      showsData.map((show) => {
+        return buildListItem(show);
+      });
+  }
 
-	return (
-		<div className='App-body'>
-			<SearchShows searchValue={searchValue} />
-			<ul className='list-unstyled'>{li}</ul>
-		</div>
-	);
+  return (
+    <div className="App-body">
+      <SearchShows searchValue={searchValue} />
+      <ul className="list-unstyled">{li}</ul>
+    </div>
+  );
 };
 
 export default ShowList;

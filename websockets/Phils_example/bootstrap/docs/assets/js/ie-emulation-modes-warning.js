@@ -9,8 +9,8 @@
  * details, see https://creativecommons.org/licenses/by/3.0/.
  */
 // Intended to prevent false-positive bug reports about Bootstrap not working properly in old versions of IE due to folks testing using IE's unreliable emulation modes.
-(function() {
-  "use strict";
+(function () {
+  'use strict';
 
   function emulatedIEMajorVersion() {
     var groups = /MSIE ([0-9.]+)/.exec(window.navigator.userAgent);
@@ -27,7 +27,7 @@
     // IE JavaScript conditional compilation docs: https://msdn.microsoft.com/library/121hztk3%28v=vs.94%29.aspx
     // @cc_on docs: https://msdn.microsoft.com/library/8ka90k2e%28v=vs.94%29.aspx
     var jscriptVersion = new Function(
-      "/*@cc_on return @_jscript_version; @*/"
+      '/*@cc_on return @_jscript_version; @*/'
     )();
     if (jscriptVersion === undefined) {
       return 11; // IE11+ not in emulation mode
@@ -39,7 +39,7 @@
   }
 
   var ua = window.navigator.userAgent;
-  if (ua.indexOf("Opera") > -1 || ua.indexOf("Presto") > -1) {
+  if (ua.indexOf('Opera') > -1 || ua.indexOf('Presto') > -1) {
     return; // Opera, which might pretend to be IE
   }
   var emulated = emulatedIEMajorVersion();
@@ -50,9 +50,9 @@
 
   if (emulated !== nonEmulated) {
     window.alert(
-      "WARNING: You appear to be using IE" +
+      'WARNING: You appear to be using IE' +
         nonEmulated +
-        " in IE" +
+        ' in IE' +
         emulated +
         " emulation mode.\nIE emulation modes can behave significantly differently from ACTUAL older versions of IE.\nPLEASE DON'T FILE BOOTSTRAP BUGS based on testing in IE emulation modes!"
     );

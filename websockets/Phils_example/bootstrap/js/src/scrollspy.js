@@ -1,4 +1,4 @@
-import Util from "./util";
+import Util from './util';
 
 /**
  * --------------------------------------------------------------------------
@@ -7,30 +7,30 @@ import Util from "./util";
  * --------------------------------------------------------------------------
  */
 
-const ScrollSpy = ($ => {
+const ScrollSpy = (($) => {
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
 
-  const NAME = "scrollspy";
-  const VERSION = "4.0.0-alpha.5";
-  const DATA_KEY = "bs.scrollspy";
+  const NAME = 'scrollspy';
+  const VERSION = '4.0.0-alpha.5';
+  const DATA_KEY = 'bs.scrollspy';
   const EVENT_KEY = `.${DATA_KEY}`;
-  const DATA_API_KEY = ".data-api";
+  const DATA_API_KEY = '.data-api';
   const JQUERY_NO_CONFLICT = $.fn[NAME];
 
   const Default = {
     offset: 10,
-    method: "auto",
-    target: ""
+    method: 'auto',
+    target: ''
   };
 
   const DefaultType = {
-    offset: "number",
-    method: "string",
-    target: "(string|element)"
+    offset: 'number',
+    method: 'string',
+    target: '(string|element)'
   };
 
   const Event = {
@@ -40,28 +40,28 @@ const ScrollSpy = ($ => {
   };
 
   const ClassName = {
-    DROPDOWN_ITEM: "dropdown-item",
-    DROPDOWN_MENU: "dropdown-menu",
-    NAV_LINK: "nav-link",
-    NAV: "nav",
-    ACTIVE: "active"
+    DROPDOWN_ITEM: 'dropdown-item',
+    DROPDOWN_MENU: 'dropdown-menu',
+    NAV_LINK: 'nav-link',
+    NAV: 'nav',
+    ACTIVE: 'active'
   };
 
   const Selector = {
     DATA_SPY: '[data-spy="scroll"]',
-    ACTIVE: ".active",
-    LIST_ITEM: ".list-item",
-    LI: "li",
-    LI_DROPDOWN: "li.dropdown",
-    NAV_LINKS: ".nav-link",
-    DROPDOWN: ".dropdown",
-    DROPDOWN_ITEMS: ".dropdown-item",
-    DROPDOWN_TOGGLE: ".dropdown-toggle"
+    ACTIVE: '.active',
+    LIST_ITEM: '.list-item',
+    LI: 'li',
+    LI_DROPDOWN: 'li.dropdown',
+    NAV_LINKS: '.nav-link',
+    DROPDOWN: '.dropdown',
+    DROPDOWN_ITEMS: '.dropdown-item',
+    DROPDOWN_TOGGLE: '.dropdown-toggle'
   };
 
   const OffsetMethod = {
-    OFFSET: "offset",
-    POSITION: "position"
+    OFFSET: 'offset',
+    POSITION: 'position'
   };
 
   /**
@@ -73,7 +73,7 @@ const ScrollSpy = ($ => {
   class ScrollSpy {
     constructor(element, config) {
       this._element = element;
-      this._scrollElement = element.tagName === "BODY" ? window : element;
+      this._scrollElement = element.tagName === 'BODY' ? window : element;
       this._config = this._getConfig(config);
       this._selector =
         `${this._config.target} ${Selector.NAV_LINKS},` +
@@ -108,7 +108,7 @@ const ScrollSpy = ($ => {
           : OffsetMethod.OFFSET;
 
       let offsetMethod =
-        this._config.method === "auto" ? autoMethod : this._config.method;
+        this._config.method === 'auto' ? autoMethod : this._config.method;
 
       let offsetBase =
         offsetMethod === OffsetMethod.POSITION ? this._getScrollTop() : 0;
@@ -121,7 +121,7 @@ const ScrollSpy = ($ => {
       let targets = $.makeArray($(this._selector));
 
       targets
-        .map(element => {
+        .map((element) => {
           let target;
           let targetSelector = Util.getSelectorFromElement(element);
 
@@ -135,9 +135,9 @@ const ScrollSpy = ($ => {
           }
           return null;
         })
-        .filter(item => item)
+        .filter((item) => item)
         .sort((a, b) => a[0] - b[0])
-        .forEach(item => {
+        .forEach((item) => {
           this._offsets.push(item[0]);
           this._targets.push(item[1]);
         });
@@ -162,11 +162,11 @@ const ScrollSpy = ($ => {
     _getConfig(config) {
       config = $.extend({}, Default, config);
 
-      if (typeof config.target !== "string") {
-        let id = $(config.target).attr("id");
+      if (typeof config.target !== 'string') {
+        let id = $(config.target).attr('id');
         if (!id) {
           id = Util.getUID(NAME);
-          $(config.target).attr("id", id);
+          $(config.target).attr('id', id);
         }
         config.target = `#${id}`;
       }
@@ -234,15 +234,15 @@ const ScrollSpy = ($ => {
 
       this._clear();
 
-      let queries = this._selector.split(",");
-      queries = queries.map(selector => {
+      let queries = this._selector.split(',');
+      queries = queries.map((selector) => {
         return (
           `${selector}[data-target="${target}"],` +
           `${selector}[href="${target}"]`
         );
       });
 
-      let $link = $(queries.join(","));
+      let $link = $(queries.join(','));
 
       if ($link.hasClass(ClassName.DROPDOWN_ITEM)) {
         $link
@@ -265,24 +265,22 @@ const ScrollSpy = ($ => {
     }
 
     _clear() {
-      $(this._selector)
-        .filter(Selector.ACTIVE)
-        .removeClass(ClassName.ACTIVE);
+      $(this._selector).filter(Selector.ACTIVE).removeClass(ClassName.ACTIVE);
     }
 
     // static
 
     static _jQueryInterface(config) {
-      return this.each(function() {
+      return this.each(function () {
         let data = $(this).data(DATA_KEY);
-        let _config = (typeof config === "object" && config) || null;
+        let _config = (typeof config === 'object' && config) || null;
 
         if (!data) {
           data = new ScrollSpy(this, _config);
           $(this).data(DATA_KEY, data);
         }
 
-        if (typeof config === "string") {
+        if (typeof config === 'string') {
           if (data[config] === undefined) {
             throw new Error(`No method named "${config}"`);
           }
@@ -315,7 +313,7 @@ const ScrollSpy = ($ => {
 
   $.fn[NAME] = ScrollSpy._jQueryInterface;
   $.fn[NAME].Constructor = ScrollSpy;
-  $.fn[NAME].noConflict = function() {
+  $.fn[NAME].noConflict = function () {
     $.fn[NAME] = JQUERY_NO_CONFLICT;
     return ScrollSpy._jQueryInterface;
   };

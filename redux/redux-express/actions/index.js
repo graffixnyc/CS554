@@ -1,29 +1,29 @@
 changeUser = (name, location) => ({
-  type: "CHANGE_USER",
+  type: 'CHANGE_USER',
   name,
   location
 });
 
-changeUserName = name => ({
-  type: "CHANGE_NAME",
+changeUserName = (name) => ({
+  type: 'CHANGE_NAME',
   name
 });
 
-changeUserLocation = location => ({
-  type: "CHANGE_LOCATION",
+changeUserLocation = (location) => ({
+  type: 'CHANGE_LOCATION',
   location
 });
 
-addPost = post => ({
-  type: "ADD_POST",
+addPost = (post) => ({
+  type: 'ADD_POST',
   post
 });
-incCounter = number => ({
-  type: "INC",
+incCounter = (number) => ({
+  type: 'INC',
   number: number
 });
-decCounter = number => ({
-  type: "DEC",
+decCounter = (number) => ({
+  type: 'DEC',
   number: number
 });
 
