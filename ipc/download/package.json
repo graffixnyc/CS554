@@ -9,7 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.18.1",
     "express": "^4.16.2",
     "node-redis-pubsub": "^1.0.3"
   }
