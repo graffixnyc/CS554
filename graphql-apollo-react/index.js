@@ -79,7 +79,7 @@ const typeDefs = gql`
       lastName: String!
       employerId: Int!
     ): Employee
-    removeEmployee(id: String!): [Employee]
+    removeEmployee(id: String!): Employee
     editEmployee(
       id: String!
       firstName: String
@@ -114,11 +114,13 @@ const resolvers = {
       return employees.filter((e) => e.employerId === parentValue.id).length;
     },
     employees: (parentValue) => {
+		
       return employees.filter((e) => e.employerId === parentValue.id);
     }
   },
   Employee: {
     employer: (parentValue) => {
+			//console.log(`parentValue in Employee`, parentValue);
       return employers.filter((e) => e.id === parentValue.employerId)[0];
     }
   },
@@ -134,7 +136,7 @@ const resolvers = {
       return newEmployee;
     },
     removeEmployee: (_, args) => {
-      return lodash.remove(employees, (e) => e.id == args.id);
+      return lodash.remove(employees, (e) => e.id == args.id)[0];
     },
     editEmployee: (_, args) => {
       let newEmployee;

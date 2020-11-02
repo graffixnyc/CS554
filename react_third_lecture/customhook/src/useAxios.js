@@ -5,7 +5,6 @@ const useAxios = (url) => {
   const [state, setState] = useState({ data: null, loading: true });
 
   useEffect(() => {
-    setState((state) => ({ data: state.data, loading: true }));
     axios.get(url).then(({ data }) => {
       setState({ data: data, loading: false });
     });

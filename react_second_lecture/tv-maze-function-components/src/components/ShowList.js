@@ -42,7 +42,7 @@ const ShowList = () => {
 	const [ showsData, setShowsData ] = useState(undefined);
 	const [ searchTerm, setSearchTerm ] = useState('');
 	let card = null;
-
+ 
 	useEffect(() => {
 		console.log('on load useeffect');
 		async function fetchData() {
@@ -71,11 +71,14 @@ const ShowList = () => {
 				}
 			}
 			if (searchTerm) {
+				console.log ('searchTerm is set')
 				fetchData();
 			}
 		},
 		[ searchTerm ]
 	);
+
+
 
 	const searchValue = async (value) => {
 		setSearchTerm(value);
