@@ -7,6 +7,7 @@ function Counter() {
   const [counterTwo, setCounterTwo] = useState(0);
 
   const isEven = useMemo(() => {
+		console.log ("useMemo fired")
     let i = 0;
     while (i < 1000000000) i++;
     return counterOne % 2 === 0;

@@ -7,14 +7,17 @@ function App() {
   const [lastName, setLastName] = useState('');
 
   const updateUsername = useCallback(() => {
+		console.log ("Update username created")
     setUserName('graffixnyc');
   }, [setUserName]);
 
   const updateFirstName = useCallback(() => {
+		console.log ("Update firstname created")
     setFirstName('Patrick');
   }, [setFirstName]);
 
   const updateLastName = useCallback(() => {
+		console.log ("Update lastname created")
     setLastName('Hill');
   }, [setLastName]);
 

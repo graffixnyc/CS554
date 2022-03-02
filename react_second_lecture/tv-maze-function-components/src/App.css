@@ -1,22 +1,29 @@
 .App {
 	text-align: center;
 }
-
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
 .App-logo {
 	height: 80px;
 }
 
+input {
+	border: 1px solid #1e8678;
+}
 .show-body {
-	margin: auto;
-	position: relative;
-	text-align: center;
-	top: 50%;
-	width: 30%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
 }
 
 .App-header {
 	background-color: #1e8678;
-	height: 175px;
+	height: 200px;
 	padding: 20px;
 	color: #222;
 }
@@ -49,12 +56,16 @@ col-md-4 {
 	border: 1px;
 }
 
+.hometext {
+	max-width: 60%;
+}
 .showlink {
 	padding: 0.4rem 0.8rem;
 	background-color: white;
 	border-radius: 3px;
 	color: #1e8678;
 	text-decoration: none !important;
+	margin: 5px;
 }
 
 .showlink:hover {
@@ -77,7 +88,7 @@ div {
 	text-align: center;
 }
 
-ul a {
+a {
 	color: #1e8678;
 	text-decoration: none !important;
 }
@@ -93,4 +104,27 @@ ul {
 
 .title {
 	font-weight: bold;
+	color: #1e8678;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+	input {
+		font-size: 16px;
+	}
+}
+
+dt,
+dl {
+	padding: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+dt {
+	display: inline-block;
+}
+
+dd {
+	display: inline;
+	margin-left: 5px;
 }
